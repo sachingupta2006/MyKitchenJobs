@@ -18,62 +18,79 @@ class KitchenCategory extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 10, 5, 10),
               child: GestureDetector(
-                  onTap: () {
-                    Get.to(() => CategoryScreen());
-                  },
-                  child: customContainer("assets/images/chef.jpg", "Chef")),
+                onTap: () {
+                  Get.to(
+                    () => const CategoryScreen("Our Chefs"),
+                  );
+                },
+                child: customContainer("assets/images/chef.jpg", "Chef"),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 10, 10, 10),
               child: GestureDetector(
-                  onTap: () {
-                    Get.to(
-                      () => CategoryScreen(),
-                    );
-                  },
-                  child: customContainer(
-                      "assets/images/banner-03.jpg", "Home cook")),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 5, 20),
-              child: GestureDetector(
-                  onTap: () {
-                    Get.to(() => CategoryScreen());
-                  },
-                  child: customContainer(
-                      "assets/images/bake.jpg", "Kitchen helper")),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(5, 0, 10, 20),
-              child: GestureDetector(
-                  onTap: () {
-                    Get.to(() => CategoryScreen());
-                  },
-                  child: customContainer("assets/images/waiter.jpg", "Waiter")),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 5, 20),
-              child: GestureDetector(
-                  onTap: () {
-                    Get.to(() => CategoryScreen());
-                  },
-                  child:
-                      customContainer("assets/images/manager.jpg", "Manager")),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(5, 0, 10, 20),
-              child: GestureDetector(
-                  onTap: () {
-                    Get.to(() => CategoryScreen());
-                  },
-                  child: customContainer(
-                      "assets/images/bartender.jpg", "Bartender")),
+                onTap: () {
+                  Get.to(
+                    () => const CategoryScreen("Our Home Cook"),
+                  );
+                },
+                child:
+                    customContainer("assets/images/banner-03.jpg", "Home cook"),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 5, 20),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(() => CategoryScreen());
+                  Get.to(
+                    () => const CategoryScreen("Our Kitchen helper"),
+                  );
+                },
+                child:
+                    customContainer("assets/images/bake.jpg", "Kitchen helper"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(5, 0, 10, 20),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(
+                    () => const CategoryScreen("Our Waiter"),
+                  );
+                },
+                child: customContainer("assets/images/waiter.jpg", "Waiter"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 5, 20),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(
+                    () => const CategoryScreen("Our Manager"),
+                  );
+                },
+                child: customContainer("assets/images/manager.jpg", "Manager"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(5, 0, 10, 20),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(
+                    () => const CategoryScreen("Our Bartender"),
+                  );
+                },
+                child:
+                    customContainer("assets/images/bartender.jpg", "Bartender"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 5, 20),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(
+                    () => const CategoryScreen("Our Housekeeping"),
+                  );
                 },
                 child: customContainer(
                     "assets/images/banner-05.jpg", "Housekeeping"),
@@ -83,7 +100,9 @@ class KitchenCategory extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(5, 0, 10, 20),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(() => CategoryScreen());
+                  Get.to(
+                    () => const CategoryScreen("Our Baking specialist"),
+                  );
                 },
                 child: customContainer(
                     "assets/images/baking.jpg", "Baking specialist"),
@@ -92,11 +111,14 @@ class KitchenCategory extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 5, 20),
               child: GestureDetector(
-                  onTap: () {
-                    Get.to(() => CategoryScreen());
-                  },
-                  child: customContainer(
-                      "assets/images/recep.jpg", "Receptionist")),
+                onTap: () {
+                  Get.to(
+                    () => const CategoryScreen("Our Receptionist"),
+                  );
+                },
+                child:
+                    customContainer("assets/images/recep.jpg", "Receptionist"),
+              ),
             ),
           ],
         ),

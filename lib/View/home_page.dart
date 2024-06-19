@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/View/chef_login.dart';
+
 import 'package:my_kitchen_jobs/Utils/text.dart';
 import 'package:my_kitchen_jobs/View/employee_login.dart';
 import 'package:my_kitchen_jobs/View/kitchen_categories.dart';
@@ -24,12 +23,20 @@ class HomePage extends StatelessWidget {
               child: Container(
                 height: double.infinity,
                 width: double.infinity,
-                color: AppColors.primary,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFF004AAD),
+                      Color(0xFF5DE0E6),
+                    ],
+                  ),
+                ),
                 child: Center(
-                    child: Padding(
-                  padding: const EdgeInsets.only(bottom: 360),
-                  child: customText("Find Kitchen Staff"),
-                )),
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 360),
+                    child: customText("FIND KITCHEN STAFF"),
+                  ),
+                ),
               ),
             ),
             ClipPath(
@@ -42,10 +49,17 @@ class HomePage extends StatelessWidget {
                 child: Container(
                   height: MediaQuery.of(context).size.height / 2,
                   width: double.infinity,
-                  color: Colors.green,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 43, 235, 29),
+                        Color.fromARGB(255, 8, 113, 0),
+                      ],
+                    ),
+                  ),
                   child: Center(
                     child: customText(
-                      "Find Kitchen Jobs",
+                      "FIND KITCHEN JOBS",
                     ),
                   ),
                 ),

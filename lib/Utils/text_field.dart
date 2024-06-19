@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
 class CustomText extends StatelessWidget {
-  CustomText(
+  const CustomText(
     this.icon,
     this.labeltext,
     this.obscure, {

@@ -7,8 +7,9 @@ import 'package:my_kitchen_jobs/Utils/gradient_text.dart';
 import 'package:my_kitchen_jobs/Utils/sizebox.dart';
 
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key});
+  const CategoryScreen(this.category, {super.key});
 
+  final String category;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,18 +20,17 @@ class CategoryScreen extends StatelessWidget {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 140,
               ),
-              Text("Browse Our Staff Offerings"),
+              const Text("Browse Our Staff Offerings"),
               sizedBox(),
-              Container(
-                  child: GradientText("Our Chefs",
-                      gradient: LinearGradient(
-                          colors: [AppColors.gsblue, AppColors.gdblue]),
-                      style: TextStyle(
-                          fontSize: 40, fontWeight: FontWeight.w600))),
-              SizedBox(
+              GradientText(category,
+                  gradient: const LinearGradient(
+                      colors: [AppColors.gsblue, AppColors.gdblue]),
+                  style: const TextStyle(
+                      fontSize: 40, fontWeight: FontWeight.w600)),
+              const SizedBox(
                 height: 150,
               ),
               Padding(
@@ -38,10 +38,10 @@ class CategoryScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                 child: DropdownButtonFormField(
                     decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(8),
+                        contentPadding: const EdgeInsets.all(8),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(0))),
-                    items: [],
+                    items: const [],
                     onChanged: (value) {}),
               ),
               sizedBox(),
@@ -50,10 +50,10 @@ class CategoryScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                 child: DropdownButtonFormField(
                     decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(8),
+                        contentPadding: const EdgeInsets.all(8),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(0))),
-                    items: [],
+                    items: const [],
                     onChanged: (value) {}),
               ),
               sizedBox(),
@@ -79,25 +79,25 @@ class CategoryScreen extends StatelessWidget {
                     groupValue: 0,
                     onChanged: (value) {},
                   ),
-                  Text("Female"),
+                  const Text("Female"),
                   Radio(
                     value: 1,
                     groupValue: 0,
                     onChanged: (value) {},
                   ),
-                  Text("Male"),
+                  const Text("Male"),
                   Radio(
                     value: 1,
                     groupValue: 0,
                     onChanged: (value) {},
                   ),
-                  Text("All"),
+                  const Text("All"),
                 ],
               ),
               sizedBox(),
               Column(
                 children: [
-                  Divider(
+                  const Divider(
                     indent: 15,
                     endIndent: 15,
                     thickness: 0,
@@ -107,7 +107,7 @@ class CategoryScreen extends StatelessWidget {
                         const EdgeInsets.only(right: 180, bottom: 15, top: 15),
                     child: customButton("View All"),
                   ),
-                  Divider(
+                  const Divider(
                     indent: 15,
                     endIndent: 15,
                     thickness: 0,
@@ -115,13 +115,19 @@ class CategoryScreen extends StatelessWidget {
                 ],
               ),
               sizedBox(),
-              categoryCard(),
+              categoryCard(
+                  "assets/images/bake.jpg", "Aakash", "Receptionist and Chef"),
               sizedBox(),
-              categoryCard(),
+              categoryCard("assets/images/bartender.jpg", "Rahul",
+                  "Receptionist and Waiter"),
               sizedBox(),
-              categoryCard(),
+              categoryCard("assets/images/banner-05.jpg", "Rishi", "Chef"),
               sizedBox(),
-              categoryCard(),
+              categoryCard("assets/images/banner-04.jpg", "Viraj",
+                  "Receptionist and Chef"),
+              const SizedBox(
+                height: 200,
+              )
             ],
           ),
         ),

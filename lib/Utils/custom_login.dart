@@ -22,34 +22,32 @@ class CustomLogin extends StatelessWidget {
           ),
         ),
         body: SingleChildScrollView(
-          child: Container(
-            child: Card(
-              color: AppColors.white,
-              child: Center(
-                child: Column(
-                  children: [
-                    Text("Name"),
-                    sizedBox(),
-                    const Text("Email Adress"),
-                    sizedBox(),
-                    CustomText(const Icon(Icons.email), "Email", false,
-                        controllers: usernameController,
-                        hinttext: "Enter You Email"),
-                    sizedBox(),
-                    Text("Password"),
-                    sizedBox(),
-                    CustomText(
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.remove_red_eye_sharp)),
-                        "Enter your Password",
-                        true,
-                        controllers: passwordController,
-                        hinttext: "Enter Your Password"),
-                    sizedBox(),
-                    customButton("Login"),
-                  ],
-                ),
+          child: Card(
+            color: AppColors.white,
+            child: Center(
+              child: Column(
+                children: [
+                  const Text("Name"),
+                  sizedBox(),
+                  const Text("Email Adress"),
+                  sizedBox(),
+                  CustomText(const Icon(Icons.email), "Email", false,
+                      controllers: usernameController,
+                      hinttext: "Enter You Email"),
+                  sizedBox(),
+                  const Text("Password"),
+                  sizedBox(),
+                  CustomText(
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.remove_red_eye_sharp)),
+                      "Enter your Password",
+                      true,
+                      controllers: passwordController,
+                      hinttext: "Enter Your Password"),
+                  sizedBox(),
+                  customButton("Login"),
+                ],
               ),
             ),
           ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
-Widget categoryCard() {
-  return Container(
+Widget categoryCard(String image, String text, String texts) {
+  return SizedBox(
     height: 340,
     width: 340,
     child: Card(
@@ -13,17 +13,16 @@ Widget categoryCard() {
             height: 200,
             width: 200,
             decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/bartender.jpg"),
-                  fit: BoxFit.cover),
+              image:
+                  DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 190),
             child: Center(
               child: Text(
-                "AAKASH",
-                style: TextStyle(fontWeight: FontWeight.w500),
+                text,
+                style: const TextStyle(fontWeight: FontWeight.w500),
               ),
             ),
           ),
@@ -31,8 +30,8 @@ Widget categoryCard() {
             padding: const EdgeInsets.only(top: 250),
             child: Center(
               child: Text(
-                "Receptionist and Chef",
-                style: TextStyle(color: AppColors.primary),
+                texts,
+                style: const TextStyle(color: AppColors.primary),
               ),
             ),
           ),
