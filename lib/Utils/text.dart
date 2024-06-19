@@ -4,6 +4,6 @@ Widget customText(String text) {
   return Text(
     text,
     style: const TextStyle(
-        fontWeight: FontWeight.w900, fontSize: 40, color: Colors.white),
+        fontWeight: FontWeight.w900, fontSize: 25, color: Colors.white),
   );
 }

@@ -5,20 +5,20 @@ Widget customButton(String bName) {
   return GestureDetector(
     onTap: () {},
     child: Container(
-      height: 50,
-      width: 150,
+      height: 40,
+      width: 110,
       decoration: BoxDecoration(
         gradient:
             const LinearGradient(colors: [AppColors.gsblue, AppColors.gdblue]),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(25),
       ),
-      child:  Center(
+      child: Center(
         child: Text(
           bName,
-          style: TextStyle(
+          style: const TextStyle(
               color: AppColors.white,
-              fontWeight: FontWeight.w900,
-              fontSize: 20),
+              fontWeight: FontWeight.w400,
+              fontSize: 15),
         ),
       ),
     ),

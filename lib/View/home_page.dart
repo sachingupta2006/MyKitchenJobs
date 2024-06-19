@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/View/chef_login.dart';
 import 'package:my_kitchen_jobs/Utils/text.dart';
 import 'package:my_kitchen_jobs/View/employee_login.dart';
@@ -23,14 +24,11 @@ class HomePage extends StatelessWidget {
               child: Container(
                 height: double.infinity,
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/banner-03.jpg"),
-                        fit: BoxFit.cover)),
+                color: AppColors.primary,
                 child: Center(
                     child: Padding(
                   padding: const EdgeInsets.only(bottom: 360),
-                  child: customText("LOGIN AS USER"),
+                  child: customText("Find Kitchen Staff"),
                 )),
               ),
             ),
@@ -44,14 +42,10 @@ class HomePage extends StatelessWidget {
                 child: Container(
                   height: MediaQuery.of(context).size.height / 2,
                   width: double.infinity,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/banner-04.jpg"),
-                        fit: BoxFit.cover),
-                  ),
+                  color: Colors.green,
                   child: Center(
                     child: customText(
-                      "LOGIN AS STAFF",
+                      "Find Kitchen Jobs",
                     ),
                   ),
                 ),

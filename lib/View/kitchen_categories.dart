@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_kitchen_jobs/Utils/app_bar.dart';
+import 'package:my_kitchen_jobs/Utils/category_screen.dart';
 import 'package:my_kitchen_jobs/Utils/container.dart';
+import 'package:get/get.dart';
 
 class KitchenCategory extends StatelessWidget {
   const KitchenCategory({super.key});
@@ -8,59 +11,92 @@ class KitchenCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: const Color(0xFF1D84FD),
-          title: Padding(
-            padding: const EdgeInsets.only(right: 80),
-            child: Image.asset(
-              "assets/images/logoblur.jpeg",
-            ),
-          ),
-        ),
+        appBar: customAppBar(),
         body: GridView.count(
           crossAxisCount: 2,
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 10, 5, 10),
-              child: customContainer("assets/images/chef.jpg", "Chef"),
+              child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => CategoryScreen());
+                  },
+                  child: customContainer("assets/images/chef.jpg", "Chef")),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 10, 10, 10),
-              child:
-                  customContainer("assets/images/banner-03.jpg", "Home cook"),
+              child: GestureDetector(
+                  onTap: () {
+                    Get.to(
+                      () => CategoryScreen(),
+                    );
+                  },
+                  child: customContainer(
+                      "assets/images/banner-03.jpg", "Home cook")),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 5, 20),
-              child:
-                  customContainer("assets/images/bake.jpg", "Kitchen helper"),
+              child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => CategoryScreen());
+                  },
+                  child: customContainer(
+                      "assets/images/bake.jpg", "Kitchen helper")),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 0, 10, 20),
-              child: customContainer("assets/images/waiter.jpg", "Waiter"),
+              child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => CategoryScreen());
+                  },
+                  child: customContainer("assets/images/waiter.jpg", "Waiter")),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 5, 20),
-              child: customContainer("assets/images/manager.jpg", "Manager"),
+              child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => CategoryScreen());
+                  },
+                  child:
+                      customContainer("assets/images/manager.jpg", "Manager")),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 0, 10, 20),
-              child:
-                  customContainer("assets/images/bartender.jpg", "Bartender"),
+              child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => CategoryScreen());
+                  },
+                  child: customContainer(
+                      "assets/images/bartender.jpg", "Bartender")),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 5, 20),
-              child: customContainer(
-                  "assets/images/banner-05.jpg", "Housekeeping"),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(() => CategoryScreen());
+                },
+                child: customContainer(
+                    "assets/images/banner-05.jpg", "Housekeeping"),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 0, 10, 20),
-              child: customContainer(
-                  "assets/images/baking.jpg", "Baking specialist"),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(() => CategoryScreen());
+                },
+                child: customContainer(
+                    "assets/images/baking.jpg", "Baking specialist"),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 5, 20),
-              child: customContainer("assets/images/recep.jpg", "Receptionist"),
+              child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => CategoryScreen());
+                  },
+                  child: customContainer(
+                      "assets/images/recep.jpg", "Receptionist")),
             ),
           ],
         ),
