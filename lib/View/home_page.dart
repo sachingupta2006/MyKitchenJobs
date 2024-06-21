@@ -1,12 +1,63 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:my_kitchen_jobs/Utils/text.dart';
 import 'package:my_kitchen_jobs/View/employee_login.dart';
 import 'package:my_kitchen_jobs/View/kitchen_categories.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late Animation<double> scaleAnimation;
+  late AnimationController slideController1;
+  late Animation<Offset> slideAnimation1;
+  late AnimationController slideController2;
+  late Animation<Offset> slideAnimation2;
+  final _isWidgetVisible = false.obs;
+
+  @override
+  void initState() {
+    super.initState();
+    // for scaleTransition
+
+    // for slideTransition 1 (right to center)
+    slideController1 = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    slideAnimation1 = Tween<Offset>(
+      begin: const Offset(1, 0),
+      end: Offset.zero,
+    ).animate(slideController1);
+
+    // for slideTransition 2 (left to center)
+    slideController2 = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    slideAnimation2 = Tween<Offset>(
+      begin: const Offset(-1, 0),
+      end: Offset.zero,
+    ).animate(slideController2);
+
+    Timer(const Duration(seconds: 0), () {
+      _isWidgetVisible.value = true;
+      slideController1.forward();
+      slideController2.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    slideController1.dispose();
+    slideController2.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +85,9 @@ class HomePage extends StatelessWidget {
                 child: Center(
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 360),
-                    child: customText("FIND KITCHEN STAFF"),
+                    child: SlideTransition(
+                        position: slideAnimation1,
+                        child: customText("FIND KITCHEN STAFF")),
                   ),
                 ),
               ),
@@ -58,8 +111,16 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   child: Center(
-                    child: customText(
-                      "FIND KITCHEN JOBS",
+                    child: Obx(
+                      () => Visibility(
+                        visible: _isWidgetVisible.value,
+                        child: SlideTransition(
+                          position: slideAnimation2,
+                          child: customText(
+                            "FIND KITCHEN JOBS",
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

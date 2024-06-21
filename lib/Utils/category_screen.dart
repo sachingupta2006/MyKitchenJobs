@@ -3,6 +3,7 @@ import 'package:my_kitchen_jobs/Utils/app_bar.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/category_card.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
+import 'package:my_kitchen_jobs/Utils/drop_down.dart';
 import 'package:my_kitchen_jobs/Utils/gradient_text.dart';
 import 'package:my_kitchen_jobs/Utils/sizebox.dart';
 
@@ -25,37 +26,20 @@ class CategoryScreen extends StatelessWidget {
               ),
               const Text("Browse Our Staff Offerings"),
               sizedBox(),
-              GradientText(category,
-                  gradient: const LinearGradient(
-                      colors: [AppColors.gsblue, AppColors.gdblue]),
-                  style: const TextStyle(
-                      fontSize: 40, fontWeight: FontWeight.w600)),
+              GradientText(
+                category,
+                gradient: const LinearGradient(
+                  colors: [AppColors.gsblue, AppColors.gdblue],
+                ),
+                style:
+                    const TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
+              ),
               const SizedBox(
                 height: 150,
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                child: DropdownButtonFormField(
-                    decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.all(8),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(0))),
-                    items: const [],
-                    onChanged: (value) {}),
-              ),
+              dropDownButton(),
               sizedBox(),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                child: DropdownButtonFormField(
-                    decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.all(8),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(0))),
-                    items: const [],
-                    onChanged: (value) {}),
-              ),
+              dropDownButton(),
               sizedBox(),
               const Row(
                 children: [
