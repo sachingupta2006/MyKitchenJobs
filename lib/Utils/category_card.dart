@@ -6,10 +6,12 @@ import 'package:my_kitchen_jobs/Utils/individual_category.dart';
 
 Widget categoryCard(String image, String text, String texts) {
   return SizedBox(
-    height: 340,
-    width: 340,
+    height: 330,
+    width: 330,
     child: Card(
-      color: AppColors.white,
+      shadowColor: Colors.grey,
+      elevation: 6,
+      color: const Color.fromARGB(255, 255, 255, 255),
       child: Stack(
         children: [
           GestureDetector(
@@ -17,9 +19,10 @@ Widget categoryCard(String image, String text, String texts) {
               Get.to(() => const IndividualCategory());
             },
             child: Container(
-              height: 200,
-              width: 200,
+              height: 220,
+              width: 321,
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
                     image: AssetImage(image), fit: BoxFit.cover),
               ),

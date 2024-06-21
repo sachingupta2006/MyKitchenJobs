@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'Poppins',
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(0, 255, 255, 255)),
         useMaterial3: true,
       ),
       home: const SplashScreen(),

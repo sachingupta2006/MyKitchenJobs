@@ -6,6 +6,8 @@ class IndividualCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: customAppBar(),);
+    return Scaffold(
+      appBar: customAppBar(),
+    );
   }
 }

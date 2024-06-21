@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           children: [
             GestureDetector(
               onTap: () {
-                Get.to(() => const KitchenCategory(),
+                Get.to(() => const EmployeeLogin(),
                     transition: Transition.rightToLeft);
               },
               child: Container(
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               clipper: BottomSlopeClipper(),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(() => const EmployeeLogin(),
+                  Get.to(() => const KitchenCategory(),
                       transition: Transition.rightToLeft);
                 },
                 child: Container(
