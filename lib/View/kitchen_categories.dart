@@ -20,7 +20,7 @@ class KitchenCategory extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Get.to(
-                    () => const CategoryScreen("Our Chefs", "Chef"),
+                    () => const CategoryScreen("CHEFS"),
                   );
                 },
                 child: customContainer("assets/images/chef.jpg", "Chef"),
@@ -31,7 +31,7 @@ class KitchenCategory extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Get.to(
-                    () => const CategoryScreen("Our Home Cook", "Home Cook"),
+                    () => const CategoryScreen("HOME COOK"),
                   );
                 },
                 child:
@@ -43,8 +43,7 @@ class KitchenCategory extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Get.to(
-                    () => const CategoryScreen(
-                        "Our Kitchen helper", "Kitchen helper"),
+                    () => const CategoryScreen("KITCHEN HELPER "),
                   );
                 },
                 child:
@@ -56,7 +55,7 @@ class KitchenCategory extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Get.to(
-                    () => const CategoryScreen("Our Waiter", "Waiter"),
+                    () => const CategoryScreen("WAITER"),
                   );
                 },
                 child: customContainer("assets/images/waiter.jpg", "Waiter"),
@@ -67,7 +66,7 @@ class KitchenCategory extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Get.to(
-                    () => const CategoryScreen("Our Manager", "Manager"),
+                    () => const CategoryScreen("MANAGER"),
                   );
                 },
                 child: customContainer("assets/images/manager.jpg", "Manager"),
@@ -78,7 +77,7 @@ class KitchenCategory extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Get.to(
-                    () => const CategoryScreen("Our Bartender", "Bartender"),
+                    () => const CategoryScreen("BARTENDER"),
                   );
                 },
                 child:
@@ -90,8 +89,7 @@ class KitchenCategory extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Get.to(
-                    () => const CategoryScreen(
-                        "Our Housekeeping", "HouseKeeping"),
+                    () => const CategoryScreen("HOUSEKEEPING"),
                   );
                 },
                 child: customContainer(
@@ -103,8 +101,7 @@ class KitchenCategory extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Get.to(
-                    () => const CategoryScreen(
-                        "Our Baking specialist", "Baking Specialist"),
+                    () => const CategoryScreen("BAKING SPECIALIST"),
                   );
                 },
                 child: customContainer(
@@ -116,8 +113,7 @@ class KitchenCategory extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Get.to(
-                    () => const CategoryScreen(
-                        "Our Receptionist", "Receptionist"),
+                    () => const CategoryScreen("RECEPTIONIST"),
                   );
                 },
                 child:

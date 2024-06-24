@@ -6,18 +6,17 @@ Widget customButton(String bName) {
     onTap: () {},
     child: Container(
       height: 40,
-      width: 110,
+      width: 320,
       decoration: BoxDecoration(
-        gradient:
-            const LinearGradient(colors: [AppColors.gsblue, AppColors.gdblue]),
-        borderRadius: BorderRadius.circular(25),
+        color: AppColors.primary,
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Center(
         child: Text(
           bName,
           style: const TextStyle(
               color: AppColors.white,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
               fontSize: 15),
         ),
       ),

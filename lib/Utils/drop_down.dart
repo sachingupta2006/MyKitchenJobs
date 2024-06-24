@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
 Widget dropDownButton() {
   return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+    padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
     child: Container(
-      color: const Color.fromARGB(39, 158, 158, 158),
+      color: AppColors.white,
       child: DropdownButtonFormField(
+          borderRadius: BorderRadius.zero,
           decoration: InputDecoration(
-              contentPadding: const EdgeInsets.all(8),
+              contentPadding: const EdgeInsets.all(4),
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(0))),
           items: <String>[
@@ -22,7 +24,8 @@ Widget dropDownButton() {
                   value: value,
                   child: Text(
                     value,
-                    style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                    style: const TextStyle(
+                        color: Color.fromARGB(255, 198, 196, 196)),
                   ),
                 ),
               )

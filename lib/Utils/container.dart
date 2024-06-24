@@ -7,11 +7,8 @@ Widget customContainer(String image, String text) {
       Container(
         height: 150,
         decoration: BoxDecoration(
-          gradient: const LinearGradient(colors: [
-            AppColors.gsblue,
-            AppColors.gdblue,
-          ]),
-          borderRadius: BorderRadius.circular(10),
+          color: AppColors.primary,
+          borderRadius: BorderRadius.circular(0),
         ),
       ),
       Padding(
@@ -21,7 +18,7 @@ Widget customContainer(String image, String text) {
             height: 110,
             width: 160,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(0),
               image: DecorationImage(
                 image: AssetImage(image),
                 fit: BoxFit.cover,
@@ -35,7 +32,10 @@ Widget customContainer(String image, String text) {
         child: Center(
           child: Text(
             text,
-            style: const TextStyle(color: AppColors.white),
+            style: const TextStyle(
+                color: AppColors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 15),
           ),
         ),
       ),

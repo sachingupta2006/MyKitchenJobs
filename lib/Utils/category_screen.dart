@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_kitchen_jobs/Utils/app_bar.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/category_card.dart';
-import 'package:my_kitchen_jobs/Utils/custom_button.dart';
-import 'package:my_kitchen_jobs/Utils/drop_down.dart';
-import 'package:my_kitchen_jobs/Utils/gradient_text.dart';
-import 'package:my_kitchen_jobs/Utils/sizebox.dart';
+import 'package:my_kitchen_jobs/Utils/modal_bottom_sheet.dart';
 
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen(this.category, this.texts, {super.key});
+  const CategoryScreen(this.texts, {super.key});
 
-  final String category;
   final String texts;
   @override
   Widget build(BuildContext context) {
@@ -18,131 +12,69 @@ class CategoryScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: GradientText(
+          backgroundColor: AppColors.primary,
+          title: Text(
             texts,
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 8, 50, 218),
-                Color.fromARGB(255, 102, 3, 120),
-              ],
-            ),
-            style: TextStyle(fontWeight: FontWeight.w900),
+            style: const TextStyle(
+                color: AppColors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 20),
           ),
           actions: [
             IconButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                      backgroundColor: Color.fromARGB(208, 255, 255, 255),
-                      shape: const BeveledRectangleBorder(),
-                      context: context,
-                      builder: (context) => Column(
-                            children: [
-                              const SizedBox(
-                                height: 40,
-                              ),
-                              dropDownButton(),
-                              sizedBox(),
-                              dropDownButton(),
-                              sizedBox(),
-                              const Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 10),
-                                    child: Text(
-                                      "Gender",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.right,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Radio(
-                                    value: 1,
-                                    groupValue: 3,
-                                    onChanged: (value) {},
-                                  ),
-                                  const Text("Female"),
-                                  Radio(
-                                    value: 1,
-                                    groupValue: 2,
-                                    onChanged: (value) {},
-                                  ),
-                                  const Text("Male"),
-                                  Radio(
-                                    value: 3,
-                                    groupValue: 3,
-                                    onChanged: (value) {},
-                                  ),
-                                  const Text("All"),
-                                ],
-                              ),
-                              sizedBox(),
-                              Column(
-                                children: [
-                                  const Divider(
-                                    indent: 15,
-                                    endIndent: 15,
-                                    thickness: 0,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: 180, bottom: 15, top: 15),
-                                    child: customButton("View All"),
-                                  ),
-                                  const Divider(
-                                    indent: 15,
-                                    endIndent: 15,
-                                    thickness: 0,
-                                  )
-                                ],
-                              ),
-                            ],
-                          ));
-                },
-                icon: Icon(Icons.filter_list_sharp))
+              color: AppColors.white,
+              onPressed: () {},
+              icon: const Icon(Icons.search),
+            ),
+            IconButton(
+              color: AppColors.white,
+              onPressed: () {
+                customModal(context);
+              },
+              icon: const Icon(Icons.filter_list_sharp),
+            )
           ],
         ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
+        body: GridView.builder(
+          itemCount: 10,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
+          itemBuilder: (context, index) => Stack(
             children: [
-              const SizedBox(
-                height: 140,
-              ),
-              const Text("Browse Our Staff Offerings"),
-              sizedBox(),
-              Center(
-                child: GradientText(
-                  category,
-                  gradient: const LinearGradient(
-                    colors: [AppColors.gsblue, AppColors.gdblue],
-                  ),
-                  style: const TextStyle(
-                      fontSize: 40, fontWeight: FontWeight.w600),
+              Positioned(
+                left: 10,
+                child: Container(
+                  height: 300,
+                  width: 140,
+                  color: const Color.fromARGB(255, 214, 212, 212),
                 ),
               ),
-              const SizedBox(
-                height: 150,
+              Positioned(
+                left: 10,
+                child: Container(
+                  height: 130,
+                  width: 140,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(
+                          "assets/images/baking.jpg",
+                        ),
+                        fit: BoxFit.cover),
+                  ),
+                ),
               ),
-              categoryCard(
-                  "assets/images/bake.jpg", "Aakash", "Receptionist and Chef"),
-              sizedBox(),
-              categoryCard("assets/images/bartender.jpg", "Rahul",
-                  "Receptionist and Waiter"),
-              sizedBox(),
-              categoryCard("assets/images/banner-05.jpg", "Rishi", "Chef"),
-              sizedBox(),
-              categoryCard("assets/images/banner-04.jpg", "Viraj",
-                  "Receptionist and Chef"),
-              const SizedBox(
-                height: 200,
-              )
+              const Positioned(
+                left: 55,
+                top: 130,
+                child: Text("Omkar"),
+              ),
+              const Positioned(
+                  left: 35,
+                  top: 150,
+                  child: Text(
+                    "Maharashtra",
+                    style: TextStyle(color: AppColors.primary),
+                  ))
             ],
           ),
         ),
