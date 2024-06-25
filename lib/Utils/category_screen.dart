@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/modal_bottom_sheet.dart';
+import 'package:my_kitchen_jobs/Utils/sizebox.dart';
+import 'package:my_kitchen_jobs/View/chefs_screen.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen(this.texts, {super.key});
@@ -8,76 +11,106 @@ class CategoryScreen extends StatelessWidget {
   final String texts;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: AppColors.primary,
-          title: Text(
-            texts,
-            style: const TextStyle(
-                color: AppColors.white,
-                fontWeight: FontWeight.w700,
-                fontSize: 20),
-          ),
-          actions: [
-            IconButton(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(15),
+                bottomRight: Radius.circular(15))),
+        iconTheme: const IconThemeData(color: AppColors.white),
+        backgroundColor: AppColors.primary,
+        title: Text(
+          texts,
+          style: const TextStyle(
               color: AppColors.white,
-              onPressed: () {},
-              icon: const Icon(Icons.search),
-            ),
-            IconButton(
-              color: AppColors.white,
-              onPressed: () {
-                customModal(context);
-              },
-              icon: const Icon(Icons.filter_list_sharp),
-            )
-          ],
+              fontWeight: FontWeight.w700,
+              fontSize: 20),
         ),
-        body: GridView.builder(
-          itemCount: 10,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
-          itemBuilder: (context, index) => Stack(
-            children: [
-              Positioned(
-                left: 10,
-                child: Container(
-                  height: 300,
-                  width: 140,
-                  color: const Color.fromARGB(255, 214, 212, 212),
-                ),
-              ),
-              Positioned(
-                left: 10,
-                child: Container(
-                  height: 130,
-                  width: 140,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(
-                          "assets/images/baking.jpg",
+        actions: [
+          IconButton(
+            color: AppColors.white,
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+          ),
+          IconButton(
+            color: AppColors.white,
+            onPressed: () {
+              customModal(context);
+            },
+            icon: const Icon(Icons.filter_list_sharp),
+          )
+        ],
+      ),
+      body: Column(
+        children: [
+          sizedBox(),
+          const Padding(
+            padding: EdgeInsets.only(right: 170),
+            child: Text(
+              "186 RESULTS FOR CHEF ",
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20, top: 20),
+              child: GridView.builder(
+                itemCount: 10,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 18,
+                    crossAxisSpacing: 0,
+                    childAspectRatio: 0.8),
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    Get.to(() => const ChefsScreen());
+                  },
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: 150,
+                        color: const Color.fromARGB(239, 237, 237, 237),
+                      ),
+                      Positioned(
+                        child: Container(
+                          height: 150,
+                          width: 150,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/baking.jpg",
+                                ),
+                                fit: BoxFit.cover),
+                          ),
                         ),
-                        fit: BoxFit.cover),
+                      ),
+                      const Positioned(
+                        left: 55,
+                        top: 160,
+                        child: Text(
+                          "Omkar",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 12),
+                        ),
+                      ),
+                      const Positioned(
+                        left: 30,
+                        top: 180,
+                        child: Text(
+                          "Maharashtra",
+                          style: TextStyle(
+                              color: AppColors.primary,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
-              const Positioned(
-                left: 55,
-                top: 130,
-                child: Text("Omkar"),
-              ),
-              const Positioned(
-                  left: 35,
-                  top: 150,
-                  child: Text(
-                    "Maharashtra",
-                    style: TextStyle(color: AppColors.primary),
-                  ))
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
