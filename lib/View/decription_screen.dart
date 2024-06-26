@@ -8,11 +8,14 @@ class DescriptionScreen extends StatelessWidget {
     return const SingleChildScrollView(
       child: Column(
         children: [
-          Text(
-            '''A chef is a skilled culinary professional who specializes in preparing and creating a wide range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.
+          Padding(
+            padding: EdgeInsets.all(40),
+            child: Text(
+              '''A chef is a skilled culinary professional who specializes in preparing and creating a wide range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.
                                 
                                ''',
-            style: TextStyle(fontWeight: FontWeight.w600),
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
           )
         ],
       ),

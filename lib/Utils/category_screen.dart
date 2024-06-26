@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
+import 'package:my_kitchen_jobs/Utils/blue_text.dart';
 import 'package:my_kitchen_jobs/Utils/modal_bottom_sheet.dart';
 import 'package:my_kitchen_jobs/Utils/sizebox.dart';
 import 'package:my_kitchen_jobs/View/chefs_screen.dart';
@@ -14,31 +15,60 @@ class CategoryScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(15),
                 bottomRight: Radius.circular(15))),
         iconTheme: const IconThemeData(color: AppColors.white),
         backgroundColor: AppColors.primary,
-        title: Text(
-          texts,
-          style: const TextStyle(
-              color: AppColors.white,
-              fontWeight: FontWeight.w700,
-              fontSize: 20),
-        ),
         actions: [
-          IconButton(
-            color: AppColors.white,
-            onPressed: () {},
-            icon: const Icon(Icons.search),
-          ),
-          IconButton(
-            color: AppColors.white,
-            onPressed: () {
-              customModal(context);
-            },
-            icon: const Icon(Icons.filter_list_sharp),
+          Expanded(
+            child: Row(
+              children: [
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: AppColors.white,
+                      ),
+                    ),
+                    Text(
+                      texts,
+                      style: const TextStyle(
+                          color: AppColors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 100,
+                ),
+                IconButton(
+                  padding: const EdgeInsets.only(left: 20),
+                  constraints: const BoxConstraints(),
+                  color: AppColors.white,
+                  onPressed: () {},
+                  iconSize: 28,
+                  icon: const Icon(Icons.search),
+                ),
+                IconButton(
+                  padding: const EdgeInsets.only(right: 20),
+                  constraints: const BoxConstraints(),
+                  color: AppColors.white,
+                  onPressed: () {
+                    customModal(context);
+                  },
+                  iconSize: 28,
+                  icon: const Icon(Icons.filter_list_sharp),
+                ),
+              ],
+            ),
           )
         ],
       ),
@@ -48,7 +78,7 @@ class CategoryScreen extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(right: 170),
             child: Text(
-              "186 RESULTS FOR CHEF ",
+              "184 RESULTS FOR CHEF ",
               style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12),
             ),
           ),
@@ -70,7 +100,7 @@ class CategoryScreen extends StatelessWidget {
                     children: [
                       Container(
                         width: 150,
-                        color: const Color.fromARGB(239, 237, 237, 237),
+                        color: const Color.fromARGB(238, 244, 244, 244),
                       ),
                       Positioned(
                         child: Container(
@@ -79,7 +109,7 @@ class CategoryScreen extends StatelessWidget {
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage(
-                                  "assets/images/baking.jpg",
+                                  "assets/images/chef1.jpg",
                                 ),
                                 fit: BoxFit.cover),
                           ),
@@ -94,16 +124,8 @@ class CategoryScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600, fontSize: 12),
                         ),
                       ),
-                      const Positioned(
-                        left: 30,
-                        top: 180,
-                        child: Text(
-                          "Maharashtra",
-                          style: TextStyle(
-                              color: AppColors.primary,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      )
+                      Positioned(
+                          left: 30, top: 180, child: blueText("Maharashtra"))
                     ],
                   ),
                 ),

@@ -1,18 +1,52 @@
 import 'package:flutter/material.dart';
-import 'package:my_kitchen_jobs/Utils/app_bar.dart';
+import 'package:get/get.dart';
+
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/black_text.dart';
-import 'package:my_kitchen_jobs/Utils/blue_text.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
-import 'package:my_kitchen_jobs/Utils/padding.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/sizebox.dart';
 import 'package:my_kitchen_jobs/View/decription_screen.dart';
 import 'package:my_kitchen_jobs/View/details_screen.dart';
 import 'package:my_kitchen_jobs/View/pictures_screen.dart';
 
-class ChefsScreen extends StatelessWidget {
-  const ChefsScreen({super.key});
+class ChefsScreen extends StatefulWidget {
+  const ChefsScreen({Key? key}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _ChefsScreenState createState() => _ChefsScreenState();
+}
+
+class _ChefsScreenState extends State<ChefsScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(() {
+      setState(() {}); // Trigger a rebuild when the tab changes
+    });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  Widget _buildTab(String text, {required bool isSelected}) {
+    return Container(
+      height: 50,
+      color:
+          isSelected ? const Color.fromARGB(255, 231, 231, 231) : Colors.white,
+      child: Center(
+        child: blackText(text),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +60,16 @@ class ChefsScreen extends StatelessWidget {
                 AppBar(
                   actions: [
                     Padding(
-                      padding: const EdgeInsets.only(right: 300, bottom: 100),
+                      padding: const EdgeInsets.only(right: 300, bottom: 80),
                       child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.arrow_back_ios_new,
-                            color: AppColors.white,
-                          )),
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new,
+                          color: AppColors.white,
+                        ),
+                      ),
                     )
                   ],
                   automaticallyImplyLeading: false,
@@ -42,7 +79,7 @@ class ChefsScreen extends StatelessWidget {
                       bottomRight: Radius.circular(20),
                     ),
                   ),
-                  toolbarHeight: 200,
+                  toolbarHeight: 150,
                   backgroundColor: AppColors.primary,
                 ),
                 const Padding(
@@ -57,28 +94,41 @@ class ChefsScreen extends StatelessWidget {
                   child: Text(
                     "CHEF FROM MAHARASHTRA",
                     style: TextStyle(
-                        color: AppColors.primary, fontWeight: FontWeight.w700),
+                      color: AppColors.primary,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
-                customSizeBox(25),
-                TabBar(
-                  automaticIndicatorColorAdjustment: false,
-                  indicatorPadding: const EdgeInsets.all(0.8),
-                  tabs: [
-                    Tab(
-                      child: blackText("Details"),
+                customSizeBox(50),
+                Container(
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Colors.transparent,
+                      ),
                     ),
-                    Tab(
-                      child: blackText("Description"),
-                    ),
-                    Tab(
-                      child: blackText("Pictures"),
-                    )
-                  ],
+                  ),
+                  child: TabBar(
+                    labelColor: Colors.black,
+                    unselectedLabelColor: Colors.black,
+                    controller: _tabController,
+                    automaticIndicatorColorAdjustment: false,
+                    indicator: const BoxDecoration(),
+                    indicatorPadding: const EdgeInsets.all(0.8),
+                    tabs: [
+                      _buildTab("Details",
+                          isSelected: _tabController.index == 0),
+                      _buildTab("Description",
+                          isSelected: _tabController.index == 1),
+                      _buildTab("Pictures",
+                          isSelected: _tabController.index == 2),
+                    ],
+                  ),
                 ),
-                const Expanded(
+                Expanded(
                   child: TabBarView(
-                    children: [
+                    controller: _tabController,
+                    children: const [
                       DetailsScreen(),
                       DescriptionScreen(),
                       PicturesSreen(),
@@ -91,7 +141,7 @@ class ChefsScreen extends StatelessWidget {
               ],
             ),
             Positioned(
-              top: 170, // Adjust the top position as needed
+              top: 125, // Adjust the top position as needed
               left: MediaQuery.of(context).size.width / 2 -
                   50, // Center horizontally
               child: ClipOval(

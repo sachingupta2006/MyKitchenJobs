@@ -10,7 +10,7 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        customSizeBox(20),
+        customSizeBox(40),
         Padding(
           padding: const EdgeInsets.only(right: 200),
           child: blueText("YEAR OF BIRTH:"),

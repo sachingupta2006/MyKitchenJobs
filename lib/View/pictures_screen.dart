@@ -6,7 +6,7 @@ class PicturesSreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      itemCount: 6,
+      itemCount: 12,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3, mainAxisSpacing: 10, crossAxisSpacing: 10),
       itemBuilder: (context, index) => Container(
