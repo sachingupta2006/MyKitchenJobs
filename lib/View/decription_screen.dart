@@ -11,10 +11,8 @@ class DescriptionScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(40),
             child: Text(
-              '''A chef is a skilled culinary professional who specializes in preparing and creating a wide range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.
-                                
-                               ''',
-              style: TextStyle(fontWeight: FontWeight.w600),
+              'A chef is a skilled culinary professional who specializes in preparing and creating a wide range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to \ngourmet feasts.range of dishes, from everyday meals to gourmet feasts.',
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
             ),
           )
         ],

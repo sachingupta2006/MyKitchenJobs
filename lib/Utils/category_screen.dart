@@ -10,6 +10,7 @@ class CategoryScreen extends StatelessWidget {
   const CategoryScreen(this.texts, {super.key});
 
   final String texts;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,94 +23,104 @@ class CategoryScreen extends StatelessWidget {
                 bottomRight: Radius.circular(15))),
         iconTheme: const IconThemeData(color: AppColors.white),
         backgroundColor: AppColors.primary,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            color: AppColors.white,
+          ),
+        ),
+        title: Text(
+          texts,
+          style: const TextStyle(
+            color: AppColors.white,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
+          ),
+        ),
+        titleSpacing: 0,
         actions: [
-          Expanded(
-            child: Row(
-              children: [
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back_ios_new,
-                        color: AppColors.white,
-                      ),
-                    ),
-                    Text(
-                      texts,
-                      style: const TextStyle(
-                          color: AppColors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 20),
-                    ),
-                  ],
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  color: Colors
+                      .transparent, // Set this to the AppBar color if needed
+                  padding: const EdgeInsets.only(left: 15), // Remove padding
+                  child: const Icon(
+                    Icons.search,
+                    color: AppColors.white,
+                    size: 28,
+                  ),
                 ),
-                const SizedBox(
-                  width: 100,
+              ),
+              GestureDetector(
+                onTap: () {
+                  customModal(context);
+                },
+                child: Container(
+                  color: Colors.transparent,
+                  padding: const EdgeInsets.only(right: 15),
+                  child: const Icon(
+                    Icons.filter_list_sharp,
+                    color: AppColors.white,
+                    size: 28,
+                  ),
                 ),
-                IconButton(
-                  padding: const EdgeInsets.only(left: 20),
-                  constraints: const BoxConstraints(),
-                  color: AppColors.white,
-                  onPressed: () {},
-                  iconSize: 28,
-                  icon: const Icon(Icons.search),
-                ),
-                IconButton(
-                  padding: const EdgeInsets.only(right: 20),
-                  constraints: const BoxConstraints(),
-                  color: AppColors.white,
-                  onPressed: () {
-                    customModal(context);
-                  },
-                  iconSize: 28,
-                  icon: const Icon(Icons.filter_list_sharp),
-                ),
-              ],
-            ),
-          )
+              ),
+            ],
+          ),
         ],
       ),
       body: Column(
         children: [
           sizedBox(),
-          const Padding(
-            padding: EdgeInsets.only(right: 170),
-            child: Text(
-              "184 RESULTS FOR CHEF ",
-              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: [
+                Text(
+                  "184 RESULTS FOR $texts",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
             ),
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: 20, top: 20),
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 20),
               child: GridView.builder(
                 itemCount: 10,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    mainAxisSpacing: 18,
-                    crossAxisSpacing: 0,
-                    childAspectRatio: 0.8),
+                    mainAxisSpacing: 4,
+                    crossAxisSpacing: 16,
+                    childAspectRatio: 0.7),
                 itemBuilder: (context, index) => GestureDetector(
                   onTap: () {
-                    Get.to(() => const ChefsScreen());
+                    Get.to(() =>  const ChefsScreen());
                   },
+                  
                   child: Stack(
                     children: [
                       Container(
-                        width: 150,
+                        height: 210,
                         color: const Color.fromARGB(238, 244, 244, 244),
                       ),
                       Positioned(
                         child: Container(
                           height: 150,
-                          width: 150,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage(
-                                  "assets/images/chef1.jpg",
+                                  "assets/images/chef2.jpg",
                                 ),
                                 fit: BoxFit.cover),
                           ),
@@ -125,7 +136,10 @@ class CategoryScreen extends StatelessWidget {
                         ),
                       ),
                       Positioned(
-                          left: 30, top: 180, child: blueText("Maharashtra"))
+                        left: 30,
+                        top: 178,
+                        child: blueText("Maharashtra"),
+                      ),
                     ],
                   ),
                 ),

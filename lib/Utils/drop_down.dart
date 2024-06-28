@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
-Widget dropDownButton(String text) {
+Widget dropDownButton(String text, ) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
     child: Container(
@@ -18,7 +18,7 @@ Widget dropDownButton(String text) {
               contentPadding: EdgeInsets.all(4), border: InputBorder.none),
           icon: const Icon(Icons.arrow_drop_down,
               size: 30, color: AppColors.dgrey),
-          items: <String>[
+          items: [
             "Maharashtra",
             "Uttar Pradesh",
             "Andhra Pradesh",

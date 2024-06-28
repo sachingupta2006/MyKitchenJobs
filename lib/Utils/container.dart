@@ -5,20 +5,18 @@ Widget customContainer(String image, String text) {
   return Stack(
     children: [
       Container(
-        height: 150,
-        decoration: BoxDecoration(
+        height: 145,
+        decoration: const BoxDecoration(
           color: AppColors.primary,
-          borderRadius: BorderRadius.circular(0),
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(bottom: 40),
+        padding: const EdgeInsets.only(bottom: 35),
         child: Center(
           child: Container(
             height: 110,
-            width: 160,
+            width: 145,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(0),
               image: DecorationImage(
                 image: AssetImage(image),
                 fit: BoxFit.cover,
@@ -28,14 +26,14 @@ Widget customContainer(String image, String text) {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(top: 100),
+        padding: const EdgeInsets.only(top: 102),
         child: Center(
           child: Text(
             text,
             style: const TextStyle(
                 color: AppColors.white,
-                fontWeight: FontWeight.w700,
-                fontSize: 15),
+                fontWeight: FontWeight.w600,
+                fontSize: 12),
           ),
         ),
       ),

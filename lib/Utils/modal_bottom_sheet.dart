@@ -10,7 +10,7 @@ Future customModal(BuildContext ctx) {
     builder: (context) => Container(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
       child: Column(
-        mainAxisSize: MainAxisSize.min, // Ensure minimum height necessary
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
@@ -27,12 +27,14 @@ Future customModal(BuildContext ctx) {
           const SizedBox(height: 16),
           const Divider(thickness: 1),
           const SizedBox(height: 16),
-          dropDownButton("STATE"),
+          dropDownButton(
+            "STATE",
+          ),
           const SizedBox(height: 16),
           dropDownButton("PROFESSION"),
           const SizedBox(height: 16),
           dropDownButton("GENDER"),
-          const SizedBox(height: 15), // Increased spacing for apply button
+          const SizedBox(height: 15),
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: customButton("APPLY FILTERS"),
