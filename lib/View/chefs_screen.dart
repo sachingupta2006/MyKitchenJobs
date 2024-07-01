@@ -10,10 +10,10 @@ import 'package:my_kitchen_jobs/View/details_screen.dart';
 import 'package:my_kitchen_jobs/View/pictures_screen.dart';
 
 class ChefsScreen extends StatefulWidget {
-  const ChefsScreen({Key? key}) : super(key: key);
+  const ChefsScreen({super.key});
 
   @override
-  _ChefsScreenState createState() => _ChefsScreenState();
+  State<ChefsScreen> createState() => _ChefsScreenState();
 }
 
 class _ChefsScreenState extends State<ChefsScreen>
@@ -45,19 +45,28 @@ class _ChefsScreenState extends State<ChefsScreen>
     super.dispose();
   }
 
-  Widget _buildTab(String text, {required int index}) {
-    return Obx(() {
-      bool isSelected = tabController.selectedIndex.value == index;
-      return Container(
-        height: 50,
-        color: isSelected
-            ? const Color.fromARGB(255, 240, 240, 240)
-            : Colors.transparent,
-        child: Center(
-          child: Text(text),
-        ),
-      );
-    });
+  Widget _buildTab(String text, int index) {
+    return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          _internalTabController.animateTo(index);
+        },
+        child: Obx(() {
+          bool isSelected = tabController.selectedIndex.value == index;
+          return Container(
+            height: 60,
+            color: isSelected
+                ? const Color.fromARGB(255, 240, 240, 240)
+                : Colors.transparent,
+            child: Center(
+                child: Text(
+              text,
+              style: const TextStyle(fontWeight: FontWeight.w700),
+            )),
+          );
+        }),
+      ),
+    );
   }
 
   @override
@@ -112,6 +121,7 @@ class _ChefsScreenState extends State<ChefsScreen>
               ),
               customSizeBox(50),
               Container(
+                width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
@@ -119,20 +129,11 @@ class _ChefsScreenState extends State<ChefsScreen>
                     ),
                   ),
                 ),
-                child: TabBar(
-                  overlayColor:
-                      const MaterialStatePropertyAll(Colors.transparent),
-                  labelColor: Colors.black,
-                  unselectedLabelColor: Colors.black,
-                  labelStyle: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.w600),
-                  dividerHeight: 0,
-                  indicator: const BoxDecoration(),
-                  controller: _internalTabController,
-                  tabs: [
-                    _buildTab("Details", index: 0),
-                    _buildTab("Description", index: 1),
-                    _buildTab("Pictures", index: 2),
+                child: Row(
+                  children: [
+                    _buildTab("Details", 0),
+                    _buildTab("Description", 1),
+                    _buildTab("Pictures", 2),
                   ],
                 ),
               ),
