@@ -1,18 +1,14 @@
-
 import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/app_bar.dart';
-import 'package:my_kitchen_jobs/Utils/bottom_navigation.dart';
-import 'package:my_kitchen_jobs/Utils/category_screen.dart';
-import 'package:my_kitchen_jobs/Utils/container.dart';
-import 'package:get/get.dart';
+import 'package:my_kitchen_jobs/View/kichen_bottom_bar.dart';
 
-class KitchenCategory extends StatelessWidget {
-  const KitchenCategory({super.key});
+class KitchenCategoryScreen extends StatelessWidget {
+  const KitchenCategoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(),
+      appBar: customAppBar(context),
       body: Padding(
         padding: const EdgeInsets.all(18),
         child: GridView.count(
@@ -33,16 +29,6 @@ class KitchenCategory extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: bottomNavigationBar(),
-    );
-  }
-
-  Widget name(String title, String image,) {
-    return GestureDetector(
-      onTap: () {
-        Get.to(() => CategoryScreen(title), transition: Transition.rightToLeft);
-      },
-      child: customContainer(image, title),
     );
   }
 }

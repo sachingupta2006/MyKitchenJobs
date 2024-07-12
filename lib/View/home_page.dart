@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/text.dart';
 import 'package:my_kitchen_jobs/View/employee_login.dart';
-import 'package:my_kitchen_jobs/View/kitchen_categories.dart';
+import 'package:my_kitchen_jobs/View/kichen_bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     padding: const EdgeInsets.only(bottom: 360),
                     child: SlideTransition(
                         position: slideAnimation1,
-                        child: customText("FIND KITCHEN STAFF")),
+                        child: customText("FIND KITCHEN STAFF", 25)),
                   ),
                 ),
               ),
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               clipper: BottomSlopeClipper(),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(() => const KitchenCategory(),
+                  Get.to(() => KitchenBottomBar(),
                       transition: Transition.rightToLeft);
                 },
                 child: Container(
@@ -118,6 +118,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           position: slideAnimation2,
                           child: customText(
                             "FIND KITCHEN JOBS",
+                            25,
                           ),
                         ),
                       ),

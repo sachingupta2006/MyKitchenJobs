@@ -10,22 +10,22 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        customSizeBox(40),
+        customSizeBox(40,0),
         Padding(
           padding: const EdgeInsets.only(right: 200),
           child: blueText("YEAR OF BIRTH:"),
         ),
-        customSizeBox(10),
+        customSizeBox(10,0),
         Padding(
           padding: const EdgeInsets.only(right: 270),
           child: blackText("1969"),
         ),
-        customSizeBox(25),
+        customSizeBox(25,0),
         Padding(
           padding: const EdgeInsets.only(right: 250),
           child: blueText("SALARY:"),
         ),
-        customSizeBox(10),
+        customSizeBox(10,0),
         Row(
           children: [
             Padding(
@@ -34,12 +34,12 @@ class DetailsScreen extends StatelessWidget {
             ),
           ],
         ),
-        customSizeBox(25),
+        customSizeBox(25,0),
         Padding(
           padding: const EdgeInsets.only(right: 220),
           child: blueText("EXPERIENCE:"),
         ),
-        customSizeBox(10),
+        customSizeBox(10,0),
         Row(
           children: [
             Padding(

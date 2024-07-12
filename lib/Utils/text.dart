@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-Widget customText(String text) {
+Widget customText(String text,double fs) {
   return Text(
     text,
-    style: const TextStyle(
-        fontWeight: FontWeight.w900, fontSize: 25, color: Colors.white),
+    style:  TextStyle(
+        fontWeight: FontWeight.w900, fontSize: fs, color: Colors.white),
   );
 }

@@ -46,7 +46,7 @@ class CustomLogin extends StatelessWidget {
                       controllers: passwordController,
                       hinttext: "Enter Your Password"),
                   sizedBox(),
-                  customButton("Login"),
+                  customButton("Login",15),
                 ],
               ),
             ),

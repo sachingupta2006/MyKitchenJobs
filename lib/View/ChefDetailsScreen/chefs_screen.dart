@@ -5,9 +5,9 @@ import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/sizebox.dart';
-import 'package:my_kitchen_jobs/View/decription_screen.dart';
-import 'package:my_kitchen_jobs/View/details_screen.dart';
-import 'package:my_kitchen_jobs/View/pictures_screen.dart';
+import 'package:my_kitchen_jobs/View/ChefDetailsScreen/decription_screen.dart';
+import 'package:my_kitchen_jobs/View/ChefDetailsScreen/details_screen.dart';
+import 'package:my_kitchen_jobs/View/ChefDetailsScreen/pictures_screen.dart';
 
 class ChefsScreen extends StatefulWidget {
   const ChefsScreen({super.key});
@@ -119,7 +119,7 @@ class _ChefsScreenState extends State<ChefsScreen>
                   ),
                 ),
               ),
-              customSizeBox(50),
+              customSizeBox(50,0),
               Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
@@ -148,7 +148,7 @@ class _ChefsScreenState extends State<ChefsScreen>
                 ),
               ),
               sizedBox(),
-              customButton("HIRE ME"),
+              customButton("HIRE ME",15),
               sizedBox(),
             ],
           ),
