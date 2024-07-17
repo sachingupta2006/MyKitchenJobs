@@ -8,9 +8,13 @@ import 'package:my_kitchen_jobs/View/ChefDetailsScreen/chefs_screen.dart';
 import 'package:my_kitchen_jobs/View/search_screen.dart';
 
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen(this.texts, {super.key});
+  CategoryScreen(this.texts, this.text, {super.key});
 
   final String texts;
+  final String text;
+
+  // RxList to track the favorite state for each item
+  final RxList<bool> _isFavorite = List.generate(10, (index) => false).obs;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +40,7 @@ class CategoryScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          texts,
+          texts.toUpperCase(),
           style: const TextStyle(
             color: AppColors.white,
             fontWeight: FontWeight.w700,
@@ -87,11 +91,13 @@ class CategoryScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20),
             child: Row(
               children: [
-                Text(
-                  "184 RESULTS FOR $texts",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 12,
+                Expanded(
+                  child: Text(
+                    "184 RESULTS FOR $text",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12,
+                    ),
                   ),
                 ),
               ],
@@ -118,15 +124,6 @@ class CategoryScreen extends StatelessWidget {
                         height: 210,
                         color: const Color.fromARGB(238, 244, 244, 244),
                       ),
-                      const Positioned(
-                        top: 8,
-                        right: 8,
-                        child: Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                          size: 24,
-                        ),
-                      ),
                       Positioned(
                         top: 0,
                         left: 0,
@@ -139,6 +136,25 @@ class CategoryScreen extends StatelessWidget {
                                 "assets/images/chef2.jpg",
                               ),
                               fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 5,
+                        left: 10,
+                        child: Obx(
+                          () => GestureDetector(
+                            onTap: () {
+                              _isFavorite[index] = !_isFavorite[index];
+                            },
+                            child: Icon(
+                              _isFavorite[index]
+                                  ? Icons.favorite
+                                  : Icons.favorite_outline,
+                              color:
+                                  _isFavorite[index] ? Colors.red : Colors.grey,
+                              size: 18,
                             ),
                           ),
                         ),

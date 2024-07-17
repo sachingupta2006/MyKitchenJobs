@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
-PreferredSizeWidget appBarText() {
+PreferredSizeWidget appBar(String text) {
   return AppBar(
-    automaticallyImplyLeading: false,
-    toolbarHeight: 60,
-    backgroundColor: AppColors.primary,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(15),
-        bottomRight: Radius.circular(15),
-      ),
+    leading: IconButton(
+      onPressed: () {
+        Get.back();
+      },
+      icon: const Icon(Icons.arrow_back_ios),
+      color: AppColors.white,
     ),
-    title:const  Text(
-      "MY PROFILE",
-      style: TextStyle(color: AppColors.white, fontWeight: FontWeight.w700),
+    toolbarHeight: 60,
+    automaticallyImplyLeading: false,
+    backgroundColor: const Color(0xFF1D84FD),
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15))),
+    title: Text(
+      text,
+      style:
+          const TextStyle(color: AppColors.white, fontWeight: FontWeight.bold),
     ),
   );
 }

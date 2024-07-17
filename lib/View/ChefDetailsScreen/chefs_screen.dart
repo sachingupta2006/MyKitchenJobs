@@ -19,6 +19,7 @@ class ChefsScreen extends StatefulWidget {
 class _ChefsScreenState extends State<ChefsScreen>
     with SingleTickerProviderStateMixin {
   final MyTabController tabController = Get.put(MyTabController());
+  final RxBool isFavorite = false.obs; // Added for favorite icon state
   late TabController _internalTabController;
 
   @override
@@ -32,9 +33,7 @@ class _ChefsScreenState extends State<ChefsScreen>
     });
 
     _internalTabController.animation?.addListener(() {
-      // The index as double, so it's smoother when scrolling
       final double value = _internalTabController.animation!.value;
-      // The rounded value ensures the update happens once
       tabController.updateIndex(value.round());
     });
   }
@@ -79,18 +78,38 @@ class _ChefsScreenState extends State<ChefsScreen>
             children: [
               AppBar(
                 actions: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 300, bottom: 80),
-                    child: IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back_ios_new,
-                        color: AppColors.white,
-                      ),
+                  // Wrap the Row in an Expanded to ensure it doesn't overflow
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment
+                          .spaceBetween, // Distribute space between children
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back_ios_new,
+                            color: AppColors.white,
+                          ),
+                        ),
+                        Obx(() {
+                          return IconButton(
+                            onPressed: () {
+                              isFavorite.value = !isFavorite.value;
+                            },
+                            icon: Icon(
+                              isFavorite.value
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
+                              color:
+                                  isFavorite.value ? Colors.red : Colors.white,
+                            ),
+                          );
+                        }),
+                      ],
                     ),
-                  )
+                  ),
                 ],
                 automaticallyImplyLeading: false,
                 shape: const RoundedRectangleBorder(
@@ -119,7 +138,7 @@ class _ChefsScreenState extends State<ChefsScreen>
                   ),
                 ),
               ),
-              customSizeBox(50,0),
+              customSizeBox(50, 0),
               Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
@@ -148,7 +167,7 @@ class _ChefsScreenState extends State<ChefsScreen>
                 ),
               ),
               sizedBox(),
-              customButton("HIRE ME",15),
+              customButton("HIRE ME", 0),
               sizedBox(),
             ],
           ),

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 
-Widget signButton(double h, double w, Color ccolor, String text, Color scolor,Icon icon) {
+Widget signButton(
+    double h, double w, Color ccolor, String text, Color scolor, Icon icon) {
   return Padding(
     padding: const EdgeInsets.only(left: 15),
-    child: GestureDetector(
-      onTap: () {},
-      child: Container(
+    child:  Container(
         height: h,
         width: w,
         decoration: BoxDecoration(
@@ -25,6 +24,6 @@ Widget signButton(double h, double w, Color ccolor, String text, Color scolor,Ic
           ],
         ),
       ),
-    ),
+    
   );
 }

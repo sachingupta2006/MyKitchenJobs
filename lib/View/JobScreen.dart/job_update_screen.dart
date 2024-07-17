@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Utils/app_bar_job.dart';
+import 'package:my_kitchen_jobs/Utils/app_bar_text.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
 import 'package:my_kitchen_jobs/Utils/drop_down.dart';
@@ -16,7 +16,7 @@ class JobUpdateScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: appbarJob("UPDATE JOB"),
+      appBar: appBar("UPDATE JOB"),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -69,8 +69,8 @@ class JobUpdateScreen extends StatelessWidget {
                 pTextField("SALARY"),
                 customSizeBox(10, 0),
                 jobText("ADDRESS"),
-                pTextField("ADDRESS"),
-                customSizeBox(170, 0),
+                pTextField("ADDRESS", he: 70, v: 20),
+                customSizeBox(170, 0)
               ],
             ),
           ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_bar.dart';
-import 'package:my_kitchen_jobs/View/kichen_bottom_bar.dart';
+import 'package:my_kitchen_jobs/Utils/category_screen.dart';
+import 'package:my_kitchen_jobs/Utils/container.dart';
 
 class KitchenCategoryScreen extends StatelessWidget {
   const KitchenCategoryScreen({super.key});
@@ -17,18 +19,28 @@ class KitchenCategoryScreen extends StatelessWidget {
           crossAxisSpacing: 18,
           childAspectRatio: 1,
           children: [
-            name("Chefs", "assets/images/chef.jpg"),
-            name("Home Cook", "assets/images/banner-03.jpg"),
-            name("Kitchen Helper", "assets/images/bake.jpg"),
-            name("Waiter", "assets/images/waiter.jpg"),
-            name("Manager", "assets/images/manager.jpg"),
-            name("Bartender", "assets/images/bartender.jpg"),
-            name("Housekeeping", "assets/images/banner-05.jpg"),
-            name("Baking Specialist", "assets/images/baking.jpg"),
-            name("Receptionist", "assets/images/recep.jpg"),
+            name("Chefs", "assets/images/chef.jpg", "CHEFS"),
+            name("Home Cook", "assets/images/banner-03.jpg", "HOME COOK"),
+            name("Kitchen Helper", "assets/images/bake.jpg", "KITCHEN HELPER"),
+            name("Waiter", "assets/images/waiter.jpg", "WAITER"),
+            name("Manager", "assets/images/manager.jpg", "MANAGER"),
+            name("Bartender", "assets/images/bartender.jpg", "BARTENDER"),
+            name("Housekeeping", "assets/images/banner-05.jpg", "HOUSEKEEPING"),
+            name("Baking Specialist", "assets/images/baking.jpg",
+                "BAKING SPECIALIST"),
+            name("Receptionist", "assets/images/recep.jpg", "RECEPTIONIST"),
           ],
         ),
       ),
     );
   }
+}
+Widget name(String title, String image, String text) {
+  return GestureDetector(
+    onTap: () {
+      Get.to(() => CategoryScreen(title, text),
+          transition: Transition.rightToLeft);
+    },
+    child: customContainer(image, title),
+  );
 }

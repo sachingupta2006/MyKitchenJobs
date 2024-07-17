@@ -5,7 +5,6 @@ import 'package:my_kitchen_jobs/Utils/drop_down.dart';
 
 Future customModal(BuildContext ctx) {
   return showModalBottomSheet(
-    backgroundColor: AppColors.lgrey,
     context: ctx,
     builder: (context) => Container(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
@@ -53,7 +52,7 @@ Future customModal(BuildContext ctx) {
           const SizedBox(height: 15),
           Padding(
             padding: const EdgeInsets.only(left: 15),
-            child: customButton("APPLY FILTERS",15),
+            child: customButton("APPLY FILTERS", 0),
           ),
         ],
       ),
