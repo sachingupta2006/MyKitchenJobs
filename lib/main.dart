@@ -7,6 +7,7 @@ import 'package:my_kitchen_jobs/View/splash_screen.dart';
 
 HomeController homeC = Get.put(HomeController());
 
+
 void main() {
   runApp(const MyApp());
 }

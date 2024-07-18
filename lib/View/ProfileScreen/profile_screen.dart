@@ -44,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: appBar("MY PROFILE"),
-      body: isForgotPassword ? const ProfileForgotPassword() : buildLogin(),
+      body: isForgotPassword ?  ProfileForgotPassword() : buildLogin(),
     );
   }
 
@@ -97,7 +97,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() => const ProfileSignup());
+                Get.to(() =>  ProfileSignup());
               },
               child: signButton(
                 50,

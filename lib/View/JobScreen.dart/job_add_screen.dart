@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:my_kitchen_jobs/Controllers/dropdown_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_bar_text.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
@@ -11,6 +13,8 @@ class JobAddScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final DropdownController dropdownController = Get.put(DropdownController());
+
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: appBar("ADD JOB"),
@@ -30,28 +34,51 @@ class JobAddScreen extends StatelessWidget {
                   ),
                 ),
                 customSizeBox(10, 0),
-                dropDownButton(
-                  "POSITIONS",
-                  const Color.fromARGB(255, 238, 238, 238),
-                  FontWeight.w500,
-                  AppColors.grey,
-                  13,
+                DropDownButtonWidget(
+                  text: "POSITIONS",
+                  color: const Color.fromARGB(255, 238, 238, 238),
+                  fw: FontWeight.w500,
+                  colors: AppColors.grey,
+                  fs: 13,
+                  items: [
+                    "Maharashtra",
+                    "Uttar Pradesh",
+                    "Andhra Pradesh",
+                    "Jammu and Kashmir",
+                  ],
+                  dropcolors: Colors.black,
+                  selectedValue: dropdownController.selectedPosition,
                 ),
                 customSizeBox(10, 0),
-                dropDownButton(
-                  "GENDER",
-                  const Color.fromARGB(255, 238, 238, 238),
-                  FontWeight.w500,
-                  AppColors.grey,
-                  13,
+                DropDownButtonWidget(
+                  text: "GENDER",
+                  color: const Color.fromARGB(255, 238, 238, 238),
+                  fw: FontWeight.w500,
+                  colors: AppColors.grey,
+                  fs: 13,
+                  items: [
+                    "Male",
+                    "Female",
+                    "Others",
+                  ],
+                  dropcolors: Colors.black,
+                  selectedValue: dropdownController.selectedGender,
                 ),
                 customSizeBox(10, 0),
-                dropDownButton(
-                  "STATES",
-                  const Color.fromARGB(255, 238, 238, 238),
-                  FontWeight.w500,
-                  AppColors.grey,
-                  13,
+                DropDownButtonWidget(
+                  text: "STATES",
+                  color: const Color.fromARGB(255, 238, 238, 238),
+                  fw: FontWeight.w500,
+                  colors: AppColors.grey,
+                  fs: 13,
+                  items: [
+                    "Maharashtra",
+                    "Uttar Pradesh",
+                    "Andhra Pradesh",
+                    "Jammu and Kashmir",
+                  ],
+                  dropcolors: Colors.black,
+                  selectedValue: dropdownController.selectedState,
                 ),
                 customSizeBox(10, 0),
                 pTextField("EXPERIENCE"),
