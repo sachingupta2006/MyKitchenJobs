@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/forgot_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/verify_otp_controller.dart';
@@ -11,13 +9,12 @@ import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/square_button.dart';
 
 class ProfileForgotPassword extends StatelessWidget {
-  ProfileForgotPassword({
-    super.key,
-  });
-  TextEditingController emailController = TextEditingController();
-  TextEditingController otpContoller = TextEditingController();
-  ForgotController forgotC = Get.put(ForgotController());
-  VerifyOtpController verifyOtpC = Get.put(VerifyOtpController());
+  ProfileForgotPassword({super.key});
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController otpController = TextEditingController();
+  final ForgotController forgotC = Get.put(ForgotController());
+  final VerifyOtpController verifyOtpC = Get.put(VerifyOtpController());
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +47,10 @@ class ProfileForgotPassword extends StatelessWidget {
                     decoration: const InputDecoration(
                       hintText: "Email",
                       hintStyle: TextStyle(
-                          color: AppColors.grey,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500),
+                        color: AppColors.grey,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.only(
@@ -60,8 +58,10 @@ class ProfileForgotPassword extends StatelessWidget {
                           bottomLeft: Radius.circular(0),
                         ),
                       ),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 12),
+                      contentPadding: EdgeInsets.symmetric(
+                        vertical: 15,
+                        horizontal: 12,
+                      ),
                     ),
                   ),
                 ),
@@ -90,14 +90,18 @@ class ProfileForgotPassword extends StatelessWidget {
           ),
         ),
         customSizeBox(10, 0),
-        pTextField("Enter OTP", ccontroller: otpContoller),
+        pTextField("Enter OTP", ccontroller: otpController),
         customSizeBox(20, 0),
         GestureDetector(
           onTap: () {
-            if (otpContoller.text.isEmpty) {
-              commonToast("otp is not enter");
+            if (otpController.text.isEmpty) {
+              commonToast("OTP is not entered");
             } else {
-              verifyOtpC.verifyApi(otpContoller.text);
+              if (forgotC.token != null) {
+                verifyOtpC.verifyApi(otpController.text, forgotC.token!);
+              } else {
+                commonToast("Token not found");
+              }
             }
           },
           child: squareButton(

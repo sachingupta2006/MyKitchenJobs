@@ -1,10 +1,10 @@
-class ForgotPasswordModel {
-  String? title;
-  bool ?error;
+class JobsUpdateModel {
+  String ?title;
+  bool? error;
 
-  ForgotPasswordModel({this.title, this.error});
+  JobsUpdateModel({this.title, this.error});
 
-  ForgotPasswordModel.fromJson(Map<String, dynamic> json) {
+  JobsUpdateModel.fromJson(Map<String, dynamic> json) {
     title = json['title'];
     error = json['error'];
   }

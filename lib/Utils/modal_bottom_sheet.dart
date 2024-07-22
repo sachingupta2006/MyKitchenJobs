@@ -36,7 +36,7 @@ Future customModal(BuildContext ctx) {
             fw: FontWeight.w500,
             colors: AppColors.dgrey,
             fs: 15,
-            items: [
+            items: const [
               "Maharashtra",
               "Uttar Pradesh",
               "Andhra Pradesh",
@@ -52,7 +52,7 @@ Future customModal(BuildContext ctx) {
             fw: FontWeight.w500,
             colors: AppColors.dgrey,
             fs: 15,
-            items: [
+            items: const [
               "Chef",
               "Bartender",
             ],
@@ -66,7 +66,7 @@ Future customModal(BuildContext ctx) {
             fw: FontWeight.w500,
             colors: AppColors.dgrey,
             fs: 15,
-            items: [
+            items: const [
               "Male",
               "Female",
               "Others",

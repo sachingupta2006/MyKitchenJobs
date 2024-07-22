@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
 Widget customButton(String bName, double circular) {
-  return GestureDetector(
-    onTap: () {},
-    child: Container(
+  return Container(
       height: 40,
       width: 320,
       decoration: BoxDecoration(
@@ -20,6 +18,6 @@ Widget customButton(String bName, double circular) {
               fontSize: 14),
         ),
       ),
-    ),
-  );
+    );
+  
 }

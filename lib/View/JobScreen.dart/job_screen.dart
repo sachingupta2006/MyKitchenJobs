@@ -26,7 +26,7 @@ class JobScreen extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                Get.to(() => const JobAddScreen(),
+                Get.to(() => JobAddScreen(),
                     transition: Transition.rightToLeft);
               },
               icon: const Icon(

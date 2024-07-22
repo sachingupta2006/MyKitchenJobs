@@ -1,13 +1,15 @@
-class ForgotPasswordModel {
+class JobsModel {
   String? title;
   bool ?error;
 
-  ForgotPasswordModel({this.title, this.error});
+  JobsModel({this.title, this.error});
 
-  ForgotPasswordModel.fromJson(Map<String, dynamic> json) {
+  JobsModel.fromJson(Map<String, dynamic> json) {
     title = json['title'];
     error = json['error'];
   }
+
+  get errors => null;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};

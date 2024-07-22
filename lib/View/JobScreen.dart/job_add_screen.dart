@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/dropdown_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/jobs_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_bar_text.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
+import 'package:my_kitchen_jobs/Utils/common_toast.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
 import 'package:my_kitchen_jobs/Utils/drop_down.dart';
 import 'package:my_kitchen_jobs/Utils/profile_text_field.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
 class JobAddScreen extends StatelessWidget {
-  const JobAddScreen({super.key});
+  JobAddScreen({super.key});
+
+  final DropdownController dropdownController = Get.put(DropdownController());
+  final JobsControllers jobC = Get.put(JobsControllers());
+  TextEditingController experienceController = TextEditingController();
+  TextEditingController salaryController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final DropdownController dropdownController = Get.put(DropdownController());
-
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: appBar("ADD JOB"),
@@ -40,9 +46,9 @@ class JobAddScreen extends StatelessWidget {
                   fw: FontWeight.w500,
                   colors: AppColors.grey,
                   fs: 13,
-                  items: [
-                    "Maharashtra",
-                    "Uttar Pradesh",
+                  items: const [
+                    "Chef kitchen helper",
+                    "Business",
                     "Andhra Pradesh",
                     "Jammu and Kashmir",
                   ],
@@ -56,7 +62,7 @@ class JobAddScreen extends StatelessWidget {
                   fw: FontWeight.w500,
                   colors: AppColors.grey,
                   fs: 13,
-                  items: [
+                  items: const [
                     "Male",
                     "Female",
                     "Others",
@@ -71,9 +77,9 @@ class JobAddScreen extends StatelessWidget {
                   fw: FontWeight.w500,
                   colors: AppColors.grey,
                   fs: 13,
-                  items: [
+                  items: const [
                     "Maharashtra",
-                    "Uttar Pradesh",
+                    "667176beafbc7ade7d550d13",
                     "Andhra Pradesh",
                     "Jammu and Kashmir",
                   ],
@@ -81,13 +87,13 @@ class JobAddScreen extends StatelessWidget {
                   selectedValue: dropdownController.selectedState,
                 ),
                 customSizeBox(10, 0),
-                pTextField("EXPERIENCE"),
+                pTextField("EXPERIENCE", ccontroller: experienceController),
                 customSizeBox(10, 0),
-                pTextField("SALARY"),
+                pTextField("SALARY", ccontroller: salaryController),
                 customSizeBox(10, 0),
-                // Increase the height of the address text field
-                pTextField("ADDRESS", he: 70, v: 25),
-                customSizeBox(200, 0)
+                pTextField("ADDRESS",
+                    he: 70, v: 25, ccontroller: addressController),
+                customSizeBox(200, 0),
               ],
             ),
           ),
@@ -98,7 +104,35 @@ class JobAddScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  if (dropdownController.selectedPosition.value.isEmpty) {
+                    commonToast("Select position");
+                  }
+                  if (dropdownController.selectedGender.value.isEmpty) {
+                    commonToast('Invalid Gender');
+                  }
+                  if (dropdownController.selectedState.value.isEmpty) {
+                    commonToast("Please Select State");
+                  }
+                  if (experienceController.text.isEmpty) {
+                    commonToast("Please enter your experience");
+                  }
+                  if (salaryController.text.isEmpty) {
+                    commonToast("Please enter your salary");
+                  }
+                  if (addressController.text.isEmpty) {
+                    commonToast("Please enter your address");
+                  } else {
+                    jobC.jobsApi(
+                      dropdownController.selectedPosition.value,
+                      dropdownController.selectedGender.value,
+                      dropdownController.selectedState.value,
+                      salaryController.text,
+                      experienceController.text,
+                      addressController.text,
+                    );
+                  }
+                },
                 child: customButton("ADD JOB", 0),
               ),
             ),

@@ -8,7 +8,8 @@ import 'package:my_kitchen_jobs/main.dart';
 class ForgotController extends GetxController {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
-  loading() {
+
+  void loading() {
     _isLoading = !_isLoading;
     update();
   }
@@ -16,9 +17,10 @@ class ForgotController extends GetxController {
   ForgotPasswordModel? _forgot;
   ForgotPasswordModel? get forgotData => _forgot;
 
-  forgotApi(
-    String email,
-  ) async {
+  String? _token;
+  String? get token => _token;
+
+  Future<void> forgotApi(String email) async {
     try {
       loading();
       final requestBody = json.encode({
@@ -30,17 +32,24 @@ class ForgotController extends GetxController {
         headers: {'Content-Type': 'application/json'},
         body: requestBody,
       );
+
       if (res.statusCode == 200) {
         var responseData = json.decode(res.body);
         _forgot = ForgotPasswordModel.fromJson(responseData);
+
+        // Assuming the token is part of the response data
+        if (responseData['token'] != null) {
+          _token = responseData['token'];
+        }
+
+        Get.snackbar('Success', _forgot?.title ?? 'Request successful');
       } else {
         // Handle errors, for example:
-        Get.snackbar('Error', 'Failed to login');
+        Get.snackbar('Error', 'Failed to send request');
       }
-      Get.snackbar('', '${_forgot?.title}');
     } catch (e) {
       // Handle exceptions, for example:
-      Get.snackbar('error', e.toString());
+      Get.snackbar('Error', e.toString());
     } finally {
       loading();
     }

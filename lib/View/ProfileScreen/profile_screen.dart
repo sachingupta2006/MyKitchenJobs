@@ -97,7 +97,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() =>  ProfileSignup());
+                Get.to(() =>  const ProfileSignup());
               },
               child: signButton(
                 50,

@@ -12,7 +12,7 @@ class DropDownButtonWidget extends StatelessWidget {
   final Color? dropcolors;
   final RxString selectedValue;
 
-  DropDownButtonWidget({
+  const DropDownButtonWidget({super.key, 
     required this.text,
     required this.color,
     required this.fw,
