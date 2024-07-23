@@ -32,19 +32,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
   }
 
-  bool validateEmail(String email) {
-    if (email.isEmpty) return false;
-    String pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
-    RegExp regex = RegExp(pattern);
-    return regex.hasMatch(email);
-  }
+  // bool validateEmail(String email) {
+  //   if (email.isEmpty) return false;
+  //   String pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+  //   RegExp regex = RegExp(pattern);
+  //   return regex.hasMatch(email);
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: appBar("MY PROFILE"),
-      body: isForgotPassword ?  ProfileForgotPassword() : buildLogin(),
+      body: isForgotPassword ? ProfileForgotPassword() : buildLogin(),
     );
   }
 
@@ -82,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           children: [
             GestureDetector(
               onTap: () {
-                if (!validateEmail(emailController.text)) {
+                if (emailController.text.isEmpty) {
                   commonToast('Invalid email,please enter valid email');
                 }
                 if (passwordController.text.isEmpty) {
@@ -97,7 +97,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() =>  const ProfileSignup());
+                Get.to(() => const ProfileSignup());
               },
               child: signButton(
                 50,

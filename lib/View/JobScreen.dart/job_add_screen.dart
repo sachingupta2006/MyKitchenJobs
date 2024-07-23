@@ -11,16 +11,16 @@ import 'package:my_kitchen_jobs/Utils/profile_text_field.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
 class JobAddScreen extends StatelessWidget {
-  JobAddScreen({super.key});
-
-  final DropdownController dropdownController = Get.put(DropdownController());
-  final JobsControllers jobC = Get.put(JobsControllers());
-  TextEditingController experienceController = TextEditingController();
-  TextEditingController salaryController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
+  const JobAddScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    DropdownController dropdownController = Get.put(DropdownController());
+    JobsControllers jobC = Get.put(JobsControllers());
+
+    TextEditingController experienceController = TextEditingController();
+    TextEditingController salaryController = TextEditingController();
+    TextEditingController addressController = TextEditingController();
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: appBar("ADD JOB"),

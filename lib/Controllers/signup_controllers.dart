@@ -46,7 +46,6 @@ class SignupControllers extends GetxController {
         body: requestBody,
       );
 
-
       final responseData = json.decode(response.body);
       if (response.statusCode == 200 && responseData['error'] == false) {
         _sign = SignupModel.fromJson(responseData);
@@ -62,7 +61,6 @@ class SignupControllers extends GetxController {
         }
       }
     } catch (e) {
-     
       Get.snackbar('Error', e.toString());
     } finally {
       loading();

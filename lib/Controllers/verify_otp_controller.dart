@@ -30,7 +30,7 @@ class VerifyOtpController extends GetxController {
       );
 
       if (res.statusCode == 200) {
-        var responseData = json.decode(res.body);
+        json.decode(res.body);
         // Handle successful verification
         Get.snackbar('Success', 'OTP verified and login successful');
       } else {

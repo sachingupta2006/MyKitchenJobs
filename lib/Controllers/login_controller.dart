@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:my_kitchen_jobs/Modal/login_model.dart';
+import 'package:my_kitchen_jobs/View/home_page.dart';
+import 'package:my_kitchen_jobs/View/kitchen_category_screen.dart';
 
-import 'package:my_kitchen_jobs/Modal/common_model.dart';
 import 'package:my_kitchen_jobs/main.dart';
 
 class LoginController extends GetxController {
@@ -13,8 +15,8 @@ class LoginController extends GetxController {
     update();
   }
 
-  CommonModel? _login;
-  CommonModel? get loginData => _login;
+  LoginModel? _login;
+  LoginModel? get loginData => _login;
 
   loginApi(String email, String password) async {
     try {
@@ -28,15 +30,19 @@ class LoginController extends GetxController {
       );
       if (res.statusCode == 200) {
         var responseData = json.decode(res.body);
-        _login = CommonModel.fromJson(responseData);
+        _login = LoginModel.fromJson(responseData);
+
+        String? token = responseData['token'];
+        if (token != null) {
+          homeC.saveToken(token);
+          Get.to(() => const HomePage());
+        }
       } else {
-        // Handle errors, for example:
         Get.snackbar('Error', 'Failed to login');
       }
-      Get.snackbar('qq', '${_login?.title}');
+      Get.snackbar('Login', '${_login?.title}');
     } catch (e) {
-      // Handle exceptions, for example:
-      Get.snackbar('error', e.toString());
+      Get.snackbar('Error', e.toString());
     } finally {
       loading();
     }

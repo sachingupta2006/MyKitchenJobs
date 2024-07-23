@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
 commonToast(String msg) {
   return Fluttertoast.showToast(
