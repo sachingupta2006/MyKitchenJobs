@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-
-import 'package:my_kitchen_jobs/Modal/user_signup_model.dart';
+import 'package:my_kitchen_jobs/Modal/JobsModal/jobs_model.dart';
 import 'package:my_kitchen_jobs/main.dart';
 
-class SignupControllers extends GetxController {
+class JobsUpdateControllers extends GetxController {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
@@ -14,32 +13,30 @@ class SignupControllers extends GetxController {
     update();
   }
 
-  SignupModel? _sign;
-  SignupModel? get signupData => _sign;
+  JobsModel? _jobsUpdate;
+  JobsModel? get jobsData => _jobsUpdate;
 
-  Future<void> signupApi(
-    String name,
-    String email,
-    String phoneNo,
-    String state,
-    String password,
-    String cpassword,
-    String type,
+  Future<void> jobsUpdateApi(
+    String position,
+    String gender,
+    String location,
+    String address,
+    String salary,
+    String experience,
   ) async {
     try {
       loading();
       final requestBody = json.encode({
-        "name": name,
-        "email": email,
-        "phone_no": phoneNo,
-        "location": state,
-        "password": password,
-        "cpassword": cpassword,
-        "type": type,
+        "position": position,
+        "gender": gender,
+        "location": location,
+        "address": address,
+        "salary": salary,
+        "experience": experience,
       });
 
       final response = await http.post(
-        Uri.parse('${homeC.baseUrl}/users/'),
+        Uri.parse('${homeC.baseUrl}/jobs/update'),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -48,16 +45,17 @@ class SignupControllers extends GetxController {
 
       final responseData = json.decode(response.body);
       if (response.statusCode == 200 && responseData['error'] == false) {
-        _sign = SignupModel.fromJson(responseData);
+        _jobsUpdate = JobsModel.fromJson(responseData);
         Get.snackbar('Success', 'Signup successful');
       } else {
-        _sign = SignupModel.fromJson(responseData);
-        if (_sign?.error == true && _sign?.errors?.errorDetails != null) {
-          for (var error in _sign!.errors!.errorDetails!) {
+        _jobsUpdate = JobsModel.fromJson(responseData);
+        if (_jobsUpdate?.error == true &&
+            _jobsUpdate?.errors?.errorDetails != null) {
+          for (var error in _jobsUpdate!.errors!.errorDetails!) {
             Get.snackbar('Error', error.msg ?? 'Validation error');
           }
         } else {
-          Get.snackbar('Error', _sign?.title ?? 'Signup failed');
+          Get.snackbar('Error', _jobsUpdate?.title ?? 'Signup failed');
         }
       }
     } catch (e) {

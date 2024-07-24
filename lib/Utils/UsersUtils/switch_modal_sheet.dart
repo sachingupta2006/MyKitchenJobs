@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/square_button.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
 
 class SwitchModeModal extends StatelessWidget {
   const SwitchModeModal({super.key});

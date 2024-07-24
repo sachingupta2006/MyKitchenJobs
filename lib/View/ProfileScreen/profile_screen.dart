@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/login_controller.dart';
-import 'package:my_kitchen_jobs/Utils/app_bar_text.dart';
+import 'package:my_kitchen_jobs/Controllers/UsersControllers/login_controller.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/app_bar_text.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/profile_text_field.dart';
-import 'package:my_kitchen_jobs/Utils/sign_up_button.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/profile_text_field.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/sign_up_button.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
-import 'package:my_kitchen_jobs/Utils/square_button.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
 import 'package:my_kitchen_jobs/View/ProfileScreen/profile_forgot_password.dart';
 import 'package:my_kitchen_jobs/View/ProfileScreen/profile_signup.dart';
 
-import '../../Utils/common_toast.dart';
+import '../../Utils/UsersUtils/common_toast.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

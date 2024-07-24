@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Utils/app_bar_text.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/app_bar_text.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/blue_text.dart';
-import 'package:my_kitchen_jobs/View/ChefDetailsScreen/chefs_screen.dart';
+import 'package:my_kitchen_jobs/Utils/KitchenUtils/blue_text.dart';
+import 'package:my_kitchen_jobs/View/ChefsScreen/chefs_screen.dart';
 
 class KitchenGrid extends StatelessWidget {
   KitchenGrid({super.key});

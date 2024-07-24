@@ -4,10 +4,10 @@ import 'package:my_kitchen_jobs/Controllers/tab_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
-import 'package:my_kitchen_jobs/Utils/sizebox.dart';
-import 'package:my_kitchen_jobs/View/ChefDetailsScreen/decription_screen.dart';
-import 'package:my_kitchen_jobs/View/ChefDetailsScreen/details_screen.dart';
-import 'package:my_kitchen_jobs/View/ChefDetailsScreen/pictures_screen.dart';
+
+import 'package:my_kitchen_jobs/View/ChefsScreen/decription_screen.dart';
+import 'package:my_kitchen_jobs/View/ChefsScreen/details_screen.dart';
+import 'package:my_kitchen_jobs/View/ChefsScreen/pictures_screen.dart';
 
 class ChefsScreen extends StatefulWidget {
   const ChefsScreen({super.key});
@@ -166,9 +166,9 @@ class _ChefsScreenState extends State<ChefsScreen>
                   ],
                 ),
               ),
-              sizedBox(),
+             customSizeBox(20, 0),
               customButton("HIRE ME", 0),
-              sizedBox(),
+              customSizeBox(20, 0),
             ],
           ),
           Positioned(

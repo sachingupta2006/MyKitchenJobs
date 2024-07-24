@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_kitchen_jobs/Utils/black_text.dart';
-import 'package:my_kitchen_jobs/Utils/blue_text.dart';
+import 'package:my_kitchen_jobs/Utils/KitchenUtils/black_text.dart';
+import 'package:my_kitchen_jobs/Utils/KitchenUtils/blue_text.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
 class DetailsScreen extends StatelessWidget {

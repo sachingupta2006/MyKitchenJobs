@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Utils/app_bar.dart';
-import 'package:my_kitchen_jobs/Utils/category_screen.dart';
-import 'package:my_kitchen_jobs/Utils/container.dart';
+import 'package:my_kitchen_jobs/Utils/KitchenUtils/app_bar.dart';
+import 'package:my_kitchen_jobs/Utils/KitchenUtils/category_screen.dart';
+import 'package:my_kitchen_jobs/Utils/KitchenUtils/container.dart';
 
 class KitchenCategoryScreen extends StatelessWidget {
   const KitchenCategoryScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/jobs_container.dart';
+import 'package:my_kitchen_jobs/Utils/JobsUtils/jobs_container.dart';
 import 'package:my_kitchen_jobs/View/JobScreen.dart/job_add_screen.dart';
 
 class JobScreen extends StatelessWidget {

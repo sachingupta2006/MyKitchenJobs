@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/dropdown_controller.dart';
-import 'package:my_kitchen_jobs/Controllers/signup_controllers.dart';
-import 'package:my_kitchen_jobs/Utils/app_bar_text.dart';
+import 'package:my_kitchen_jobs/Controllers/UsersControllers/signup_controllers.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/app_bar_text.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/common_toast.dart';
-import 'package:my_kitchen_jobs/Utils/drop_down.dart';
-import 'package:my_kitchen_jobs/Utils/profile_text_field.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/common_toast.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/drop_down.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/profile_text_field.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
-import 'package:my_kitchen_jobs/Utils/square_button.dart';
-import 'package:my_kitchen_jobs/Utils/sign_up_button.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/sign_up_button.dart';
 
 class ProfileSignup extends StatefulWidget {
   const ProfileSignup({super.key});

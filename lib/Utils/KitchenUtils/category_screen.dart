@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/blue_text.dart';
-import 'package:my_kitchen_jobs/Utils/modal_bottom_sheet.dart';
-import 'package:my_kitchen_jobs/Utils/sizebox.dart';
-import 'package:my_kitchen_jobs/View/ChefDetailsScreen/chefs_screen.dart';
-import 'package:my_kitchen_jobs/View/search_screen.dart';
+import 'package:my_kitchen_jobs/Utils/KitchenUtils/blue_text.dart';
+import 'package:my_kitchen_jobs/Utils/KitchenUtils/modal_bottom_sheet.dart';
+import 'package:my_kitchen_jobs/Utils/size_box.dart';
+
+import 'package:my_kitchen_jobs/View/ChefsScreen/chefs_screen.dart';
+import 'package:my_kitchen_jobs/View/ChefsScreen/search_screen.dart';
 
 class CategoryScreen extends StatelessWidget {
   CategoryScreen(this.texts, this.text, {super.key});
@@ -86,7 +87,7 @@ class CategoryScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          sizedBox(),
+          customSizeBox(20, 0),
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Row(

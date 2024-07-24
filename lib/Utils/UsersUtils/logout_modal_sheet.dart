@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/square_button.dart';
-import 'package:my_kitchen_jobs/Utils/switch_modal_sheet.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/switch_modal_sheet.dart';
 
 class LogoutModal extends StatelessWidget {
   const LogoutModal({super.key});

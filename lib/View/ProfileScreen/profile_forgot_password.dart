@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/forgot_controller.dart';
-import 'package:my_kitchen_jobs/Controllers/verify_otp_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/UsersControllers/forgot_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/UsersControllers/verify_otp_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/common_toast.dart';
-import 'package:my_kitchen_jobs/Utils/profile_text_field.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/common_toast.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/profile_text_field.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
-import 'package:my_kitchen_jobs/Utils/square_button.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
 
 class ProfileForgotPassword extends StatelessWidget {
   ProfileForgotPassword({super.key});

@@ -1,27 +1,18 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_kitchen_jobs/Modal/jobs_model.dart';
+import 'package:my_kitchen_jobs/Modal/JobsModal/jobs_model.dart';
 import 'package:my_kitchen_jobs/main.dart';
 
 class JobsControllers extends GetxController {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  String? _token;
-  String? get token => _token;
-
-  void loading() {
-    _isLoading = !_isLoading;
-    update();
-  }
-
   JobsModel? _jobs;
   JobsModel? get jobsData => _jobs;
 
-  void setToken(String newToken) {
-    _token = newToken;
-
+  void loading() {
+    _isLoading = !_isLoading;
     update();
   }
 
@@ -35,6 +26,15 @@ class JobsControllers extends GetxController {
   ) async {
     try {
       loading();
+
+      // Access the token from HomeController
+      String? token = homeC.token;
+
+      if (token == null) {
+        Get.snackbar('Error', 'Authentication token is missing');
+        return;
+      }
+
       final requestBody = json.encode({
         "position": position,
         "gender": gender,
@@ -48,12 +48,10 @@ class JobsControllers extends GetxController {
         Uri.parse('${homeC.baseUrl}/jobs/'),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer $_token',
+          'token': token, // Include token in headers
         },
         body: requestBody,
       );
-
-    
 
       final responseData = json.decode(response.body);
       if (response.statusCode == 200 && responseData['error'] == false) {
@@ -70,7 +68,6 @@ class JobsControllers extends GetxController {
         }
       }
     } catch (e) {
-     
       Get.snackbar('Error', e.toString());
     } finally {
       loading();

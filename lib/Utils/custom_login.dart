@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
-import 'package:my_kitchen_jobs/Utils/sizebox.dart';
+import 'package:my_kitchen_jobs/Utils/size_box.dart';
+
 import 'package:my_kitchen_jobs/Utils/text_field.dart';
 
 class CustomLogin extends StatelessWidget {
@@ -28,15 +29,15 @@ class CustomLogin extends StatelessWidget {
               child: Column(
                 children: [
                   const Text("Name"),
-                  sizedBox(),
+                  customSizeBox(20, 0),
                   const Text("Email Adress"),
-                  sizedBox(),
+                  customSizeBox(20, 0),
                   CustomText(const Icon(Icons.email), "Email", false,
                       controllers: usernameController,
                       hinttext: "Enter You Email"),
-                  sizedBox(),
+                  customSizeBox(20, 0),
                   const Text("Password"),
-                  sizedBox(),
+                  customSizeBox(20, 0),
                   CustomText(
                       IconButton(
                           onPressed: () {},
@@ -45,8 +46,8 @@ class CustomLogin extends StatelessWidget {
                       true,
                       controllers: passwordController,
                       hinttext: "Enter Your Password"),
-                  sizedBox(),
-                  customButton("Login",15),
+                  customSizeBox(20, 0),
+                  customButton("Login", 15),
                 ],
               ),
             ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/text.dart';
 import 'package:my_kitchen_jobs/View/employee_login.dart';
-import 'package:my_kitchen_jobs/View/kichen_bottom_bar.dart';
+import 'package:my_kitchen_jobs/View/bottom_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
