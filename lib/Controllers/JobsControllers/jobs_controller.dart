@@ -11,6 +11,9 @@ class JobsControllers extends GetxController {
   JobsModel? _jobs;
   JobsModel? get jobsData => _jobs;
 
+  String? _jobId;
+  String? get jobId => _jobId; // Getter for the jobId
+
   void loading() {
     _isLoading = !_isLoading;
     update();
@@ -20,9 +23,9 @@ class JobsControllers extends GetxController {
     String position,
     String gender,
     String location,
-    String address,
-    String salary,
     String experience,
+    String salary,
+    String address,
   ) async {
     try {
       loading();
@@ -36,12 +39,12 @@ class JobsControllers extends GetxController {
       }
 
       final requestBody = json.encode({
-        "position": position,
+        "position": [position],
         "gender": gender,
         "location": location,
-        "address": address,
-        "salary": salary,
         "experience": experience,
+        "salary": salary,
+        "address": address,
       });
 
       final response = await http.post(
@@ -56,6 +59,8 @@ class JobsControllers extends GetxController {
       final responseData = json.decode(response.body);
       if (response.statusCode == 200 && responseData['error'] == false) {
         _jobs = JobsModel.fromJson(responseData);
+        _jobId = responseData['savedJob']['_id'];
+
         Get.snackbar('Success', 'Job added successfully');
       } else {
         _jobs = JobsModel.fromJson(responseData);

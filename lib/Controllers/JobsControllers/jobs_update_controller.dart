@@ -26,8 +26,17 @@ class JobsUpdateControllers extends GetxController {
   ) async {
     try {
       loading();
+
+      // Access the token from HomeController
+      String? token = homeC.token;
+
+      if (token == null) {
+        Get.snackbar('Error', 'Authentication token is missing');
+        return;
+      }
+
       final requestBody = json.encode({
-        "position": position,
+        "position": [position],
         "gender": gender,
         "location": location,
         "address": address,
@@ -35,10 +44,12 @@ class JobsUpdateControllers extends GetxController {
         "experience": experience,
       });
 
-      final response = await http.post(
-        Uri.parse('${homeC.baseUrl}/jobs/update'),
+      final response = await http.put(
+        // Using PUT for update
+        Uri.parse('${homeC.baseUrl}/jobs/update/'),
         headers: {
           'Content-Type': 'application/json',
+          'token': token, // Include token in headers
         },
         body: requestBody,
       );
@@ -46,7 +57,7 @@ class JobsUpdateControllers extends GetxController {
       final responseData = json.decode(response.body);
       if (response.statusCode == 200 && responseData['error'] == false) {
         _jobsUpdate = JobsModel.fromJson(responseData);
-        Get.snackbar('Success', 'Signup successful');
+        Get.snackbar('Success', 'Job updated successfully');
       } else {
         _jobsUpdate = JobsModel.fromJson(responseData);
         if (_jobsUpdate?.error == true &&
@@ -55,7 +66,7 @@ class JobsUpdateControllers extends GetxController {
             Get.snackbar('Error', error.msg ?? 'Validation error');
           }
         } else {
-          Get.snackbar('Error', _jobsUpdate?.title ?? 'Signup failed');
+          Get.snackbar('Error', _jobsUpdate?.title ?? 'Job update failed');
         }
       }
     } catch (e) {

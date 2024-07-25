@@ -17,8 +17,6 @@ class JobAddScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     DropdownController dropdownController = Get.put(DropdownController());
     JobsControllers jobC = Get.put(JobsControllers());
-  
-    
 
     TextEditingController experienceController = TextEditingController();
     TextEditingController salaryController = TextEditingController();
@@ -116,6 +114,7 @@ class JobAddScreen extends StatelessWidget {
                   if (dropdownController.selectedState.value.isEmpty) {
                     commonToast("Please Select State");
                   }
+
                   if (experienceController.text.isEmpty) {
                     commonToast("Please enter your experience");
                   }
@@ -129,11 +128,9 @@ class JobAddScreen extends StatelessWidget {
                       dropdownController.selectedPosition.value,
                       dropdownController.selectedGender.value,
                       dropdownController.selectedState.value,
-                      salaryController.text,
                       experienceController.text,
+                      salaryController.text,
                       addressController.text,
-                    
-                      
                     );
                   }
                 },
