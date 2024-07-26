@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/JobsControllers/jobs_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/dropdown_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/JobsControllers/jobs_update_controller.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/app_bar_text.dart';
@@ -22,7 +21,6 @@ class JobUpdateScreen extends StatelessWidget {
     TextEditingController experienceController = TextEditingController();
     TextEditingController salaryController = TextEditingController();
     TextEditingController addressController = TextEditingController();
-    
 
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -147,10 +145,9 @@ class JobUpdateScreen extends StatelessWidget {
                           dropdownController.selectedPosition.value,
                           dropdownController.selectedGender.value,
                           dropdownController.selectedState.value,
+                          addressController.text,
                           salaryController.text,
                           experienceController.text,
-                          addressController.text,
-                          
                         );
                       }
                     },

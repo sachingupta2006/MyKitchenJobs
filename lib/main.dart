@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_kitchen_jobs/Controllers/JobsControllers/jobs_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/home_controller.dart';
 
 import 'package:my_kitchen_jobs/View/splash_screen.dart';
@@ -7,6 +8,7 @@ import 'package:my_kitchen_jobs/View/splash_screen.dart';
 HomeController homeC = Get.put(HomeController());
 
 void main() {
+  Get.put(JobsControllers());
   runApp(const MyApp());
 }
 

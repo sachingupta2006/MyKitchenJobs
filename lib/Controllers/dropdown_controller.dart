@@ -5,4 +5,5 @@ class DropdownController extends GetxController {
   var selectedProfession = ''.obs;
   var selectedGender = ''.obs;
   var selectedPosition = ''.obs;
+
 }

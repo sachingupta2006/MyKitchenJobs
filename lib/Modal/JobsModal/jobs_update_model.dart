@@ -1,5 +1,5 @@
 class JobsUpdateModel {
-  String ?title;
+  String? title;
   bool? error;
 
   JobsUpdateModel({this.title, this.error});

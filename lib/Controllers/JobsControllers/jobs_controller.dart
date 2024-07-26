@@ -11,6 +11,7 @@ class JobsControllers extends GetxController {
   JobsModel? _jobs;
   JobsModel? get jobsData => _jobs;
 
+  // Store the jobId
   String? _jobId;
   String? get jobId => _jobId; // Getter for the jobId
 
@@ -59,7 +60,7 @@ class JobsControllers extends GetxController {
       final responseData = json.decode(response.body);
       if (response.statusCode == 200 && responseData['error'] == false) {
         _jobs = JobsModel.fromJson(responseData);
-        _jobId = responseData['savedJob']['_id'];
+        _jobId = responseData['savedJob']['_id']; // Store jobId here
 
         Get.snackbar('Success', 'Job added successfully');
       } else {
