@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PicturesSreen extends StatelessWidget {
-  const PicturesSreen({super.key});
+class EmployeePicturesScreen extends StatelessWidget {
+  const EmployeePicturesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:my_kitchen_jobs/main.dart';
-import 'package:my_kitchen_jobs/Modal/UsersModal/verify_otp_model.dart'; // Ensure this import is correct
+import 'package:my_kitchen_jobs/Model/Onboarding%20Models/verify_otp_model.dart'; // Ensure this import is correct
 
 class VerifyOtpController extends GetxController {
   bool _isLoading = false;

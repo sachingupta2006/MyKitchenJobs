@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_kitchen_jobs/Utils/KitchenUtils/black_text.dart';
-import 'package:my_kitchen_jobs/Utils/KitchenUtils/blue_text.dart';
-import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
-class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({super.key});
+import 'package:my_kitchen_jobs/Utils/size_box.dart';
+import 'package:my_kitchen_jobs/Utils/text_style.dart';
+
+class EmployeeDetailsScreen extends StatelessWidget {
+  const EmployeeDetailsScreen({super.key, required chef});
 
   @override
   Widget build(BuildContext context) {

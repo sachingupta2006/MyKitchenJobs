@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
-import 'package:my_kitchen_jobs/Utils/UsersUtils/switch_modal_sheet.dart';
 
-class LogoutModal extends StatelessWidget {
-  const LogoutModal({super.key});
+class LogoutSwitchModal extends StatelessWidget {
+  const LogoutSwitchModal(
+      {super.key,
+      required this.text,
+      required this.texts,
+      required this.textss});
+
+  final String text;
+  final String texts;
+  final String textss;
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +21,11 @@ class LogoutModal extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 25),
+          Padding(
+            padding: const EdgeInsets.only(left: 25),
             child: Text(
-              "Logout and Switch mode",
-              style: TextStyle(
+              text,
+              style: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w700,
                 fontSize: 17,
@@ -28,11 +35,11 @@ class LogoutModal extends StatelessWidget {
           const SizedBox(height: 16),
           const Divider(thickness: 1),
           const SizedBox(height: 16),
-          const Padding(
-            padding: EdgeInsets.only(left: 15),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
             child: Text(
-              "Are you sure you want to logout and switch modes? ",
-              style: TextStyle(fontWeight: FontWeight.w700),
+              texts,
+              style: const TextStyle(fontWeight: FontWeight.w700),
             ),
           ),
           const SizedBox(
@@ -57,7 +64,11 @@ class LogoutModal extends StatelessWidget {
                   showModalBottomSheet(
                     context: context,
                     builder: (context) {
-                      return const SwitchModeModal();
+                      return const LogoutSwitchModal(
+                        text: "Switch mode",
+                        texts: "Are you sure you want to switch modes? ",
+                        textss: "YES, SWITCH",
+                      );
                     },
                   );
                 });
@@ -69,10 +80,10 @@ class LogoutModal extends StatelessWidget {
                   color: AppColors.primary,
                   borderRadius: BorderRadius.circular(0),
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
-                    "YES, LOGOUT AND SWITCH",
-                    style: TextStyle(
+                    textss,
+                    style: const TextStyle(
                         color: AppColors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 14),

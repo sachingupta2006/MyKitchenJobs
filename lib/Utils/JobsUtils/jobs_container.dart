@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
-import 'package:my_kitchen_jobs/Utils/text.dart';
+import 'package:my_kitchen_jobs/Utils/text_style.dart';
 import 'package:my_kitchen_jobs/View/JobScreen.dart/job_update_screen.dart';
 
 class JobContainer extends StatelessWidget {

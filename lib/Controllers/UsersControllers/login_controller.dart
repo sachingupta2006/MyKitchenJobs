@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_kitchen_jobs/Modal/UsersModal/login_model.dart';
+import 'package:my_kitchen_jobs/Model/Onboarding%20Models/login_model.dart';
 import 'package:my_kitchen_jobs/View/home_page.dart';
 
 

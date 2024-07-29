@@ -6,10 +6,11 @@ import 'package:my_kitchen_jobs/Utils/UsersUtils/app_bar_text.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/common_toast.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
-import 'package:my_kitchen_jobs/Utils/JobsUtils/job_text.dart';
+
 import 'package:my_kitchen_jobs/Utils/UsersUtils/profile_text_field.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/drop_down.dart';
+import 'package:my_kitchen_jobs/Utils/text_style.dart';
 
 class JobUpdateScreen extends StatelessWidget {
   const JobUpdateScreen({super.key});

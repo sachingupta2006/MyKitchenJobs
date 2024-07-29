@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_kitchen_jobs/Controllers/JobsControllers/jobs_controller.dart';
-import 'package:my_kitchen_jobs/Modal/JobsModal/jobs_update_model.dart';
+import 'package:my_kitchen_jobs/Model/JobsModels/jobs_update_model.dart';
 import 'package:my_kitchen_jobs/main.dart';
 
 class JobsUpdateControllers extends GetxController {

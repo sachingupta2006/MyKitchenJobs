@@ -9,7 +9,6 @@ import 'package:my_kitchen_jobs/Utils/UsersUtils/drop_down.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/profile_text_field.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
-import 'package:my_kitchen_jobs/Utils/UsersUtils/sign_up_button.dart';
 
 class ProfileSignup extends StatefulWidget {
   const ProfileSignup({super.key});
@@ -138,13 +137,14 @@ class _ProfileSignupState extends State<ProfileSignup> {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: signButton(
-                      50,
-                      200,
+                    child: squareButton(
+                      15,
                       AppColors.primary,
                       "BACK TO LOGIN",
                       AppColors.white,
-                      const Icon(
+                      50,
+                      200,
+                      icon: const Icon(
                         Icons.arrow_back_outlined,
                         color: AppColors.white,
                       ),

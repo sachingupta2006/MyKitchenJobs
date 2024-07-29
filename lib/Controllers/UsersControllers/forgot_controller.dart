@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_kitchen_jobs/Modal/UsersModal/user_forgot_model.dart';
+import 'package:my_kitchen_jobs/Model/Onboarding%20Models/user_forgot_model.dart';
 import 'package:my_kitchen_jobs/main.dart';
 
 class ForgotController extends GetxController {

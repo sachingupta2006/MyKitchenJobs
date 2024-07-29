@@ -5,7 +5,7 @@ import 'package:my_kitchen_jobs/Controllers/UsersControllers/login_controller.da
 import 'package:my_kitchen_jobs/Utils/UsersUtils/app_bar_text.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/profile_text_field.dart';
-import 'package:my_kitchen_jobs/Utils/UsersUtils/sign_up_button.dart';
+
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
 import 'package:my_kitchen_jobs/View/ProfileScreen/profile_forgot_password.dart';
@@ -99,17 +99,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onTap: () {
                 Get.to(() => const ProfileSignup());
               },
-              child: signButton(
-                50,
-                120,
-                AppColors.primary,
-                "SIGN UP",
-                AppColors.white,
-                const Icon(
-                  Icons.arrow_forward,
-                  color: AppColors.white,
-                ),
-              ),
+              child: squareButton(
+                  15, AppColors.primary, "SIGN UP", AppColors.white, 50, 120,
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                    color: AppColors.white,
+                  )),
             ),
           ],
         ),

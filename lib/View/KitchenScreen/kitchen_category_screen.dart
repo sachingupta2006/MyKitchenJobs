@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/KitchenUtils/app_bar.dart';
-import 'package:my_kitchen_jobs/Utils/KitchenUtils/category_screen.dart';
+import 'package:my_kitchen_jobs/View/KitchenScreen/kitchen_employee_list.dart';
 import 'package:my_kitchen_jobs/Utils/KitchenUtils/container.dart';
 
 class KitchenCategoryScreen extends StatelessWidget {
@@ -35,10 +35,11 @@ class KitchenCategoryScreen extends StatelessWidget {
     );
   }
 }
+
 Widget name(String title, String image, String text) {
   return GestureDetector(
     onTap: () {
-      Get.to(() => CategoryScreen(title, text),
+      Get.to(() => KitchenEmployeeList(title, text),
           transition: Transition.rightToLeft);
     },
     child: customContainer(image, title),

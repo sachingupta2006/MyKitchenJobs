@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/UsersUtils/logout_modal_sheet.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/logout_switch_modal_sheet.dart';
 
 class AppBarModalSheet extends StatelessWidget {
   const AppBarModalSheet({super.key});
@@ -13,7 +13,11 @@ class AppBarModalSheet extends StatelessWidget {
         showModalBottomSheet(
           context: context,
           builder: (BuildContext context) {
-            return const LogoutModal();
+            return const LogoutSwitchModal(
+              text: "Logout and Switch mode",
+              texts: "Are you sure you want to logout and switch modes? ",
+              textss: "YES, LOGOUT AND SWITCH",
+            );
           },
         );
       },
