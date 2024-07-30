@@ -35,7 +35,7 @@ class GetChefsController extends GetxController {
       if (res.statusCode == 200) {
         // Parse the response body as JSON
         var responseData = json.decode(res.body);
-
+      
         // Create a ChefsModel instance from the parsed JSON data
         _chefs.value = ChefsModel.fromJson(responseData);
       } else {

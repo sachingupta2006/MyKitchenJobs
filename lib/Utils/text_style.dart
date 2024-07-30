@@ -22,9 +22,10 @@ Widget jobText(String text) {
 Widget blackText(String textBl) {
   return Text(
     textBl,
-    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+    style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
   );
 }
+
 Widget blueText(String textb) {
   return Text(
     textb,

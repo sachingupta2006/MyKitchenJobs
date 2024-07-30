@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/tab_controller.dart';
+import 'package:my_kitchen_jobs/Model/get_chef_data_model.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_decription_screen.dart';
-
 import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_details_screen.dart';
 import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_pictures_screen.dart';
 
 class ChefsScreen extends StatefulWidget {
-  const ChefsScreen({super.key});
+  final Data chef; // The individual chef data
+
+  const ChefsScreen({super.key, required this.chef});
 
   @override
   State<ChefsScreen> createState() => _ChefsScreenState();
@@ -19,7 +21,7 @@ class ChefsScreen extends StatefulWidget {
 class _ChefsScreenState extends State<ChefsScreen>
     with SingleTickerProviderStateMixin {
   final MyTabController tabController = Get.put(MyTabController());
-  final RxBool isFavorite = false.obs; // Added for favorite icon state
+  final RxBool isFavorite = false.obs;
   late TabController _internalTabController;
 
   @override
@@ -70,6 +72,8 @@ class _ChefsScreenState extends State<ChefsScreen>
 
   @override
   Widget build(BuildContext context) {
+    final chef = widget.chef; // Access the chef data
+
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Stack(
@@ -78,11 +82,9 @@ class _ChefsScreenState extends State<ChefsScreen>
             children: [
               AppBar(
                 actions: [
-                  // Wrap the Row in an Expanded to ensure it doesn't overflow
                   Expanded(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment
-                          .spaceBetween, // Distribute space between children
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
                           onPressed: () {
@@ -121,18 +123,18 @@ class _ChefsScreenState extends State<ChefsScreen>
                 toolbarHeight: 150,
                 backgroundColor: AppColors.primary,
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 50),
+              Padding(
+                padding: const EdgeInsets.only(top: 50),
                 child: Text(
-                  "PARESH GHARAT",
-                  style: TextStyle(fontWeight: FontWeight.w600),
+                  chef.name.toString(), // Display the chef's name
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(4.0),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
                 child: Text(
-                  "CHEF FROM MAHARASHTRA",
-                  style: TextStyle(
+                  'CHEF FROM ${chef.location?.name.toString() ?? 'UNKNOWN'}',
+                  style: const TextStyle(
                     color: AppColors.primary,
                     fontWeight: FontWeight.w700,
                   ),
@@ -160,7 +162,7 @@ class _ChefsScreenState extends State<ChefsScreen>
                 child: TabBarView(
                   controller: _internalTabController,
                   children: const [
-                    EmployeeDetailsScreen(chef: null,),
+                    EmployeeDetailsScreen(),
                     EmployeeDecriptionScreen(),
                     EmployeePicturesScreen(),
                   ],
@@ -172,21 +174,21 @@ class _ChefsScreenState extends State<ChefsScreen>
             ],
           ),
           Positioned(
-            top: 125, // Adjust the top position as needed
-            left: MediaQuery.of(context).size.width / 2 -
-                50, // Center horizontally
+            top: 125,
+            left: MediaQuery.of(context).size.width / 2 - 50,
             child: ClipOval(
               child: Container(
-                color: Colors
-                    .white, // Optional: To add a white border around the image
-                padding: const EdgeInsets.all(
-                    4.0), // Optional: To add space between image and border
+                color: Colors.white,
+                padding: const EdgeInsets.all(4.0),
                 child: ClipOval(
-                  child: Image.asset(
-                    'assets/images/chef1.jpg', // Replace with your asset image path
+                  child: Image.network(
+                    chef.profileImg ?? 'https://example.com/default-image.jpg',
                     width: 100,
                     height: 100,
                     fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Icon(Icons.error); // Error placeholder
+                    },
                   ),
                 ),
               ),

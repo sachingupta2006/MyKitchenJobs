@@ -4,6 +4,7 @@ import 'package:my_kitchen_jobs/Controllers/get_chefs_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/KitchenUtils/modal_bottom_sheet.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
+import 'package:my_kitchen_jobs/Utils/text_style.dart';
 import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_screen.dart';
 import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_search_screen.dart';
 
@@ -17,6 +18,7 @@ class KitchenEmployeeList extends StatelessWidget {
   Widget build(BuildContext context) {
     // Initialize the GetChefsController
     final GetChefsController chefsController = Get.put(GetChefsController());
+    final RxList<bool> isFavorite = List.generate(10, (index) => false).obs;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -92,20 +94,26 @@ class KitchenEmployeeList extends StatelessWidget {
 
         // Access the data and handle null cases
         final chefsData = chefsController.chefsData.value;
-        if (chefsData == null || chefsData.chefsData == null) {
+        if (chefsData == null ||
+            chefsData.chefsData == null ||
+            chefsData.chefsData!.isEmpty) {
           return const Center(child: Text('No data available'));
         }
 
-        final chefsList = chefsData.chefsData ?? [];
+        final chefsList = chefsData.chefsData!;
+
+        // Flatten the list of chefs' data
+        final allChefs = chefsList.expand((chef) => chef.data ?? []).toList();
 
         // Wrap only the parts that need to be reactive
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             customSizeBox(20, 0),
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Text(
-                "Showing ${chefsList.length} results for $text",
+                " ${allChefs.length} results for $text",
                 style: const TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 12,
@@ -116,7 +124,7 @@ class KitchenEmployeeList extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, top: 20),
                 child: GridView.builder(
-                  itemCount: chefsList.length,
+                  itemCount: allChefs.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisSpacing: 4,
@@ -124,13 +132,13 @@ class KitchenEmployeeList extends StatelessWidget {
                     childAspectRatio: 0.7,
                   ),
                   itemBuilder: (context, index) {
-                    final chefDataList = chefsList[index].data ?? [];
-                    final chef =
-                        chefDataList.isNotEmpty ? chefDataList.first : null;
+                    final chef = allChefs[index];
 
                     return GestureDetector(
                       onTap: () {
-                        Get.to(() => const ChefsScreen());
+                        Get.to(() => ChefsScreen(
+                              chef: chef,
+                            ));
                       },
                       child: Stack(
                         children: [
@@ -144,10 +152,11 @@ class KitchenEmployeeList extends StatelessWidget {
                             right: 0,
                             child: Container(
                               height: 150,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 image: DecorationImage(
-                                  image: AssetImage(
-                                    "assets/images/chef2.jpg",
+                                  image: NetworkImage(
+                                    chef.profileImg ??
+                                        'https://example.com/default-image.jpg',
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -157,39 +166,30 @@ class KitchenEmployeeList extends StatelessWidget {
                           Positioned(
                             top: 5,
                             left: 10,
-                            child: GestureDetector(
-                              onTap: () {
-                                // Implement favorite logic if needed
-                              },
-                              child: const Icon(
-                                Icons.favorite_outline,
-                                color: Colors.grey,
-                                size: 18,
+                            child: Obx(
+                              () => GestureDetector(
+                                onTap: () {
+                                  isFavorite[index] = !isFavorite[index];
+                                },
+                                child: Icon(
+                                  isFavorite[index]
+                                      ? Icons.favorite
+                                      : Icons.favorite_outline,
+                                  color: isFavorite[index]
+                                      ? Colors.red
+                                      : Colors.grey,
+                                  size: 18,
+                                ),
                               ),
                             ),
                           ),
-                          Positioned(
-                            left: 55,
-                            top: 160,
-                            child: Text(
-                              chef?.name ?? "Unknown",
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 12,
-                              ),
-                            ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 115),
+                            child: Center(child: blackText(chef.name)),
                           ),
-                          Positioned(
-                            left: 30,
-                            top: 178,
-                            child: Text(
-                              chef?.location?.name ?? "Location",
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 10,
-                                color: Colors.grey,
-                              ),
-                            ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 155),
+                            child: Center(child: blueText(chef.location.name)),
                           ),
                         ],
                       ),

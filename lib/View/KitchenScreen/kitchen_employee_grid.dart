@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/app_bar_text.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
-import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_screen.dart';
 
 class KitchenEmployeeGrid extends StatelessWidget {
   KitchenEmployeeGrid({super.key});
@@ -29,7 +28,7 @@ class KitchenEmployeeGrid extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Get.to(() => const ChefsScreen());
+                // Get.to(() => ChefsScreen(chef: chef,));
               },
               child: Stack(
                 children: [
