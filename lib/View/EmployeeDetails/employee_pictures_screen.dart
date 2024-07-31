@@ -1,9 +1,13 @@
+
 import 'package:flutter/material.dart';
 
 class EmployeePicturesScreen extends StatelessWidget {
   const EmployeePicturesScreen({
     super.key,
+    required this.picture,
   });
+
+  final String picture;
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +17,10 @@ class EmployeePicturesScreen extends StatelessWidget {
         itemCount: 10,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3, mainAxisSpacing: 30, crossAxisSpacing: 30),
-        itemBuilder: (context, index) => Container(
+        itemBuilder: (context, index) => SizedBox(
           height: 20,
           width: 20,
-          color: const Color.fromARGB(255, 225, 223, 223),
+          child: Image.network(picture),
         ),
       ),
     );

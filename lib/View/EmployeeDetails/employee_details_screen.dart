@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
@@ -6,8 +7,14 @@ import 'package:my_kitchen_jobs/Utils/text_style.dart';
 class EmployeeDetailsScreen extends StatelessWidget {
   const EmployeeDetailsScreen({
     super.key,
+    required this.dob,
+    required  this.salary,
+    required  this.experience,
   });
 
+  final String dob;
+  final String salary;
+  final String experience;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -21,7 +28,7 @@ class EmployeeDetailsScreen extends StatelessWidget {
           customSizeBox(10, 0),
           Padding(
             padding: const EdgeInsets.only(right: 270),
-            child: blackText("1969"),
+            child: blackText(dob),
           ),
           customSizeBox(25, 0),
           Padding(
@@ -33,7 +40,7 @@ class EmployeeDetailsScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 27),
-                child: blackText("Expected Salary is about 40,000"),
+                child: blackText(salary),
               ),
             ],
           ),
@@ -47,7 +54,7 @@ class EmployeeDetailsScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 27),
-                child: blackText("More than 3 years of Experience"),
+                child: blackText(experience),
               ),
             ],
           ),

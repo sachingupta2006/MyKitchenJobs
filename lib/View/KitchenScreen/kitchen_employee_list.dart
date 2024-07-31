@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/get_chefs_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/get_chefs_details_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/KitchenUtils/modal_bottom_sheet.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
@@ -19,7 +20,7 @@ class KitchenEmployeeList extends StatelessWidget {
     // Initialize the GetChefsController
     final GetChefsController chefsController = Get.put(GetChefsController());
     final RxList<bool> isFavorite = List.generate(10, (index) => false).obs;
-
+    Get.put(GetChefsDetailsController());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -136,9 +137,7 @@ class KitchenEmployeeList extends StatelessWidget {
 
                     return GestureDetector(
                       onTap: () {
-                        Get.to(() => ChefsScreen(
-                              chef: chef,
-                            ));
+                        Get.to(() => ChefsScreen(chefId: chef.sId));
                       },
                       child: Stack(
                         children: [

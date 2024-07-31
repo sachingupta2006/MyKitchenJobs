@@ -3,22 +3,27 @@ import 'package:flutter/material.dart';
 class EmployeeDecriptionScreen extends StatelessWidget {
   const EmployeeDecriptionScreen({
     super.key,
+    required this.description,
   });
+
+  final String description;
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(40),
+            padding: const EdgeInsets.all(40),
             child: Text(
-              'A chef is a skilled culinary professional who specializes in preparing and creating a wide range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to gourmet feasts.range of dishes, from everyday meals to \ngourmet feasts.range of dishes, from everyday meals to gourmet feasts.',
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+              description,
+              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
             ),
           )
         ],
       ),
+
+      
     );
   }
 }
