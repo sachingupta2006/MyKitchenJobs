@@ -1,25 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_kitchen_jobs/Controllers/add_wishlist_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/get_chefs_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/get_chefs_details_controller.dart';
-import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/KitchenUtils/modal_bottom_sheet.dart';
+import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
 import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_screen.dart';
 import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_search_screen.dart';
 
 class KitchenEmployeeList extends StatelessWidget {
-  const KitchenEmployeeList(this.texts, this.text, {super.key});
+  KitchenEmployeeList(this.texts, this.text, {super.key});
 
   final String texts;
   final String text;
+  final AddWishlistController wishlistController =
+      Get.put(AddWishlistController());
+  final GetChefsController chefsController = Get.put(GetChefsController());
+  final RxList<bool> isFavorite = List.generate(10, (index) => false).obs;
+
+  void _toggleFavorite(int index, String chefId) async {
+    // Toggle the favorite status
+    bool newFavoriteStatus = !isFavorite[index];
+    isFavorite[index] = newFavoriteStatus;
+
+    // Call the wishlist API with the updated status
+    await wishlistController.wishlistApi(chefId, newFavoriteStatus);
+
+    // Handle any UI updates if needed
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Initialize the GetChefsController
-    final GetChefsController chefsController = Get.put(GetChefsController());
-    final RxList<bool> isFavorite = List.generate(10, (index) => false).obs;
     Get.put(GetChefsDetailsController());
     return Scaffold(
       backgroundColor: Colors.white,
@@ -168,7 +181,7 @@ class KitchenEmployeeList extends StatelessWidget {
                             child: Obx(
                               () => GestureDetector(
                                 onTap: () {
-                                  isFavorite[index] = !isFavorite[index];
+                                  _toggleFavorite(index, chef.sId);
                                 },
                                 child: Icon(
                                   isFavorite[index]

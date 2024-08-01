@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:intl/intl.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
 
@@ -8,13 +8,20 @@ class EmployeeDetailsScreen extends StatelessWidget {
   const EmployeeDetailsScreen({
     super.key,
     required this.dob,
-    required  this.salary,
-    required  this.experience,
+    required this.salary,
+    required this.experience,
   });
 
   final String dob;
   final String salary;
   final String experience;
+
+  String formatDate(String dob) {
+    final DateTime parsedDate = DateFormat('yyyy').parse(dob);
+    final String formattedDate = DateFormat.y().format(parsedDate);
+    return formattedDate;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -28,7 +35,7 @@ class EmployeeDetailsScreen extends StatelessWidget {
           customSizeBox(10, 0),
           Padding(
             padding: const EdgeInsets.only(right: 270),
-            child: blackText(dob),
+            child: blackText(formatDate(dob)),
           ),
           customSizeBox(25, 0),
           Padding(
