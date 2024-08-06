@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/JobsUtils/jobs_container.dart';
-import 'package:my_kitchen_jobs/View/JobScreen.dart/job_add_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/JobsScreen/job_list.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/JobsScreen/job_add_screen.dart';
 
 class JobScreen extends StatelessWidget {
   const JobScreen({super.key});
@@ -37,15 +37,15 @@ class JobScreen extends StatelessWidget {
       ),
       body: const Column(
         children: [
-          JobContainer(
+          JobsList(
             colors: AppColors.primary,
             text: "CLOSE",
           ),
-          JobContainer(
+          JobsList(
             colors: AppColors.grey,
             text: "REOPEN",
           ),
-          JobContainer(
+          JobsList(
             colors: AppColors.grey,
             text: "REOPEN",
           ),

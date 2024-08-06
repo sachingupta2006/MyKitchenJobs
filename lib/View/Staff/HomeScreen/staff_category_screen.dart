@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/KitchenUtils/app_bar.dart';
-import 'package:my_kitchen_jobs/View/KitchenScreen/kitchen_employee_list.dart';
-import 'package:my_kitchen_jobs/Utils/KitchenUtils/container.dart';
+import 'package:my_kitchen_jobs/Utils/app_colors.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/staff_list.dart';
 
-class KitchenCategoryScreen extends StatelessWidget {
-  const KitchenCategoryScreen({super.key});
+
+class StaffCategoryScreen extends StatelessWidget {
+  const StaffCategoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +40,53 @@ class KitchenCategoryScreen extends StatelessWidget {
 Widget name(String title, String image, String text) {
   return GestureDetector(
     onTap: () {
-      Get.to(() => KitchenEmployeeList(title, text,),
+      Get.to(
+          () => StaffList(
+                title,
+                text,
+              ),
           transition: Transition.rightToLeft);
     },
-    child: customContainer(image, title),
+    child: staffCommonContainer(image, title),
+  );
+}
+
+Widget staffCommonContainer(String image, String text) {
+  return Stack(
+    children: [
+      Container(
+        height: 145,
+        decoration: const BoxDecoration(
+          color: AppColors.primary,
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(bottom: 35),
+        child: Center(
+          child: Container(
+            height: 110,
+            width: 145,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(image),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(top: 102),
+        child: Center(
+          child: Text(
+            text,
+            style: const TextStyle(
+                color: AppColors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 12),
+          ),
+        ),
+      ),
+    ],
   );
 }

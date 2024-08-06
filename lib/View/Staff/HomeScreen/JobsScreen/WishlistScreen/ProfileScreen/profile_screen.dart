@@ -8,10 +8,10 @@ import 'package:my_kitchen_jobs/Utils/UsersUtils/profile_text_field.dart';
 
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
-import 'package:my_kitchen_jobs/View/ProfileScreen/profile_forgot_password.dart';
-import 'package:my_kitchen_jobs/View/ProfileScreen/profile_signup.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/JobsScreen/WishlistScreen/ProfileScreen/profile_forgot_password.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/JobsScreen/WishlistScreen/ProfileScreen/profile_signup.dart';
 
-import '../../Utils/UsersUtils/common_toast.dart';
+import '../../../../../../Utils/UsersUtils/common_toast.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

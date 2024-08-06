@@ -5,7 +5,7 @@ import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/drop_down.dart';
 
-Future customModal(BuildContext ctx) {
+Future staffBottomSheet(BuildContext ctx) {
   final DropdownController dropdownController = Get.put(DropdownController());
 
   return showModalBottomSheet(

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/KitchenUtils/app_bar.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
-class EmployeeSearchScreen extends StatelessWidget {
-  const EmployeeSearchScreen({super.key});
+class StaffSearchScreen extends StatelessWidget {
+  const StaffSearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

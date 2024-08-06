@@ -3,7 +3,7 @@ import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
-import 'package:my_kitchen_jobs/View/EmployeeLogin.dart/text_field.dart';
+import 'package:my_kitchen_jobs/View/Jobs/text_field.dart';
 
 class CustomLogin extends StatelessWidget {
   CustomLogin(this.texts, {super.key});

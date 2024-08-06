@@ -4,8 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
 
-class EmployeeDetailsScreen extends StatelessWidget {
-  const EmployeeDetailsScreen({
+class StaffDetailsScreen extends StatelessWidget {
+  const StaffDetailsScreen({
     super.key,
     required this.dob,
     required this.salary,

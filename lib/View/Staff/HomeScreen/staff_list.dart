@@ -3,15 +3,15 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/add_wishlist_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/get_chefs_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/get_chefs_details_controller.dart';
-import 'package:my_kitchen_jobs/Utils/KitchenUtils/modal_bottom_sheet.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/staff_bottom_sheet.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
-import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_screen.dart';
-import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_search_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffDataScreen/staff_data.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/staff_search_screen.dart';
 
-class KitchenEmployeeList extends StatelessWidget {
-  KitchenEmployeeList(
+class StaffList extends StatelessWidget {
+  StaffList(
     this.texts,
     this.text, {
     super.key,
@@ -74,7 +74,7 @@ class KitchenEmployeeList extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const EmployeeSearchScreen());
+                  Get.to(() => const StaffSearchScreen());
                 },
                 child: Container(
                   color: Colors.transparent,
@@ -88,7 +88,7 @@ class KitchenEmployeeList extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  customModal(context);
+                  staffBottomSheet(context);
                 },
                 child: Container(
                   color: Colors.transparent,
@@ -154,7 +154,7 @@ class KitchenEmployeeList extends StatelessWidget {
 
                     return GestureDetector(
                       onTap: () {
-                        Get.to(() => ChefsScreen(chefId: chef.sId));
+                        Get.to(() => StaffScreen(chefId: chef.sId));
                       },
                       child: Stack(
                         children: [

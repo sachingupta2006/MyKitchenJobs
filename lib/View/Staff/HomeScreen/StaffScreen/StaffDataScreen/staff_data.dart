@@ -5,20 +5,20 @@ import 'package:my_kitchen_jobs/Controllers/tab_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
-import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_decription_screen.dart';
-import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_details_screen.dart';
-import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_pictures_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffDataScreen/staff_decription_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffDataScreen/staff_details_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffDataScreen/staff_pictures_screen.dart';
 
-class ChefsScreen extends StatefulWidget {
+class StaffScreen extends StatefulWidget {
   final String chefId;
 
-  const ChefsScreen({Key? key, required this.chefId}) : super(key: key);
+  const StaffScreen({Key? key, required this.chefId}) : super(key: key);
 
   @override
-  State<ChefsScreen> createState() => _ChefsScreenState();
+  State<StaffScreen> createState() => _StaffScreenState();
 }
 
-class _ChefsScreenState extends State<ChefsScreen>
+class _StaffScreenState extends State<StaffScreen>
     with SingleTickerProviderStateMixin {
   final MyTabController tabController = Get.put(MyTabController());
   final RxBool isFavorite = false.obs;
@@ -98,8 +98,8 @@ class _ChefsScreenState extends State<ChefsScreen>
         final profileImg = chefDetails.chefData?.profileImg ??
             'https://example.com/default-image.jpg';
         final dob = chefDetails.chefData?.dob ?? 'details';
-          final salary = chefDetails.chefData?.visitRate?? 'details';
-         final experience = chefDetails.chefData?.experience ?? 'details';
+        final salary = chefDetails.chefData?.visitRate ?? 'details';
+        final experience = chefDetails.chefData?.experience ?? 'details';
         final descriptions = chefDetails.chefData?.about ?? 'description';
 
         return Stack(
@@ -189,11 +189,10 @@ class _ChefsScreenState extends State<ChefsScreen>
                   child: TabBarView(
                     controller: _internalTabController,
                     children: [
-                      EmployeeDetailsScreen(
-                        dob: dob, salary :salary,experience:experience
-                      ),
-                      EmployeeDecriptionScreen(description: descriptions),
-                      EmployeePicturesScreen(picture: profileImg),
+                      StaffDetailsScreen(
+                          dob: dob, salary: salary, experience: experience),
+                      StaffDecriptionScreen(description: descriptions),
+                      StaffPicturesScreen(picture: profileImg),
                     ],
                   ),
                 ),

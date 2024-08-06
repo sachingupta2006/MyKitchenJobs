@@ -22,7 +22,7 @@ class GetWishlistDataController extends GetxController {
       String? token = homeC.token;
 
       if (token == null) {
-        Get.snackbar('Error', 'Authentication token is missing');
+        Get.snackbar('Error', 'Plzz Login First');
         return;
       }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EmployeeDecriptionScreen extends StatelessWidget {
-  const EmployeeDecriptionScreen({
+class StaffDecriptionScreen extends StatelessWidget {
+  const StaffDecriptionScreen({
     super.key,
     required this.description,
   });

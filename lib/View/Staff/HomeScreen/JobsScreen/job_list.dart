@@ -4,10 +4,10 @@ import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
-import 'package:my_kitchen_jobs/View/JobScreen.dart/job_update_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/JobsScreen/job_update_screen.dart';
 
-class JobContainer extends StatelessWidget {
-  const JobContainer({super.key, required this.colors, required this.text});
+class JobsList extends StatelessWidget {
+  const JobsList({super.key, required this.colors, required this.text});
 
   final Color colors;
   final String text;
