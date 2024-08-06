@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_kitchen_jobs/Controllers/get_wishlist_list_data_controller.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/app_bar_text.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
@@ -7,11 +8,13 @@ import 'package:my_kitchen_jobs/Utils/text_style.dart';
 class KitchenEmployeeGrid extends StatelessWidget {
   KitchenEmployeeGrid({super.key});
 
-  // RxList to track the favorite state for each item
   final RxList<bool> _isFavorite = List.generate(10, (index) => false).obs;
-
+  // Initialize the GetWishlistDataController
+  final GetWishlistDataController GetWishData =
+      Get.put(GetWishlistDataController());
   @override
   Widget build(BuildContext context) {
+    GetWishData.getWishlistDataApi();
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: appBar("MY WISHLIST"),
@@ -28,7 +31,7 @@ class KitchenEmployeeGrid extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                // Get.to(() => ChefsScreen(chef: chef,));
+                // Get.to(() =>  ChefsScreen(chefId: sId));
               },
               child: Stack(
                 children: [

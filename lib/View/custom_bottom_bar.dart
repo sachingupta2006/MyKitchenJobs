@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_kitchen_jobs/Controllers/get_wishlist_list_data_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/View/KitchenScreen/kitchen_employee_grid.dart';
 import 'package:my_kitchen_jobs/View/JobScreen.dart/job_screen.dart';
+import 'package:my_kitchen_jobs/View/KitchenScreen/kitchen_employee_list.dart';
 import 'package:my_kitchen_jobs/View/ProfileScreen/profile_screen.dart';
 import 'package:my_kitchen_jobs/View/KitchenScreen/kitchen_category_screen.dart';
 
 class CustomBottomBar extends StatelessWidget {
   CustomBottomBar({super.key});
   final RxInt _currentIndex = 0.obs;
+  final GetWishlistDataController getWishlistDataController =
+      Get.put(GetWishlistDataController());
 
   final List<Widget> _pages = [
     const KitchenCategoryScreen(),
     const JobScreen(),
-    KitchenEmployeeGrid(),
+    KitchenEmployeeList(
+      "",
+      "",
+    ),
     const ProfileScreen(),
   ];
 

@@ -33,8 +33,7 @@ class AddWishlistController extends GetxController {
       });
 
       final response = await http.post(
-        Uri.parse(
-            '${homeC.baseUrl}/wishlists/${isFavorite ? 'add' : 'remove'}/'),
+        Uri.parse('${homeC.baseUrl}/wishlists/add/'),
         headers: {
           'Content-Type': 'application/json',
           'token': token, // Include token in headers

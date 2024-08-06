@@ -11,10 +11,14 @@ import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_screen.dart';
 import 'package:my_kitchen_jobs/View/EmployeeDetails/employee_search_screen.dart';
 
 class KitchenEmployeeList extends StatelessWidget {
-  KitchenEmployeeList(this.texts, this.text, {super.key});
+  KitchenEmployeeList(
+    this.texts,
+    this.text, {
+    super.key,
+  });
 
-  final String texts;
-  final String text;
+  final String? texts;
+  final String? text;
   final AddWishlistController wishlistController =
       Get.put(AddWishlistController());
   final GetChefsController chefsController = Get.put(GetChefsController());
@@ -56,7 +60,7 @@ class KitchenEmployeeList extends StatelessWidget {
           ),
         ),
         title: Text(
-          texts.toUpperCase(),
+          texts!.toUpperCase(),
           style: const TextStyle(
             color: AppColors.white,
             fontWeight: FontWeight.w700,

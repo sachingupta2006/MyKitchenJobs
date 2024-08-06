@@ -39,7 +39,7 @@ class KitchenCategoryScreen extends StatelessWidget {
 Widget name(String title, String image, String text) {
   return GestureDetector(
     onTap: () {
-      Get.to(() => KitchenEmployeeList(title, text),
+      Get.to(() => KitchenEmployeeList(title, text,),
           transition: Transition.rightToLeft);
     },
     child: customContainer(image, title),
