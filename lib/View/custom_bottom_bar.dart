@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/get_wishlist_list_data_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/WishlistControllers/get_wishlist_list_data_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/JobsScreen/job_screen.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/staff_list.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/JobsScreen/WishlistScreen/ProfileScreen/profile_screen.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/staff_category_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffListScreen/staff_list.dart';
+import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/profile_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/staff_category_screen.dart';
 
 class CustomBottomBar extends StatelessWidget {
   CustomBottomBar({super.key});

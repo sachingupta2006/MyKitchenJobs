@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/get_chefs_details_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/HomeControllers/StaffControllers/get_staff_details_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/tab_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
@@ -23,8 +23,8 @@ class _StaffScreenState extends State<StaffScreen>
   final MyTabController tabController = Get.put(MyTabController());
   final RxBool isFavorite = false.obs;
   late TabController _internalTabController;
-  final GetChefsDetailsController getChefC =
-      Get.put(GetChefsDetailsController());
+  final GetStaffDetailsController getChefC =
+      Get.put(GetStaffDetailsController());
 
   @override
   void initState() {
