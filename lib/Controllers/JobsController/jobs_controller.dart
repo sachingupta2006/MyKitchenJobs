@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_kitchen_jobs/Model/JobsModel/jobs_model.dart';
-import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/profile_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/logiscreen.dart';
 import 'package:my_kitchen_jobs/main.dart';
 
 class JobsControllers extends GetxController {
@@ -37,7 +37,7 @@ class JobsControllers extends GetxController {
 
       if (token == null) {
         Get.snackbar('Error', 'Plzz Login First');
-        Get.to(() => const ProfileScreen());
+
         return;
       }
 

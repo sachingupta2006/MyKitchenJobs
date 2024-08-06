@@ -93,24 +93,20 @@ class _ProfileSignupState extends State<ProfileSignup> {
                     onTap: () {
                       if (nameController.text.isEmpty) {
                         commonToast("Invalid name");
-                      }
-                      if (emailController.text.isEmpty) {
+                      } else if (emailController.text.isEmpty) {
                         commonToast(
                             'Invalid email, please enter a valid email');
-                      }
-                      if (phoneController.text.isEmpty) {
+                      } else if (phoneController.text.isEmpty) {
                         commonToast("Please enter your phone number");
-                      }
-                      if (dropdownController.selectedState.value.isEmpty) {
+                      } else if (dropdownController
+                          .selectedState.value.isEmpty) {
                         commonToast("Please select your state");
-                      }
-                      if (passwordController.text.isEmpty) {
+                      } else if (passwordController.text.isEmpty) {
                         commonToast("Please enter your password");
-                      }
-                      if (cpasswordController.text.isEmpty) {
+                      } else if (cpasswordController.text.isEmpty) {
                         commonToast("Please enter your confirm password");
-                      }
-                      if (dropdownController.selectedGender.value.isEmpty) {
+                      } else if (dropdownController
+                          .selectedGender.value.isEmpty) {
                         commonToast("Please select your type");
                       } else {
                         signC.signupApi(

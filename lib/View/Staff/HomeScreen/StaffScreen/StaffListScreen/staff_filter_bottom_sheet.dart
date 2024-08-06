@@ -76,7 +76,7 @@ Future staffFilterBottomSheet(BuildContext ctx) {
           ),
           const SizedBox(height: 15),
           Padding(
-            padding: const EdgeInsets.only(left: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: customButton("APPLY FILTERS", 0),
           ),
         ],

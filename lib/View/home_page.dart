@@ -61,65 +61,63 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            GestureDetector(
+    return Scaffold(
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          GestureDetector(
+            onTap: () {
+              Get.to(() => CustomBottomBar(),
+                  transition: Transition.rightToLeft);
+            },
+            child: Container(
+              height: double.infinity,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFF004AAD),
+                    Color(0xFF5DE0E6),
+                  ],
+                ),
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 360),
+                  child: SlideTransition(
+                      position: slideAnimation1,
+                      child: customText("FIND KITCHEN STAFF", 25)),
+                ),
+              ),
+            ),
+          ),
+          ClipPath(
+            clipper: BottomSlopeClipper(),
+            child: GestureDetector(
               onTap: () {
-                Get.to(() => CustomBottomBar(),
+                Get.to(() => CustomLogin("Employee Login Screen"),
                     transition: Transition.rightToLeft);
               },
               child: Container(
-                height: double.infinity,
+                height: MediaQuery.of(context).size.height / 2,
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xFF004AAD),
-                      Color(0xFF5DE0E6),
+                      Color.fromARGB(255, 43, 235, 29),
+                      Color.fromARGB(255, 8, 113, 0),
                     ],
                   ),
                 ),
                 child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 360),
-                    child: SlideTransition(
-                        position: slideAnimation1,
-                        child: customText("FIND KITCHEN STAFF", 25)),
-                  ),
-                ),
-              ),
-            ),
-            ClipPath(
-              clipper: BottomSlopeClipper(),
-              child: GestureDetector(
-                onTap: () {
-                  Get.to(() => CustomLogin("Employee Login Screen"),
-                      transition: Transition.rightToLeft);
-                },
-                child: Container(
-                  height: MediaQuery.of(context).size.height / 2,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color.fromARGB(255, 43, 235, 29),
-                        Color.fromARGB(255, 8, 113, 0),
-                      ],
-                    ),
-                  ),
-                  child: Center(
-                    child: Obx(
-                      () => Visibility(
-                        visible: _isWidgetVisible.value,
-                        child: SlideTransition(
-                          position: slideAnimation2,
-                          child: customText(
-                            "FIND KITCHEN JOBS",
-                            25,
-                          ),
+                  child: Obx(
+                    () => Visibility(
+                      visible: _isWidgetVisible.value,
+                      child: SlideTransition(
+                        position: slideAnimation2,
+                        child: customText(
+                          "FIND KITCHEN JOBS",
+                          25,
                         ),
                       ),
                     ),
@@ -127,8 +125,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -4,7 +4,6 @@ import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 Widget customButton(String bName, double circular) {
   return Container(
     height: 40,
-    width: 320,
     decoration: BoxDecoration(
       color: AppColors.primary,
       borderRadius: BorderRadius.circular(circular),

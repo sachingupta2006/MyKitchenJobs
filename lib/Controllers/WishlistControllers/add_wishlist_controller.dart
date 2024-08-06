@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Model/WishlistModels/add_wishlist_model.dart';
-import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/profile_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/logiscreen.dart';
 import 'package:my_kitchen_jobs/main.dart';
 
 class AddWishlistController extends GetxController {

@@ -8,7 +8,7 @@ import 'package:my_kitchen_jobs/Utils/UsersUtils/profile_text_field.dart';
 
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
-import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/profile_forgot_password.dart';
+import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/forgot_password.dart';
 import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/profile_signup.dart';
 
 import '../../../../Utils/UsersUtils/common_toast.dart';

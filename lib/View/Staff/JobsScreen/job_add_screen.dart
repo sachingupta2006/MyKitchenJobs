@@ -107,21 +107,15 @@ class JobAddScreen extends StatelessWidget {
                 onTap: () {
                   if (dropdownController.selectedPosition.value.isEmpty) {
                     commonToast("Select position");
-                  }
-                  if (dropdownController.selectedGender.value.isEmpty) {
+                  } else if (dropdownController.selectedGender.value.isEmpty) {
                     commonToast('Invalid Gender');
-                  }
-                  if (dropdownController.selectedState.value.isEmpty) {
+                  } else if (dropdownController.selectedState.value.isEmpty) {
                     commonToast("Please Select State");
-                  }
-
-                  if (experienceController.text.isEmpty) {
+                  } else if (experienceController.text.isEmpty) {
                     commonToast("Please enter your experience");
-                  }
-                  if (salaryController.text.isEmpty) {
+                  } else if (salaryController.text.isEmpty) {
                     commonToast("Please enter your salary");
-                  }
-                  if (addressController.text.isEmpty) {
+                  } else if (addressController.text.isEmpty) {
                     commonToast("Please enter your address");
                   } else {
                     jobC.jobsApi(

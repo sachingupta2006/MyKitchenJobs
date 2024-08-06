@@ -1,11 +1,11 @@
-class StaffDetailsModel {
+class ChefsDetailsModel {
   String? title;
   bool? error;
   ChefData? chefData;
 
-  StaffDetailsModel({this.title, this.error, this.chefData});
+  ChefsDetailsModel({this.title, this.error, this.chefData});
 
-  StaffDetailsModel.fromJson(Map<String, dynamic> json) {
+  ChefsDetailsModel.fromJson(Map<String, dynamic> json) {
     title = json['title'];
     error = json['error'];
     chefData =

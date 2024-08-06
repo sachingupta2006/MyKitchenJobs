@@ -10,8 +10,8 @@ class GetStaffController extends GetxController {
   RxBool get isLoading => _isLoading;
 
   // Observable for chefs data
-  final _chefs = Rx<StaffModel?>(null);
-  Rx<StaffModel?> get chefsData => _chefs;
+  final _chefs = Rx<ChefsModel?>(null);
+  Rx<ChefsModel?> get chefsData => _chefs;
 
   @override
   void onInit() {
@@ -37,7 +37,7 @@ class GetStaffController extends GetxController {
         var responseData = json.decode(res.body);
 
         // Create a ChefsModel instance from the parsed JSON data
-        _chefs.value = StaffModel.fromJson(responseData);
+        _chefs.value = ChefsModel.fromJson(responseData);
       } else {
         // Display an error message using Get.snackbar
         Get.snackbar("Error", "Error ${res.statusCode}: ${res.reasonPhrase}");
