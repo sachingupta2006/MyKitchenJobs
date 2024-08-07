@@ -18,7 +18,7 @@ PreferredSizeWidget customAppBar(BuildContext ctx) {
       ),
     ),
     actions: const [
-      AppBarModalSheet(),
+      StaffRefreshBottomSheet(),
     ],
   );
 }

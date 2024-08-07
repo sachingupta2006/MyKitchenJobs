@@ -3,14 +3,12 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/WishlistControllers/add_wishlist_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/HomeControllers/StaffControllers/get_staff_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/HomeControllers/StaffControllers/get_staff_details_controller.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffListScreen/staff_filter_bottom_sheet.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/StaffListScreen/staff_filter_bottom_sheet.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffDataScreen/staff_data.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffListScreen/staff_search_screen.dart';
-import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/logiscreen.dart';
-import 'package:my_kitchen_jobs/main.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/StaffListScreen/StaffDataScreen/staff_data.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/StaffListScreen/staff_search_screen.dart';
 
 class StaffList extends StatelessWidget {
   StaffList(
@@ -156,14 +154,7 @@ class StaffList extends StatelessWidget {
 
                     return GestureDetector(
                       onTap: () {
-                        if (homeC.token == null) {
-                          Get.snackbar('Login Required', 'Plzz Login First');
-                          Get.to(() => const ProfileScreen(),
-                              transition: Transition.rightToLeft,
-                              duration: const Duration(milliseconds: 5));
-                        } else {
-                          Get.to(() => StaffScreen(chefId: chef.sId));
-                        }
+                        Get.to(() => StaffScreen(chefId: chef.sId));
                       },
                       child: Stack(
                         children: [
@@ -194,16 +185,7 @@ class StaffList extends StatelessWidget {
                             child: Obx(
                               () => GestureDetector(
                                 onTap: () {
-                                  if (homeC.token == null) {
-                                    Get.snackbar(
-                                        'Login Required', 'Plzz Login First');
-                                    Get.to(() => const ProfileScreen(),
-                                        transition: Transition.rightToLeft,
-                                        duration:
-                                            const Duration(milliseconds: 5));
-                                  } else {
-                                    _toggleFavorite(index, chef.sId);
-                                  }
+                                  _toggleFavorite(index, chef.sId);
                                 },
                                 child: Icon(
                                   isFavorite[index]

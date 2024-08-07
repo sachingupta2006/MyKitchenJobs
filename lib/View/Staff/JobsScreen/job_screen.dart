@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_list.dart';
 import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_add_screen.dart';
-import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/logiscreen.dart';
-import 'package:my_kitchen_jobs/main.dart';
 
 class JobScreen extends StatelessWidget {
   const JobScreen({super.key});
@@ -28,14 +26,8 @@ class JobScreen extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                if (homeC.token == null) {
-                  Get.to(() => const ProfileScreen(),
-                      duration: 2.milliseconds,
-                      transition: Transition.rightToLeft);
-                } else {
-                  Get.to(() => const JobAddScreen(),
-                      transition: Transition.rightToLeft);
-                }
+                Get.to(() => const JobAddScreen(),
+                    transition: Transition.rightToLeft);
               },
               icon: const Icon(
                 Icons.add_circle_outline_sharp,

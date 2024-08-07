@@ -5,8 +5,6 @@ import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
 import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_update_screen.dart';
-import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/logiscreen.dart';
-import 'package:my_kitchen_jobs/main.dart';
 
 class JobsList extends StatelessWidget {
   const JobsList({super.key, required this.colors, required this.text});
@@ -118,16 +116,8 @@ class JobsList extends StatelessWidget {
                 customText("APPLICANTS", 13),
                 GestureDetector(
                     onTap: () {
-                      if (homeC.token == null) {
-                        Get.snackbar('Login Required', "Plzz Login First");
-                        Get.to(() => const ProfileScreen(),
-                            transition: Transition.rightToLeft,
-                            duration: const Duration(milliseconds: 4));
-                      } else {
-                        Get.to(() => const JobUpdateScreen(),
-                            transition: Transition.rightToLeft);
-                      }
-                      ;
+                      Get.to(() => const JobUpdateScreen(),
+                          transition: Transition.rightToLeft);
                     },
                     child: customText("UPDATE", 13)),
                 customText(text, 13),

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/staff_logout_switch__sheet.dart';
 
-class AppBarModalSheet extends StatelessWidget {
-  const AppBarModalSheet({super.key});
+class StaffRefreshBottomSheet extends StatelessWidget {
+  const StaffRefreshBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {

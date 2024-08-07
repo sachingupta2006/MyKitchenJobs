@@ -85,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 if (emailController.text.isEmpty) {
                   commonToast('Invalid email,please enter valid email');
                 }
-                if (passwordController.text.isEmpty) {
+                else if (passwordController.text.isEmpty) {
                   commonToast("Please enter your password");
                 } else {
                   loginC.loginApi(
