@@ -18,6 +18,14 @@ Widget textWhite12Bold(String text) {
   );
 }
 
+Widget textWhite15Bold(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+        fontWeight: FontWeight.bold, fontSize: 15.sp, color: Colors.white),
+  );
+}
+
 Widget textGrey15Bold(String text) {
   return Text(
     text,
