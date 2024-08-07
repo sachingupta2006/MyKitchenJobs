@@ -4,6 +4,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 class HomeController extends GetxController {
   String baseUrl = 'https://api.mykitchenjobs.com';
 
+  logout(){
+    
+  }
+
   // Private variable to store the token
   String? _token;
 

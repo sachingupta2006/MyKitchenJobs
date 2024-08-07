@@ -5,9 +5,9 @@ import 'package:my_kitchen_jobs/Controllers/tab_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/StaffListScreen/StaffDataScreen/staff_decription_screen.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/StaffListScreen/StaffDataScreen/staff_details_screen.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/StaffListScreen/StaffDataScreen/staff_pictures_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/StaffScreen/StaffCategoryScreen/StaffListScreen/StaffDataScreen/staff_decription_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/StaffScreen/StaffCategoryScreen/StaffListScreen/StaffDataScreen/staff_details_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/StaffScreen/StaffCategoryScreen/StaffListScreen/StaffDataScreen/staff_pictures_screen.dart';
 
 class StaffScreen extends StatefulWidget {
   final String chefId;

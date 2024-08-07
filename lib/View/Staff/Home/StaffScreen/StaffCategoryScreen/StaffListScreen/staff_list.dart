@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/WishlistControllers/add_wishlist_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/HomeControllers/StaffControllers/get_staff_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/HomeControllers/StaffControllers/get_staff_details_controller.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/StaffListScreen/staff_filter_bottom_sheet.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/StaffScreen/StaffCategoryScreen/StaffListScreen/staff_filter_bottom_sheet.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/StaffListScreen/StaffDataScreen/staff_data.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/StaffListScreen/staff_search_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/StaffScreen/StaffCategoryScreen/StaffListScreen/StaffDataScreen/staff_data.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/StaffScreen/StaffCategoryScreen/StaffListScreen/staff_search_screen.dart';
 
 class StaffList extends StatelessWidget {
   StaffList(

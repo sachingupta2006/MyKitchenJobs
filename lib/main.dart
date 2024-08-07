@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/JobsController/jobs_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/home_controller.dart';
+import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
 import 'package:my_kitchen_jobs/View/splash_screen.dart';
 
@@ -15,19 +17,20 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Kitchen Jobs',
-      theme: ThemeData(
-        fontFamily: 'Poppins',
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(0, 255, 255, 255)),
-        useMaterial3: true,
+    return ScreenUtilInit(
+      designSize: const Size(360, 800),
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'My Kitchen Jobs',
+        theme: ThemeData(
+          fontFamily: 'Poppins',
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+          useMaterial3: true,
+        ),
+        home: const SplashScreen(),
       ),
-      home: const SplashScreen(),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/app_bar.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
 class StaffSearchScreen extends StatelessWidget {
@@ -10,7 +9,7 @@ class StaffSearchScreen extends StatelessWidget {
     TextEditingController searchController = TextEditingController();
 
     return Scaffold(
-      appBar: customAppBar(context),
+      // appBar: customAppBar(context),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

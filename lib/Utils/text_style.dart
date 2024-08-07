@@ -1,5 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
+
+Widget textBlack14Bold(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+        fontWeight: FontWeight.bold, fontSize: 14.sp, color: Colors.black),
+  );
+}
+
+Widget textWhite12Bold(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+        fontWeight: FontWeight.bold, fontSize: 12.sp, color: Colors.white),
+  );
+}
+
+Widget textGrey15Bold(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+        fontWeight: FontWeight.bold, fontSize: 15.sp, color: Colors.grey[900]),
+  );
+}
 
 Widget customText(String text, double fs) {
   return Text(
