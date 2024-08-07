@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/staff_logout_switch__sheet.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/staff_logout_switch__sheet.dart';
 
 class StaffRefreshBottomSheet extends StatelessWidget {
   const StaffRefreshBottomSheet({super.key});

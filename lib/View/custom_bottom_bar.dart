@@ -5,7 +5,7 @@ import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_screen.dart';
 import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/StaffListScreen/staff_list.dart';
 import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/logiscreen.dart';
-import 'package:my_kitchen_jobs/View/Staff/HomeScreen/StaffScreen/StaffCategoryScreen/staff_category_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/HomeScreen/staff_category_screen.dart';
 
 class CustomBottomBar extends StatelessWidget {
   CustomBottomBar({super.key});
