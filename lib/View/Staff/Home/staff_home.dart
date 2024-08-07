@@ -5,7 +5,7 @@ import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
 import 'package:my_kitchen_jobs/View/Staff/Home/home_appbar.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/View/Staff/Home/StaffScreen/StaffCategoryScreen/StaffListScreen/staff_list.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/Category/staff_list.dart';
 
 class StaffCategoryScreen extends StatelessWidget {
   const StaffCategoryScreen({super.key});
