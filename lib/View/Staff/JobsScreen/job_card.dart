@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
-import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_update_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_add_screen.dart';
 
 class JobsCard extends StatelessWidget {
   const JobsCard({super.key, required this.disable, required this.text});
@@ -26,8 +26,7 @@ class JobsCard extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-
-      padding: EdgeInsets.fromLTRB( 15.w,15.h,15.w,20.h),
+                  padding: EdgeInsets.fromLTRB(15.w, 15.h, 15.w, 20.h),
                   height: 100.h,
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
@@ -47,8 +46,7 @@ class JobsCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-
-      padding: EdgeInsets.fromLTRB( 5.w,15.h,15.w,20.h),
+                    padding: EdgeInsets.fromLTRB(5.w, 15.h, 15.w, 20.h),
                     // padding: EdgeInsets.only(bottom: 20.h, left: 15.w),
                     height: 100.h,
                     child: Column(
@@ -106,7 +104,7 @@ class JobsCard extends StatelessWidget {
                           ),
                         ])),
                 Container(
-                  padding: EdgeInsets.only( left: 5.w, right: 15.w),
+                  padding: EdgeInsets.only(left: 5.w, right: 15.w),
                   height: 40.h,
                   width: double.infinity,
                   color: disable ? Colors.grey[600] : AppColors.primary,
@@ -116,7 +114,7 @@ class JobsCard extends StatelessWidget {
                       textWhite13wBold('APPLICANTS'),
                       GestureDetector(
                           onTap: () {
-                            Get.to(() => const JobUpdateScreen(),
+                            Get.to(() => const JobAddScreen(),
                                 transition: Transition.rightToLeft);
                           },
                           child: textWhite13wBold('UPDATE')),

@@ -30,7 +30,7 @@ class StaffFilterBottomsheet extends StatelessWidget {
           child: Column(
             children: [
               DropDownButtonWidget(
-                text: "STATE",
+                hintText: "STATE",
                 items: const [
                   "Maharashtra",
                   "Uttar Pradesh",
@@ -41,7 +41,7 @@ class StaffFilterBottomsheet extends StatelessWidget {
               ),
               10.h.height,
               DropDownButtonWidget(
-                text: "PROFESSION",
+                hintText: "PROFESSION",
                 items: const [
                   "Chef",
                   "Bartender",
@@ -50,7 +50,7 @@ class StaffFilterBottomsheet extends StatelessWidget {
               ),
               10.h.height,
               DropDownButtonWidget(
-                text: "GENDER",
+                hintText: "GENDER",
                 items: const [
                   "Male",
                   "Female",

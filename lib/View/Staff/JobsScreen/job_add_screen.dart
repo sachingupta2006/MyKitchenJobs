@@ -49,7 +49,7 @@ class JobAddScreen extends StatelessWidget {
                           5.h.height,
                           DropDownButtonWidget(
                             greyColored: true,
-                            text: "POSITIONS",
+                            hintText: "POSITIONS",
                             items: const [
                               "chef",
                               "Business",
@@ -63,7 +63,7 @@ class JobAddScreen extends StatelessWidget {
                           5.h.height,
                           DropDownButtonWidget(
                             greyColored: true,
-                            text: "GENDER",
+                            hintText: "GENDER",
                             items: const [
                               "male",
                               "Female",
@@ -76,7 +76,7 @@ class JobAddScreen extends StatelessWidget {
                           5.h.height,
                           DropDownButtonWidget(
                             greyColored: true,
-                            text: "STATES",
+                            hintText: "STATES",
                             items: const [
                               "Maharashtra",
                               "667176beafbc7ade7d550d13",

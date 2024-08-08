@@ -3,14 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class DropDownButtonWidget extends StatelessWidget {
-  const DropDownButtonWidget({
-    super.key,
-    required this.text,
-    required this.items,
-    required this.selectedValue,
-    this.greyColored,
-  });
-  final String text;
+  const DropDownButtonWidget(
+      {super.key,
+      required this.hintText,
+      required this.items,
+      required this.selectedValue,
+      this.greyColored});
+  final String hintText;
   final List<String> items;
   final RxString selectedValue;
   final bool? greyColored;
@@ -22,33 +21,25 @@ class DropDownButtonWidget extends StatelessWidget {
       child: Obx(() {
         return DropdownButtonFormField<String>(
           padding: const EdgeInsets.only(left: 10),
-          hint: Text(
-            text,
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
-                fontSize: 14.sp),
-          ),
+          hint: Text(hintText,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey,
+                  fontSize: 14.sp)),
           borderRadius: BorderRadius.zero,
           decoration: const InputDecoration(
-            contentPadding: EdgeInsets.all(4),
-            border: InputBorder.none,
-          ),
+              contentPadding: EdgeInsets.all(4), border: InputBorder.none),
           icon: Icon(Icons.arrow_drop_down, size: 30.sp, color: Colors.grey),
-          items: items.map<DropdownMenuItem<String>>(
-            (String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(
-                  value,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                      fontSize: 14.sp),
-                ),
-              );
-            },
-          ).toList(),
+          items: items
+              .map<DropdownMenuItem<String>>((String value) =>
+                  DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 14.sp))))
+              .toList(),
           value: selectedValue.value.isEmpty ? null : selectedValue.value,
           onChanged: (String? value) {
             selectedValue.value = value ?? '';

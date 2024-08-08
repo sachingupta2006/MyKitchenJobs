@@ -54,7 +54,7 @@ class _ProfileSignupState extends State<ProfileSignup> {
               pTextField("Phone number", ccontroller: phoneController),
               customSizeBox(10, 0),
               DropDownButtonWidget(
-                text: "State",
+                hintText: "State",
                 items: const [
                   "Maharashtra",
                   "667176beafbc7ade7d550d13",
@@ -69,7 +69,7 @@ class _ProfileSignupState extends State<ProfileSignup> {
               pTextField("Confirm Password", ccontroller: cpasswordController),
               customSizeBox(10, 0),
               DropDownButtonWidget(
-                text: "Type",
+                hintText: "Type",
                 items: const [
                   "Male",
                   "business",
