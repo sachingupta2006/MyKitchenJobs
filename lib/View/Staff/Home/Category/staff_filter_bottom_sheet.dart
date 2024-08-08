@@ -15,7 +15,7 @@ class StaffFilterBottomsheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DropdownController dropdownController = Get.put(DropdownController());
+    final DropdownController dropdownC = Get.put(DropdownController());
 
     return CommonBottomSheet(
       children: [
@@ -37,7 +37,7 @@ class StaffFilterBottomsheet extends StatelessWidget {
                   "Andhra Pradesh",
                   "Jammu and Kashmir",
                 ],
-                selectedValue: dropdownController.selectedState,
+                selectedValue: dropdownC.selectedState,
               ),
               10.h.height,
               DropDownButtonWidget(
@@ -46,7 +46,7 @@ class StaffFilterBottomsheet extends StatelessWidget {
                   "Chef",
                   "Bartender",
                 ],
-                selectedValue: dropdownController.selectedProfession,
+                selectedValue: dropdownC.selectedProfession,
               ),
               10.h.height,
               DropDownButtonWidget(
@@ -56,7 +56,7 @@ class StaffFilterBottomsheet extends StatelessWidget {
                   "Female",
                   "Others",
                 ],
-                selectedValue: dropdownController.selectedGender,
+                selectedValue: dropdownC.selectedGender,
               ),
               10.h.height,
               CommonButton(
