@@ -1,231 +1,152 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/HomeControllers/StaffControllers/get_staff_details_controller.dart';
-import 'package:my_kitchen_jobs/Controllers/tab_controller.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/common_botton.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/custom_button.dart';
+import 'package:my_kitchen_jobs/Utils/net_image_custom.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
+import 'package:my_kitchen_jobs/Utils/text_style.dart';
 import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_decription_tab.dart';
-import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_details_tab.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_pictures_tab.dart';
 
-import 'staff_pictures_tab.dart';
+import '../../../../../Controllers/HomeControllers/StaffControllers/get_staff_details_controller.dart';
+import '../../../../../Model/HomeModels/StaffModels/get_staff_details_model.dart';
+import 'staff_details_tab.dart';
 
-class StaffScreen extends StatefulWidget {
+class StaffScreen extends StatelessWidget {
+  const StaffScreen({super.key, required this.chefId});
   final String chefId;
-
-  const StaffScreen({Key? key, required this.chefId}) : super(key: key);
-
   @override
-  State<StaffScreen> createState() => _StaffScreenState();
-}
-
-class _StaffScreenState extends State<StaffScreen>
-    with SingleTickerProviderStateMixin {
-  final MyTabController tabController = Get.put(MyTabController());
-  final RxBool isFavorite = false.obs;
-  late TabController _internalTabController;
-  final GetStaffDetailsController getChefC =
-      Get.put(GetStaffDetailsController());
-
-  @override
-  void initState() {
-    super.initState();
-    _internalTabController = TabController(length: 3, vsync: this);
-    _internalTabController.addListener(() {
-      if (_internalTabController.indexIsChanging) {
-        tabController.updateIndex(_internalTabController.index);
-      }
-    });
-
-    _internalTabController.animation?.addListener(() {
-      final double value = _internalTabController.animation!.value;
-      tabController.updateIndex(value.round());
-    });
-
-    // Fetch chef details using the chefId when the screen is initialized
-    getChefC.getChefApi(widget.chefId);
-  }
-
-  @override
-  void dispose() {
-    _internalTabController.dispose();
-    super.dispose();
-  }
-
-  Widget _buildTab(String text, int index) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: () {
-          _internalTabController.animateTo(index);
-        },
-        child: Obx(() {
-          bool isSelected = tabController.selectedIndex.value == index;
-          return Container(
-            height: 60,
-            color: isSelected
-                ? const Color.fromARGB(255, 240, 240, 240)
-                : Colors.transparent,
-            child: Center(
-              child: Text(
-                text,
-                style: const TextStyle(fontWeight: FontWeight.w700),
-              ),
-            ),
-          );
-        }),
-      ),
+  Widget build(BuildContext context) {
+    final GetStaffDetailsController getChefC =
+        Get.put(GetStaffDetailsController());
+    getChefC.getChefApi(chefId);
+    return Scaffold(
+      backgroundColor: AppColors.primary,
+      body: Obx(() {
+        ChefData? chefDetails = getChefC.staffData.value?.chefData;
+        return SafeArea(
+            bottom: false,
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Container(
+                    width: double.infinity,
+                    color: Colors.white,
+                    child: getChefC.isLoading.value
+                        ? const Center(child: CircularProgressIndicator())
+                        : Column(
+                            children: [
+                              staffAppbar(),
+                              55.h.height,
+                              Expanded(child: staffTabs(chefDetails))
+                            ],
+                          )),
+                staffImage(chefDetails?.profileImg ?? '')
+              ],
+            ));
+      }),
+      bottomNavigationBar: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15.w),
+          color: Colors.white,
+          child: SafeArea(child: const CommonButton(text: 'hire me'))),
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.white,
-      body: Obx(() {
-        // Get the chef details from the controller
-        final chefDetails = getChefC.chefsData.value;
+  Widget staffTabs(ChefData? chefDetails) {
+    String designation = '${chefDetails?.position?.firstOrNull}';
 
-        if (getChefC.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+    if (chefDetails?.position != null) {
+      if (chefDetails!.position!.length > 1) {
+        for (var i = 1; i < (chefDetails.position!.length); i++) {
+          designation = '$designation/${chefDetails.position?[i]}';
         }
-
-        if (chefDetails == null) {
-          return const Center(child: Text('No data available'));
-        }
-
-        final name = chefDetails.chefData?.name ?? 'Unknown';
-        final state =
-            chefDetails.chefData?.location?.state ?? 'Location Unknown';
-        final profileImg = chefDetails.chefData?.profileImg ??
-            'https://example.com/default-image.jpg';
-        final dob = chefDetails.chefData?.dob ?? 'details';
-        final salary = chefDetails.chefData?.visitRate ?? 'details';
-        final experience = chefDetails.chefData?.experience ?? 'details';
-        final descriptions = chefDetails.chefData?.about ?? 'description';
-
-        return Stack(
-          children: [
-            Column(
-              children: [
-                AppBar(
-                  actions: [
+      }
+    }
+    return Column(
+      children: [
+        textBlack14Bold('${chefDetails?.name}'.toUpperCase()),
+        textPrimary14Bold(
+            '$designation from ${chefDetails?.location?.name}'.toUpperCase()),
+        20.h.height,
+        Expanded(
+            child: DefaultTabController(
+                length: 3,
+                child: Column(
+                  children: [
+                    TabBar(
+                        indicatorSize: TabBarIndicatorSize.tab,
+                        indicatorPadding: EdgeInsets.zero,
+                        dividerColor: Colors.transparent,
+                        indicator: const BoxDecoration(color: AppColors.grey),
+                        padding: EdgeInsets.zero,
+                        unselectedLabelStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                        ),
+                        labelStyle: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14.sp),
+                        tabs: const [
+                          Tab(text: 'Details'),
+                          Tab(text: 'Description'),
+                          Tab(text: 'Pictures'),
+                        ]),
+                    10.h.height,
                     Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            icon: const Icon(
-                              Icons.arrow_back_ios_new,
-                              color: AppColors.white,
-                            ),
-                          ),
-                          Obx(() {
-                            return IconButton(
-                              onPressed: () {
-                                isFavorite.value = !isFavorite.value;
-                              },
-                              icon: Icon(
-                                isFavorite.value
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
-                                color: isFavorite.value
-                                    ? Colors.red
-                                    : Colors.white,
-                              ),
-                            );
-                          }),
-                        ],
-                      ),
-                    ),
+                      child: TabBarView(children: [
+                        StaffDetailsTab(
+                            dob: (chefDetails?.dob.toString() ?? ''),
+                            salary: 'Expected salary is about 40,000',
+                            experience: 'More than 3 years of experience'),
+                        StaffDecriptionTab(
+                            description: chefDetails?.about ?? ''),
+                        StaffPicturesTab(
+                            picture: chefDetails?.dishImages ?? []),
+                      ]),
+                    )
                   ],
-                  automaticallyImplyLeading: false,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
-                  ),
-                  toolbarHeight: 150,
-                  backgroundColor: AppColors.primary,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 50),
-                  child: Text(
-                    ' $name',
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Text(
-                    'CHEF FROM $state', // Display the chef's state
-                    style: const TextStyle(
-                      color: AppColors.primary,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-                customSizeBox(50, 0),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      _buildTab("Details", 0),
-                      _buildTab("Description", 1),
-                      _buildTab("Pictures", 2),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: TabBarView(
-                    controller: _internalTabController,
-                    children: [
-                      StaffDetailsTab(
-                          dob: dob, salary: salary, experience: experience),
-                      StaffDecriptionTab(description: descriptions),
-                      StaffPicturesTab(picture: profileImg),
-                    ],
-                  ),
-                ),
-                customSizeBox(20, 0),
-                customButton("HIRE ME", 0),
-                customSizeBox(20, 0),
-              ],
-            ),
-            Positioned(
-              top: 125,
-              left: MediaQuery.of(context).size.width / 2 - 50,
-              child: ClipOval(
-                child: Container(
-                  color: Colors.white,
-                  padding: const EdgeInsets.all(4.0),
-                  child: ClipOval(
-                    child: Image.network(
-                      profileImg,
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return const Icon(Icons.error); // Error placeholder
-                      },
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        );
-      }),
+                )))
+      ],
+    );
+  }
+
+  Widget staffImage(String image) {
+    return Container(
+      padding: EdgeInsets.all(5.h),
+      height: 125.h,
+      width: 125.h,
+      margin: EdgeInsets.only(top: 60.h),
+      decoration:
+          BoxDecoration(shape: BoxShape.circle, color: Colors.grey[200]),
+      child: ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: NetImageCustom(image: image)),
+    );
+  }
+
+  Widget staffAppbar() {
+    return Container(
+      height: 140.h,
+      padding: EdgeInsets.fromLTRB(15.w, 0, 15.w, 0),
+      decoration: const BoxDecoration(
+          color: AppColors.primary,
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(15),
+              bottomRight: Radius.circular(15))),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+              onTap: () => Get.back(),
+              child: Icon(Icons.arrow_back_ios,
+                  color: AppColors.white, size: 25.sp)),
+          Icon(Icons.favorite_outline, color: Colors.white, size: 25.sp)
+        ],
+      ),
     );
   }
 }

@@ -27,6 +27,7 @@ class ChefData {
   String? sId;
   String? email;
   String? name;
+  List<dynamic>? dishImages;
   List<String>? position;
   String? dob;
   String? gender;
@@ -53,6 +54,7 @@ class ChefData {
       this.location,
       this.address,
       this.visitRate,
+      this.dishImages,
       this.experience,
       this.about,
       this.profileImg,
@@ -72,7 +74,7 @@ class ChefData {
     address = json['address'];
     visitRate = json['visit_rate'];
     experience = json['experience'];
-
+    dishImages = json['dish_images'];
     profileImg = json['profile_img'];
     isFeatured = json['is_featured'];
     about = json['about'];
@@ -88,6 +90,8 @@ class ChefData {
     data['position'] = position;
     data['dob'] = dob;
     data['gender'] = gender;
+    data['dish_images'] = dishImages;
+
     if (location != null) {
       data['location'] = location?.toJson();
     }

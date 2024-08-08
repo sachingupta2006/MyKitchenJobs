@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_kitchen_jobs/Utils/net_image_custom.dart';
 
 class StaffPicturesTab extends StatelessWidget {
   const StaffPicturesTab({
@@ -7,21 +8,17 @@ class StaffPicturesTab extends StatelessWidget {
     required this.picture,
   });
 
-  final String picture;
+  final List<dynamic> picture;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 30, right: 30, bottom: 10, top: 0),
+      padding: EdgeInsets.all(15.w),
       child: GridView.builder(
-        itemCount: 10,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, mainAxisSpacing: 30, crossAxisSpacing: 30),
-        itemBuilder: (context, index) => SizedBox(
-          height: 20,
-          width: 20,
-          child: Image.network(picture),
-        ),
+        itemCount: picture.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3, mainAxisSpacing: 15.w, crossAxisSpacing: 15.w),
+        itemBuilder: (context, index) => NetImageCustom(image: picture[index]),
       ),
     );
   }

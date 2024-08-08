@@ -11,7 +11,7 @@ class GetStaffDetailsController extends GetxController {
 
   // Observable for chef details data
   final _chefsDetails = Rx<ChefsDetailsModel?>(null);
-  Rx<ChefsDetailsModel?> get chefsData => _chefsDetails;
+  Rx<ChefsDetailsModel?> get staffData => _chefsDetails;
 
   // Method to fetch data from the API
   Future<void> getChefApi(String chefId) async {
