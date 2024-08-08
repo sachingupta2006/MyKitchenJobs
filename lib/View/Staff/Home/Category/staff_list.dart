@@ -10,7 +10,7 @@ import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/View/Staff/Home/Category/staff_filter_bottom_sheet.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
-import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_data.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_screen.dart';
 import 'package:my_kitchen_jobs/View/Staff/Home/Category/staff_search_screen.dart';
 
 import '../../../../Model/HomeModels/StaffModels/get_staff_data_model.dart';

@@ -5,9 +5,10 @@ import 'package:my_kitchen_jobs/Controllers/tab_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/custom_button.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
-import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_decription_screen.dart';
-import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_details_screen.dart';
-import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_pictures_screen.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_decription_tab.dart';
+import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_details_tab.dart';
+
+import 'staff_pictures_tab.dart';
 
 class StaffScreen extends StatefulWidget {
   final String chefId;
@@ -189,10 +190,10 @@ class _StaffScreenState extends State<StaffScreen>
                   child: TabBarView(
                     controller: _internalTabController,
                     children: [
-                      StaffDetailsScreen(
+                      StaffDetailsTab(
                           dob: dob, salary: salary, experience: experience),
-                      StaffDecriptionScreen(description: descriptions),
-                      StaffPicturesScreen(picture: profileImg),
+                      StaffDecriptionTab(description: descriptions),
+                      StaffPicturesTab(picture: profileImg),
                     ],
                   ),
                 ),

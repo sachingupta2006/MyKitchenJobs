@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-class StaffPicturesScreen extends StatelessWidget {
-  const StaffPicturesScreen({
+class StaffPicturesTab extends StatelessWidget {
+  const StaffPicturesTab({
     super.key,
     required this.picture,
   });
