@@ -55,10 +55,6 @@ class _ProfileSignupState extends State<ProfileSignup> {
               customSizeBox(10, 0),
               DropDownButtonWidget(
                 text: "State",
-                color: const Color.fromARGB(255, 238, 238, 238),
-                fw: FontWeight.w500,
-                colors: AppColors.grey,
-                fs: 13,
                 items: const [
                   "Maharashtra",
                   "667176beafbc7ade7d550d13",
@@ -74,10 +70,6 @@ class _ProfileSignupState extends State<ProfileSignup> {
               customSizeBox(10, 0),
               DropDownButtonWidget(
                 text: "Type",
-                color: const Color.fromARGB(255, 238, 238, 238),
-                fw: FontWeight.w500,
-                colors: AppColors.grey,
-                fs: 13,
                 items: const [
                   "Male",
                   "business",

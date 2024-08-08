@@ -1,86 +1,74 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/dropdown_controller.dart';
+import 'package:my_kitchen_jobs/Utils/UsersUtils/common_botton.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/custom_button.dart';
+import 'package:my_kitchen_jobs/Utils/common_bottom_sheet.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/drop_down.dart';
+import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
-Future staffFilterBottomSheet(BuildContext ctx) {
-  final DropdownController dropdownController = Get.put(DropdownController());
+import '../../../../Controllers/dropdown_controller.dart';
+import '../../../../Utils/text_style.dart';
 
-  return showModalBottomSheet(
-    context: ctx,
-    builder: (context) => Container(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 25),
-            child: Text(
-              "Apply filters",
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w700,
-                fontSize: 17,
+class StaffFilterBottomsheet extends StatelessWidget {
+  const StaffFilterBottomsheet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final DropdownController dropdownController = Get.put(DropdownController());
+
+    return CommonBottomSheet(
+      children: [
+        SizedBox(width: double.infinity, height: 25.h),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.w),
+          child: textGrey15Bold('Apply filters'),
+        ),
+        Divider(color: AppColors.grey, height: 40.h),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.w),
+          child: Column(
+            children: [
+              DropDownButtonWidget(
+                text: "STATE",
+                items: const [
+                  "Maharashtra",
+                  "Uttar Pradesh",
+                  "Andhra Pradesh",
+                  "Jammu and Kashmir",
+                ],
+                selectedValue: dropdownController.selectedState,
               ),
-            ),
-          ),
-          const SizedBox(height: 16),
-          const Divider(thickness: 1),
-          const SizedBox(height: 16),
-          DropDownButtonWidget(
-            text: "STATE",
-            color: AppColors.white,
-            fw: FontWeight.w500,
-            colors: AppColors.dgrey,
-            fs: 15,
-            items: const [
-              "Maharashtra",
-              "Uttar Pradesh",
-              "Andhra Pradesh",
-              "Jammu and Kashmir",
+              10.h.height,
+              DropDownButtonWidget(
+                text: "PROFESSION",
+                items: const [
+                  "Chef",
+                  "Bartender",
+                ],
+                selectedValue: dropdownController.selectedProfession,
+              ),
+              10.h.height,
+              DropDownButtonWidget(
+                text: "GENDER",
+                items: const [
+                  "Male",
+                  "Female",
+                  "Others",
+                ],
+                selectedValue: dropdownController.selectedGender,
+              ),
+              10.h.height,
+              CommonButton(
+                  ontap: () {
+                    Get.back();
+                  },
+                  text: 'Apply filters'),
             ],
-            dropcolors: AppColors.dgrey,
-            selectedValue: dropdownController.selectedState,
           ),
-          const SizedBox(height: 16),
-          DropDownButtonWidget(
-            text: "PROFESSION",
-            color: AppColors.white,
-            fw: FontWeight.w500,
-            colors: AppColors.dgrey,
-            fs: 15,
-            items: const [
-              "Chef",
-              "Bartender",
-            ],
-            dropcolors: AppColors.dgrey,
-            selectedValue: dropdownController.selectedProfession,
-          ),
-          const SizedBox(height: 16),
-          DropDownButtonWidget(
-            text: "GENDER",
-            color: AppColors.white,
-            fw: FontWeight.w500,
-            colors: AppColors.dgrey,
-            fs: 15,
-            items: const [
-              "Male",
-              "Female",
-              "Others",
-            ],
-            dropcolors: AppColors.dgrey,
-            selectedValue: dropdownController.selectedGender,
-          ),
-          const SizedBox(height: 15),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: customButton("APPLY FILTERS", 0),
-          ),
-        ],
-      ),
-    ),
-  );
+        ),
+        20.h.height,
+      ],
+    );
+  }
 }

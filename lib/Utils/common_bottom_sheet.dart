@@ -23,7 +23,7 @@ class CommonBottomSheet extends StatelessWidget {
             Container(
               height: height,
               decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Colors.grey[200],
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25)),

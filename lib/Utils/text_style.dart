@@ -10,6 +10,14 @@ Widget textBlack14Bold(String text) {
   );
 }
 
+Widget textPrimary14Bold(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+        fontWeight: FontWeight.bold, fontSize: 14.sp, color: AppColors.primary),
+  );
+}
+
 Widget textWhite12Bold(String text) {
   return Text(
     text,

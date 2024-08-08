@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/JobsController/jobs_controller.dart';
@@ -12,6 +13,7 @@ HomeController homeC = Get.put(HomeController());
 void main() {
   Get.put(JobsControllers());
   runApp(const MyApp());
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle());
 }
 
 class MyApp extends StatelessWidget {
