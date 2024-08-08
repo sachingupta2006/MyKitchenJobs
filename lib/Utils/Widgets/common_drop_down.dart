@@ -8,16 +8,17 @@ class DropDownButtonWidget extends StatelessWidget {
     required this.text,
     required this.items,
     required this.selectedValue,
+    this.greyColored,
   });
   final String text;
   final List<String> items;
   final RxString selectedValue;
-
+  final bool? greyColored;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 45.h,
-      color: Colors.white,
+      color: greyColored == true ? Colors.grey[200] : Colors.white,
       child: Obx(() {
         return DropdownButtonFormField<String>(
           padding: const EdgeInsets.only(left: 10),
@@ -26,7 +27,7 @@ class DropDownButtonWidget extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.grey,
-                fontSize: 15.sp),
+                fontSize: 14.sp),
           ),
           borderRadius: BorderRadius.zero,
           decoration: const InputDecoration(
@@ -43,7 +44,7 @@ class DropDownButtonWidget extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
-                      fontSize: 15.sp),
+                      fontSize: 14.sp),
                 ),
               );
             },

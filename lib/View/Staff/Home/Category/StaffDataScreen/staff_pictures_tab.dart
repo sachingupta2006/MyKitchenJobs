@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_kitchen_jobs/Utils/net_image_custom.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/net_image_custom.dart';
 
 class StaffPicturesTab extends StatelessWidget {
   const StaffPicturesTab({

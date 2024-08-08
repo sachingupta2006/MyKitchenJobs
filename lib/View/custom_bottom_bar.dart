@@ -10,17 +10,14 @@ import 'package:my_kitchen_jobs/View/Staff/Home/staff_home.dart';
 
 class CustomBottomBar extends StatelessWidget {
   CustomBottomBar({super.key});
-  final RxInt _currentIndex = 0.obs;
+  final RxInt _currentIndex = 1.obs;
   final GetWishlistDataController getWishlistDataController =
       Get.put(GetWishlistDataController());
 
   final List<Widget> _pages = [
     const StaffCategoryScreen(),
     const JobScreen(),
-    StaffList(
-      "",
-      "",
-    ),
+    const StaffList("", ""),
     const ProfileScreen(),
   ];
 

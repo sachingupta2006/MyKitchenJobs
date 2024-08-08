@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/WishlistControllers/add_wishlist_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/HomeControllers/StaffControllers/get_staff_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/HomeControllers/StaffControllers/get_staff_details_controller.dart';
-import 'package:my_kitchen_jobs/Utils/common_appbar.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/common_appbar.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/View/Staff/Home/Category/staff_filter_bottom_sheet.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
@@ -14,7 +14,7 @@ import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_s
 import 'package:my_kitchen_jobs/View/Staff/Home/Category/staff_search_screen.dart';
 
 import '../../../../Model/HomeModels/StaffModels/get_staff_data_model.dart';
-import '../../../../Utils/net_image_custom.dart';
+import '../../../../Utils/Widgets/net_image_custom.dart';
 
 class StaffList extends StatelessWidget {
   const StaffList(this.texts, this.text, {super.key});
@@ -63,7 +63,8 @@ class StaffList extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Get.to(() => const StaffSearchScreen());
+                            Get.to(() => const StaffSearchScreen(),
+                                transition: Transition.rightToLeft);
                           },
                           child: Icon(CupertinoIcons.search,
                               color: AppColors.white, size: 25.sp),

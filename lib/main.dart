@@ -8,6 +8,8 @@ import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
 import 'package:my_kitchen_jobs/View/splash_screen.dart';
 
+import 'View/custom_bottom_bar.dart';
+
 HomeController homeC = Get.put(HomeController());
 
 void main() {
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
           useMaterial3: true,
         ),
-        home: const SplashScreen(),
+        home:   CustomBottomBar(),
       ),
     );
   }

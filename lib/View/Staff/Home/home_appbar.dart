@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/common_bottom_sheet.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/common_bottom_sheet.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/View/home_page.dart';
 import 'package:my_kitchen_jobs/main.dart';
 
-import '../../../Utils/UsersUtils/common_botton.dart';
+import '../../../Utils/Widgets/common_botton.dart';
 import '../../../Utils/text_style.dart';
 
 class HomeAppbar extends StatelessWidget {

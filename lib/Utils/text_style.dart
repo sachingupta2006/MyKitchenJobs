@@ -33,12 +33,27 @@ Widget textWhite12Bold(String text) {
         fontWeight: FontWeight.bold, fontSize: 12.sp, color: Colors.white),
   );
 }
+Widget textWhite13wBold(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+        fontWeight: FontWeight.bold, fontSize: 13.w, color: Colors.white),
+  );
+}
 
 Widget textWhite15Bold(String text) {
   return Text(
     text,
     style: TextStyle(
         fontWeight: FontWeight.bold, fontSize: 15.sp, color: Colors.white),
+  );
+}
+
+Widget textWhite20Bold(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+        fontWeight: FontWeight.bold, fontSize: 20.sp, color: Colors.white),
   );
 }
 

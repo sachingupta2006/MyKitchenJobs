@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_list.dart';
-import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_add_screen.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/common_appbar.dart';
+import 'package:my_kitchen_jobs/Utils/size_box.dart';
+import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_card.dart';
+
+import 'job_add_screen.dart';
 
 class JobScreen extends StatelessWidget {
   const JobScreen({super.key});
@@ -10,44 +15,32 @@ class JobScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
-      appBar: AppBar(
-        toolbarHeight: 60,
-        automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xFF1D84FD),
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(15),
-                bottomRight: Radius.circular(15))),
-        title: const Text(
-          "MY JOBS",
-          style: TextStyle(color: AppColors.white, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {
+      body: Column(
+        children: [
+          CommonAppbar(
+            back: false,
+            title: 'MY JOBS',
+            action: GestureDetector(
+              onTap: () {
                 Get.to(() => const JobAddScreen(),
                     transition: Transition.rightToLeft);
               },
-              icon: const Icon(
-                Icons.add_circle_outline_sharp,
-                color: AppColors.white,
-              ))
-        ],
-      ),
-      body: const Column(
-        children: [
-          JobsList(
-            colors: AppColors.primary,
-            text: "CLOSE",
+              child: Icon(Icons.add_circle_outline,
+                  color: AppColors.white, size: 25.sp),
+            ),
           ),
-          JobsList(
-            colors: AppColors.grey,
-            text: "REOPEN",
-          ),
-          JobsList(
-            colors: AppColors.grey,
-            text: "REOPEN",
+          15.h.height,
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(children: [ 
+              
+              const JobsCard(disable: false, text: "CLOSE"),
+              15.h.height,
+              const JobsCard(disable:  true, text: "REOPEN"),
+              15.h.height,
+              const JobsCard(disable:  true, text: "REOPEN"),
+              ],),
+            ),
           ),
         ],
       ),

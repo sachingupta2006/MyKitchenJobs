@@ -6,9 +6,10 @@ import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
 
 class CommonAppbar extends StatelessWidget {
-  const CommonAppbar({super.key, required this.title, this.action});
+  const CommonAppbar({super.key, required this.title, this.action, this.back});
   final String title;
   final Widget? action;
+  final bool? back;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,14 +22,15 @@ class CommonAppbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          GestureDetector(
-              onTap: () => Get.back(),
-              child: Icon(Icons.arrow_back_ios,
-                  color: AppColors.white, size: 25.sp)),
-          textWhite15Bold(title),
+          back == false
+              ? 0.0.width
+              : GestureDetector(
+                  onTap: () => Get.back(),
+                  child: Icon(Icons.arrow_back_ios,
+                      color: AppColors.white, size: 25.sp)),
+          textWhite20Bold(title),
           const Spacer(),
           action ?? 0.0.width,
-         
         ],
       ),
     );

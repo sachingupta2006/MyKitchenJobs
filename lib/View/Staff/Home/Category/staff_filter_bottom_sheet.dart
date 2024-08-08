@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Utils/UsersUtils/common_botton.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/common_botton.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/common_bottom_sheet.dart';
-import 'package:my_kitchen_jobs/Utils/UsersUtils/drop_down.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/common_bottom_sheet.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/common_drop_down.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
 import '../../../../Controllers/dropdown_controller.dart';

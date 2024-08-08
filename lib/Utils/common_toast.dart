@@ -11,3 +11,6 @@ commonToast(String msg) {
     fontSize: 16.0,
   );
 }
+topToast(String msg) {
+  Fluttertoast.showToast(msg: msg, gravity: ToastGravity.TOP);
+}

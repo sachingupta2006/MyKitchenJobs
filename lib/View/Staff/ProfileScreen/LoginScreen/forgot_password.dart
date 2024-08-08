@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/ProfileControllers/LoginControllers/forgot_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/ProfileControllers/LoginControllers/verify_otp_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/UsersUtils/common_toast.dart';
-import 'package:my_kitchen_jobs/Utils/UsersUtils/profile_text_field.dart';
+import 'package:my_kitchen_jobs/Utils/common_toast.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/custom_textform_field.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
 

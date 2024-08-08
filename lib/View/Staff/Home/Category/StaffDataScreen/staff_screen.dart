@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Utils/UsersUtils/common_botton.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/common_botton.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/net_image_custom.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/net_image_custom.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
 import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_decription_tab.dart';
@@ -35,13 +35,15 @@ class StaffScreen extends StatelessWidget {
                     color: Colors.white,
                     child: getChefC.isLoading.value
                         ? const Center(child: CircularProgressIndicator())
-                        : Column(
-                            children: [
-                              staffAppbar(),
-                              55.h.height,
-                              Expanded(child: staffTabs(chefDetails))
-                            ],
-                          )),
+                        : chefDetails == null
+                            ? const Center(child: Text('No data available'))
+                            : Column(
+                                children: [
+                                  staffAppbar(),
+                                  55.h.height,
+                                  Expanded(child: staffTabs(chefDetails))
+                                ],
+                              )),
                 staffImage(chefDetails?.profileImg ?? '')
               ],
             ));
@@ -49,7 +51,7 @@ class StaffScreen extends StatelessWidget {
       bottomNavigationBar: Container(
           padding: EdgeInsets.symmetric(horizontal: 15.w),
           color: Colors.white,
-          child: SafeArea(child: const CommonButton(text: 'hire me'))),
+          child: const SafeArea(child: CommonButton(text: 'hire me'))),
     );
   }
 
