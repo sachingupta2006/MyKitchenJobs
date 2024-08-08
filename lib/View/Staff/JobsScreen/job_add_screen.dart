@@ -10,6 +10,7 @@ import 'package:my_kitchen_jobs/Utils/common_toast.dart';
 import 'package:my_kitchen_jobs/Utils/Widgets/common_drop_down.dart';
 import 'package:my_kitchen_jobs/Utils/Widgets/custom_textform_field.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
+import 'package:my_kitchen_jobs/Utils/text_style.dart';
 
 class JobAddScreen extends StatelessWidget {
   const JobAddScreen({super.key});
@@ -19,9 +20,9 @@ class JobAddScreen extends StatelessWidget {
     DropdownController dropdownController = Get.put(DropdownController());
     JobsControllers jobC = Get.put(JobsControllers());
 
-    TextEditingController experienceController = TextEditingController();
-    TextEditingController salaryController = TextEditingController();
-    TextEditingController addressController = TextEditingController();
+    TextEditingController expTec = TextEditingController();
+    TextEditingController salaryTec = TextEditingController();
+    TextEditingController addressTec = TextEditingController();
     return Scaffold(
       backgroundColor: AppColors.primary,
       body: SafeArea(
@@ -44,6 +45,8 @@ class JobAddScreen extends StatelessWidget {
                               height: 80.h,
                               width: 80.h),
                           10.h.height,
+                          textGrey13Bold('POSITIONS'),
+                          5.h.height,
                           DropDownButtonWidget(
                             greyColored: true,
                             text: "POSITIONS",
@@ -55,7 +58,9 @@ class JobAddScreen extends StatelessWidget {
                             ],
                             selectedValue: dropdownController.selectedPosition,
                           ),
-                          10.h.height,
+                          15.h.height,
+                          textGrey13Bold('GENDER'),
+                          5.h.height,
                           DropDownButtonWidget(
                             greyColored: true,
                             text: "GENDER",
@@ -66,7 +71,9 @@ class JobAddScreen extends StatelessWidget {
                             ],
                             selectedValue: dropdownController.selectedGender,
                           ),
-                          10.h.height,
+                          15.h.height,
+                          textGrey13Bold('STATE'),
+                          5.h.height,
                           DropDownButtonWidget(
                             greyColored: true,
                             text: "STATES",
@@ -78,15 +85,31 @@ class JobAddScreen extends StatelessWidget {
                             ],
                             selectedValue: dropdownController.selectedState,
                           ),
-                          10.h.height,
-                          const CustomTextFormField(hint: "EXPERIENCE"),
-                          10.h.height,
-                          const CustomTextFormField(
+                          expTec.text.isEmpty ? 5.h.height : 15.h.height,
+                          expTec.text.isEmpty
+                              ? 0.h.height
+                              : textGrey13Bold('EXPERIENCE'),
+                          5.h.height,
+                          CustomTextFormField(
+                              controller: expTec, hint: "EXPERIENCE"),
+                          salaryTec.text.isEmpty ? 5.h.height : 15.h.height,
+                          salaryTec.text.isEmpty
+                              ? 0.0.height
+                              : textGrey13Bold('SALARY'),
+                          5.h.height,
+                          CustomTextFormField(
+                              controller: salaryTec,
                               hint: "SALARY",
                               keyBoardType: TextInputType.number),
-                          10.h.height,
-                          const CustomTextFormField(
-                              hint: "ADDRESS", maxLine: 3),
+                          addressTec.text.isEmpty ? 5.h.height : 15.h.height,
+                          addressTec.text.isEmpty
+                              ? 0.0.width
+                              : textGrey13Bold('ADDRESS'),
+                          5.h.height,
+                          CustomTextFormField(
+                              controller: addressTec,
+                              hint: "ADDRESS",
+                              maxLine: 3),
                           10.h.height
                         ])),
               ),
@@ -102,20 +125,20 @@ class JobAddScreen extends StatelessWidget {
             commonToast('Invalid Gender');
           } else if (dropdownController.selectedState.value.isEmpty) {
             commonToast("Please Select State");
-          } else if (experienceController.text.isEmpty) {
+          } else if (expTec.text.isEmpty) {
             commonToast("Please enter your experience");
-          } else if (salaryController.text.isEmpty) {
+          } else if (salaryTec.text.isEmpty) {
             commonToast("Please enter your salary");
-          } else if (addressController.text.isEmpty) {
+          } else if (addressTec.text.isEmpty) {
             commonToast("Please enter your address");
           } else {
             jobC.jobsApi(
               dropdownController.selectedPosition.value,
               dropdownController.selectedGender.value,
               dropdownController.selectedState.value,
-              experienceController.text,
-              salaryController.text,
-              addressController.text,
+              expTec.text,
+              salaryTec.text,
+              addressTec.text,
             );
           }
         },

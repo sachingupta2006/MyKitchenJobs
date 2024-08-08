@@ -33,6 +33,7 @@ Widget textWhite12Bold(String text) {
         fontWeight: FontWeight.bold, fontSize: 12.sp, color: Colors.white),
   );
 }
+
 Widget textWhite13wBold(String text) {
   return Text(
     text,
@@ -62,6 +63,14 @@ Widget textGrey15Bold(String text) {
     text,
     style: TextStyle(
         fontWeight: FontWeight.bold, fontSize: 15.sp, color: Colors.grey[900]),
+  );
+}
+
+Widget textGrey13Bold(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+        fontWeight: FontWeight.bold, fontSize: 13.sp, color: Colors.grey[700]),
   );
 }
 
