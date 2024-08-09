@@ -54,7 +54,7 @@ class StaffProfile extends StatelessWidget {
                 ontap: () {
                   homeC.setToken('');
                   homeC.logout();
-
+                  Get.back();
                 },
                 text: 'yes, logout'),
           ],
