@@ -8,8 +8,8 @@ import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/profile.dart';
 import 'package:my_kitchen_jobs/View/Staff/Home/staff_home.dart';
 import 'package:my_kitchen_jobs/View/Staff/WishlistScreen/wishlist.dart';
 
-class CustomBottomBar extends StatelessWidget {
-  CustomBottomBar({super.key});
+class StaffBottomBar extends StatelessWidget {
+  StaffBottomBar({super.key});
   final RxInt _currentIndex = 3.obs;
   final GetWishlistDataController getWishlistDataController =
       Get.put(GetWishlistDataController());

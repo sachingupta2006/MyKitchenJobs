@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
-import 'package:my_kitchen_jobs/View/Jobs/employee_login.dart';
-import 'package:my_kitchen_jobs/View/custom_bottom_bar.dart';
+import 'package:my_kitchen_jobs/View/Jobs/jobs_bottombar.dart';
+import 'package:my_kitchen_jobs/View/staff_bottombar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         children: [
           GestureDetector(
             onTap: () {
-              Get.to(() => CustomBottomBar(),
+              Get.to(() => StaffBottomBar(),
                   transition: Transition.rightToLeft);
             },
             child: Container(
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             clipper: BottomSlopeClipper(),
             child: GestureDetector(
               onTap: () {
-                Get.to(() => CustomLogin("Employee Login Screen"),
+                Get.to(() => JobsBottomBar(),
                     transition: Transition.rightToLeft);
               },
               child: Container(
