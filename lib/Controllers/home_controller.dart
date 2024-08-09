@@ -3,8 +3,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeController extends GetxController {
   String baseUrl = 'https://api.mykitchenjobs.com';
-
-  logout() {}
+var sample = ''.obs;
+  logout() {
+sample.value = '';
+  }
 
   String token = '';
 

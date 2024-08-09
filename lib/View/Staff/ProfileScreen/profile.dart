@@ -20,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
     var isSignup = false.obs;
 
     Widget onboarding() {
-      if (homeC.token != '') {
+      if (homeC.token != '' && isSignup.value != null) {
         return const StaffProfile();
       } else if (isForgotPassword.value) {
         return const ProfileForgotPassword();
