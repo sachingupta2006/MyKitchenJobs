@@ -35,7 +35,7 @@ class JobsCard extends StatelessWidget {
                 ),
                 Container(
                     height: 40.h,
-                    color: disable ? Colors.grey[600] : AppColors.primary)
+                    color: disable ? Colors.grey[500] : AppColors.primary)
               ],
             ),
           ),
@@ -107,7 +107,7 @@ class JobsCard extends StatelessWidget {
                   padding: EdgeInsets.only(left: 5.w, right: 15.w),
                   height: 40.h,
                   width: double.infinity,
-                  color: disable ? Colors.grey[600] : AppColors.primary,
+                  color: disable ? Colors.grey[500] : AppColors.primary,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

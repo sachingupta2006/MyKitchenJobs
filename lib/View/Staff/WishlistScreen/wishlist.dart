@@ -1,26 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/WishlistControllers/add_wishlist_controller.dart';
-import 'package:my_kitchen_jobs/Controllers/HomeControllers/StaffControllers/get_staff_controller.dart';
-import 'package:my_kitchen_jobs/Controllers/HomeControllers/StaffControllers/get_staff_details_controller.dart';
-import 'package:my_kitchen_jobs/Utils/Widgets/common_appbar.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
-import 'package:my_kitchen_jobs/View/Staff/Home/Category/staff_filter_bottom_sheet.dart';
-import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
-import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_screen.dart';
-import 'package:my_kitchen_jobs/View/Staff/Home/Category/staff_search_screen.dart';
 
-import '../../../../Model/HomeModels/StaffModels/get_staff_data_model.dart';
-import '../../../../Utils/Widgets/net_image_custom.dart';
+import '../../../Controllers/HomeControllers/StaffControllers/get_staff_controller.dart';
+import '../../../Controllers/HomeControllers/StaffControllers/get_staff_details_controller.dart';
+import '../../../Controllers/WishlistControllers/add_wishlist_controller.dart';
+import '../../../Model/HomeModels/StaffModels/get_staff_data_model.dart';
+import '../../../Utils/Widgets/common_appbar.dart';
+import '../../../Utils/Widgets/net_image_custom.dart';
+import '../../../Utils/app_colors.dart';
+import '../Home/Category/StaffDataScreen/staff_screen.dart';
 
-class StaffList extends StatelessWidget {
-  const StaffList(this.texts, this.text, {super.key});
+class Wishlist extends StatelessWidget {
+  const Wishlist({super.key});
 
-  final String? texts;
-  final String? text;
   @override
   Widget build(BuildContext context) {
     final AddWishlistController wishlistController =
@@ -57,28 +52,7 @@ class StaffList extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CommonAppbar(
-                    title: text ?? '',
-                    action: Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(() => const StaffSearchScreen(),
-                                transition: Transition.rightToLeft);
-                          },
-                          child: Icon(CupertinoIcons.search,
-                              color: AppColors.white, size: 25.sp),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Get.bottomSheet(const StaffFilterBottomsheet());
-                          },
-                          child: Icon(Icons.filter_list_sharp,
-                              color: AppColors.white, size: 25.sp),
-                        )
-                      ],
-                    ),
-                  ),
+                  const CommonAppbar(title: 'MY WISHLIST'),
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 15.w),
@@ -90,9 +64,6 @@ class StaffList extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 20.h.height,
-                                textBlack14Bold(
-                                    " ${allChefs?.length} results for $text"),
-                                18.h.height,
                                 Expanded(
                                   child: GridView.builder(
                                     itemCount: allChefs?.length,
@@ -116,11 +87,11 @@ class StaffList extends StatelessWidget {
                                               padding: EdgeInsets.all(15.w),
                                               child: Icon(
                                                   isFavorite[index]
-                                                      ? Icons.favorite
-                                                      : Icons.favorite_outline,
+                                                      ? Icons.favorite_outline
+                                                      : Icons.favorite,
                                                   color: isFavorite[index]
-                                                      ? Colors.red
-                                                      : Colors.grey,
+                                                      ? Colors.grey
+                                                      : Colors.red,
                                                   size: 18),
                                             ),
                                           )
