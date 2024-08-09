@@ -4,26 +4,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 class HomeController extends GetxController {
   String baseUrl = 'https://api.mykitchenjobs.com';
 
-  logout(){
-    
-  }
+  logout() {}
 
-  // Private variable to store the token
-  String? _token;
+  String token = '';
 
-  // Getter method for the token
-  String? get token => _token;
-
-  // Setter method for the token
-  set setToken(String? value) {
-    _token = value;
+  setToken(String? value) {
+    token = value ?? '';
     saveToken(value);
-  }
-
-  // Method to load the token from SharedPreferences
-  Future<void> loadToken() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    _token = prefs.getString('token');
   }
 
   // Method to save the token to SharedPreferences
@@ -36,7 +23,11 @@ class HomeController extends GetxController {
     }
   }
 
-  // Override the onInit method to load the token when the controller is initialized
+  Future<void> loadToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    token = prefs.getString('token') ?? '';
+  }
+
   @override
   void onInit() {
     super.onInit();

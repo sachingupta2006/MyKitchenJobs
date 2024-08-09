@@ -1,28 +1,20 @@
-
-
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_kitchen_jobs/Model/ProfileModels/LoginModels/login_model.dart';
 import 'package:my_kitchen_jobs/View/home_page.dart';
 
-
 import 'package:my_kitchen_jobs/main.dart';
 
 class LoginController extends GetxController {
-  bool _isLoading = false;
-  bool get isLoading => _isLoading;
-  loading() {
-    _isLoading = !_isLoading;
-    update();
-  }
+  var isLoading = false.obs;
 
-  LoginModel? _login;
-  LoginModel? get loginData => _login;
+  LoginModel? _loginRes;
+  LoginModel? get loginRes => _loginRes;
 
   loginApi(String email, String password) async {
     try {
-      loading();
+      isLoading.value = true;
       final requestBody = json.encode({"email": email, "password": password});
 
       http.Response res = await http.post(
@@ -32,21 +24,19 @@ class LoginController extends GetxController {
       );
       if (res.statusCode == 200) {
         var responseData = json.decode(res.body);
-        _login = LoginModel.fromJson(responseData);
+        _loginRes = LoginModel.fromJson(responseData);
 
-        String? token = responseData['token'];
-        if (token != null) {
-          homeC.saveToken(token);
-          Get.to(() => const HomePage());
+        if (_loginRes?.token != null) {
+          await homeC.setToken(_loginRes?.token.toString());
         }
       } else {
         Get.snackbar('Error', 'Failed to login');
       }
-      Get.snackbar('Login', '${_login?.title}');
+      Get.snackbar('Login', '${_loginRes?.title}');
     } catch (e) {
       Get.snackbar('Error', e.toString());
     } finally {
-      loading();
+      isLoading.value = false;
     }
   }
 }

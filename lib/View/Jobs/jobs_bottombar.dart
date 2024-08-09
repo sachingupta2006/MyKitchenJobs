@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/WishlistControllers/get_wishlist_list_data_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/Staff/WishlistControllers/get_wishlist_list_data_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/profile.dart';
 

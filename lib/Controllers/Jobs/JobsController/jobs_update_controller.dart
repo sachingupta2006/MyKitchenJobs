@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_kitchen_jobs/Controllers/JobsController/jobs_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/Jobs/JobsController/jobs_controller.dart';
 import 'package:my_kitchen_jobs/Model/JobsModel/jobs_update_model.dart';
 import 'package:my_kitchen_jobs/main.dart';
 

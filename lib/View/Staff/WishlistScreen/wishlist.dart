@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
 
-import '../../../Controllers/HomeControllers/StaffControllers/get_staff_controller.dart';
-import '../../../Controllers/HomeControllers/StaffControllers/get_staff_details_controller.dart';
-import '../../../Controllers/WishlistControllers/add_wishlist_controller.dart';
+import '../../../Controllers/Staff/get_staff_controller.dart';
+import '../../../Controllers/Staff/get_staff_details_controller.dart';
+import '../../../Controllers/Staff/WishlistControllers/add_wishlist_controller.dart';
 import '../../../Model/HomeModels/StaffModels/get_staff_data_model.dart';
 import '../../../Utils/Widgets/common_appbar.dart';
 import '../../../Utils/Widgets/net_image_custom.dart';

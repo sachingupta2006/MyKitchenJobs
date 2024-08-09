@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/JobsController/jobs_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/Jobs/JobsController/jobs_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/home_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/View/Jobs/jobs_bottombar.dart';
 
 import 'package:my_kitchen_jobs/View/splash_screen.dart';
 
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
           useMaterial3: true,
         ),
-        home: JobsBottomBar(),
+        home: const SplashScreen(),
       ),
     );
   }

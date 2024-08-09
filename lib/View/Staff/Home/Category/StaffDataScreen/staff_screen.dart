@@ -9,7 +9,7 @@ import 'package:my_kitchen_jobs/Utils/text_style.dart';
 import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_decription_tab.dart';
 import 'package:my_kitchen_jobs/View/Staff/Home/Category/StaffDataScreen/staff_pictures_tab.dart';
 
-import '../../../../../Controllers/HomeControllers/StaffControllers/get_staff_details_controller.dart';
+import '../../../../../Controllers/Staff/get_staff_details_controller.dart';
 import '../../../../../Model/HomeModels/StaffModels/get_staff_details_model.dart';
 import 'staff_details_tab.dart';
 

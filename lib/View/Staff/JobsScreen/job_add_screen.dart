@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:my_kitchen_jobs/Controllers/dropdown_controller.dart';
-import 'package:my_kitchen_jobs/Controllers/JobsController/jobs_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/Staff/dropdown_controller.dart';
+import 'package:my_kitchen_jobs/Controllers/Jobs/JobsController/jobs_controller.dart';
 import 'package:my_kitchen_jobs/Utils/Widgets/common_botton.dart';
 import 'package:my_kitchen_jobs/Utils/Widgets/common_appbar.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
