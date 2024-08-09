@@ -31,7 +31,7 @@ class JobsUpdateControllers extends GetxController {
       // Access the token from HomeController
       String? token = homeC.token;
 
-      if (token == null) {
+      if (token == '') {
         Get.snackbar('Error', 'Plzz Login First');
 
         return;

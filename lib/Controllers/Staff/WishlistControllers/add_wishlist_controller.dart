@@ -24,7 +24,7 @@ class AddWishlistController extends GetxController {
       // Access the token from HomeController
       String? token = homeC.token;
 
-      if (token == null) {
+      if (token == '') {
         Get.snackbar('', 'Plzz Login First');
         Get.to(() => const ProfileScreen());
         return;

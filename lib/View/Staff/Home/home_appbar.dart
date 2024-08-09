@@ -29,7 +29,7 @@ class HomeAppbar extends StatelessWidget {
           GestureDetector(
             onTap: () {
               print('token:${homeC.token}');
-              Get.bottomSheet(homeC.token == null
+              Get.bottomSheet(homeC.token == ''
                   ? switchBottomsheet()
                   : logoutBottomsheet());
             },
