@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/common_toast.dart';
+import 'package:my_kitchen_jobs/Utils/top_toast.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
 
 import '../../../Controllers/ProfileControllers/LoginControllers/login_controller.dart';
 import '../../../Utils/Widgets/custom_textform_field.dart';
 import '../../../Utils/text_style.dart';
-import 'profile_signup.dart';
 
 class Login extends StatelessWidget {
-  const Login({super.key, this.forgotPassword});
+  const Login({super.key, this.forgotPassword, this.signUp});
   final void Function()? forgotPassword;
+  final void Function()? signUp;
+
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
@@ -27,8 +28,7 @@ class Login extends StatelessWidget {
         10.h.height,
         CustomTextFormField(hint: "Email", controller: emailController),
         10.h.height,
-        CustomTextFormField(
-            hint: "Password", controller: passwordController),
+        CustomTextFormField(hint: "Password", controller: passwordController),
         10.h.height,
         Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           GestureDetector(
@@ -59,9 +59,7 @@ class Login extends StatelessWidget {
             ),
             15.w.width,
             GestureDetector(
-              onTap: () {
-                Get.to(() => const ProfileSignup());
-              },
+              onTap: signUp,
               child: Container(
                 padding: EdgeInsets.only(left: 20.w, right: 15.w),
                 height: 45.h,

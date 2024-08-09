@@ -23,11 +23,11 @@ class StaffSearchScreen extends StatelessWidget {
                     hintText: 'Search...',
                     prefixIcon: const Icon(
                       Icons.search,
-                      color: AppColors.dgrey,
+                      color: AppColors.grey,
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
-                      borderSide: const BorderSide(color: AppColors.lgrey),
+                      borderSide: const BorderSide(color: AppColors.grey),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),

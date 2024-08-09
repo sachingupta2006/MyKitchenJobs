@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
+import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/signup.dart';
 
 import '../../../Utils/Widgets/common_appbar.dart';
 import 'forgot_password.dart';
@@ -14,19 +15,27 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isForgotPassword = false.obs;
-    void toggleForgotPassword() {
-      isForgotPassword.value = !isForgotPassword.value;
-    }
-
-    //  isForgotPassword.value
-    //     ?
-    //     : Login(forgotPassword: () => toggleForgotPassword)
+    var isSignup = false.obs;
 
     Widget onboarding() {
       if (isForgotPassword.value) {
         return const ProfileForgotPassword();
+      } else if (isSignup.value) {
+        return Signup(login: () {
+          isSignup.value = false;
+          isForgotPassword.value = false;
+        });
       } else {
-        return Login(forgotPassword: () => toggleForgotPassword());
+        return Login(
+          forgotPassword: () {
+            isSignup.value = false;
+            isForgotPassword.value = true;
+          },
+          signUp: () {
+            isForgotPassword.value = false;
+            isSignup.value = true;
+          },
+        );
       }
     }
 

@@ -6,7 +6,7 @@ import 'package:my_kitchen_jobs/Controllers/JobsController/jobs_controller.dart'
 import 'package:my_kitchen_jobs/Utils/Widgets/common_botton.dart';
 import 'package:my_kitchen_jobs/Utils/Widgets/common_appbar.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/Utils/common_toast.dart';
+import 'package:my_kitchen_jobs/Utils/top_toast.dart';
 import 'package:my_kitchen_jobs/Utils/Widgets/common_drop_down.dart';
 import 'package:my_kitchen_jobs/Utils/Widgets/custom_textform_field.dart';
 import 'package:my_kitchen_jobs/Utils/size_box.dart';
@@ -45,7 +45,7 @@ class JobAddScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                                color: AppColors.dgrey,
+                                color: AppColors.grey,
                                 height: 80.h,
                                 width: 80.h),
                             dropdownController.selectedPosition.value == ''
@@ -160,17 +160,17 @@ class JobAddScreen extends StatelessWidget {
       bottomNavigationBar: GestureDetector(
         onTap: () {
           if (dropdownController.selectedPosition.value.isEmpty) {
-            commonToast("Select position");
+            topToast("Select position");
           } else if (dropdownController.selectedGender.value.isEmpty) {
-            commonToast('Invalid Gender');
+            topToast('Invalid Gender');
           } else if (dropdownController.selectedState.value.isEmpty) {
-            commonToast("Please Select State");
+            topToast("Please Select State");
           } else if (expTec.text.isEmpty) {
-            commonToast("Please enter your experience");
+            topToast("Please enter your experience");
           } else if (salaryTec.text.isEmpty) {
-            commonToast("Please enter your salary");
+            topToast("Please enter your salary");
           } else if (addressTec.text.isEmpty) {
-            commonToast("Please enter your address");
+            topToast("Please enter your address");
           } else {
             jobC.jobsApi(
               dropdownController.selectedPosition.value,
