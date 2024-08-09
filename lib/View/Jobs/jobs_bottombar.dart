@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/WishlistControllers/get_wishlist_list_data_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
-import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_screen.dart'; 
 import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/profile.dart';
-import 'package:my_kitchen_jobs/View/Staff/WishlistScreen/wishlist.dart';
 
 import 'All Jobs/all_jobs.dart';
+import 'Applied/applied.dart';
+import 'Pictures/pictures.dart';
 
 class JobsBottomBar extends StatelessWidget {
   JobsBottomBar({super.key});
@@ -17,8 +17,8 @@ class JobsBottomBar extends StatelessWidget {
 
   final List<Widget> _pages = [
     const AllJobs(),
-    const JobScreen(),
-    const Wishlist(),
+    const Applied(),
+    const Pictures(),
     const ProfileScreen()
   ];
 
@@ -61,12 +61,15 @@ class JobsBottomBar extends StatelessWidget {
         label: "ALL JOBS",
       ),
       BottomNavigationBarItem(
-        icon: Icon(_currentIndex.value == 1 ? Icons.check_circle : Icons.check_circle_outline),
+        icon: Icon(_currentIndex.value == 1
+            ? Icons.check_circle
+            : Icons.check_circle_outline),
         label: "APPLIED",
       ),
       BottomNavigationBarItem(
-        icon: Icon(
-            _currentIndex.value == 2 ? Icons.camera_alt : Icons.camera_alt_outlined),
+        icon: Icon(_currentIndex.value == 2
+            ? Icons.camera_alt
+            : Icons.camera_alt_outlined),
         label: "MY PICTURES",
       ),
       BottomNavigationBarItem(
