@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/dropdown_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/ProfileControllers/LoginControllers/signup_controllers.dart';
-import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/app_bar_text.dart';
+import 'package:my_kitchen_jobs/Utils/Widgets/common_appbar.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/Utils/common_toast.dart';
 import 'package:my_kitchen_jobs/Utils/Widgets/common_drop_down.dart';
@@ -33,13 +33,12 @@ class _ProfileSignupState extends State<ProfileSignup> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: AppColors.white,
-        appBar: appBar("MY PROFILE"),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              customSizeBox(40, 0),
+              CommonAppbar(title: "MY PROFILE"),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: Text(

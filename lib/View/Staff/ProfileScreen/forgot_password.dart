@@ -9,25 +9,21 @@ import 'package:my_kitchen_jobs/Utils/size_box.dart';
 import 'package:my_kitchen_jobs/Utils/UsersUtils/square_button.dart';
 
 class ProfileForgotPassword extends StatelessWidget {
-  ProfileForgotPassword({super.key});
-
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController otpController = TextEditingController();
-  final ForgotController forgotC = Get.put(ForgotController());
-  final VerifyOtpController verifyOtpC = Get.put(VerifyOtpController());
+  const ProfileForgotPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController otpController = TextEditingController();
+    final ForgotController forgotC = Get.put(ForgotController());
+    final VerifyOtpController verifyOtpC = Get.put(VerifyOtpController());
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          child: Text(
-            "FORGOT PASSWORD",
-            style: TextStyle(fontWeight: FontWeight.w900),
-          ),
+        Text(
+          "FORGOT PASSWORD",
+          style: TextStyle(fontWeight: FontWeight.w900),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),

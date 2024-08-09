@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/WishlistControllers/get_wishlist_list_data_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_screen.dart'; 
-import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/LoginScreen/logiscreen.dart';
+import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/profile.dart';
 import 'package:my_kitchen_jobs/View/Staff/Home/staff_home.dart';
 import 'package:my_kitchen_jobs/View/Staff/WishlistScreen/wishlist.dart';
 
