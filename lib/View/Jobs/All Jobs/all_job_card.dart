@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 
 import 'package:my_kitchen_jobs/Utils/text_style.dart';
-import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_add_screen.dart';
 
-class JobsCard extends StatelessWidget {
-  const JobsCard({super.key, required this.disable});
-
-  final bool disable;
+class AllJobsCard extends StatelessWidget {
+  const AllJobsCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +32,7 @@ class JobsCard extends StatelessWidget {
                               image: AssetImage('assets/images/mcl.png'),
                               fit: BoxFit.cover))),
                 ),
-                Container(
-                    height: 40.h,
-                    color: disable ? Colors.grey[500] : AppColors.primary)
+                Container(height: 40.h, color: AppColors.primary)
               ],
             ),
           ),
@@ -109,18 +103,11 @@ class JobsCard extends StatelessWidget {
                   padding: EdgeInsets.only(left: 5.w, right: 15.w),
                   height: 40.h,
                   width: double.infinity,
-                  color: disable ? Colors.grey[500] : AppColors.primary,
+                  color: AppColors.primary,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      textWhite13wBold('APPLICANTS'),
-                      GestureDetector(
-                          onTap: () {
-                            Get.to(() => const JobAddScreen(),
-                                transition: Transition.rightToLeft);
-                          },
-                          child: textWhite13wBold('UPDATE')),
-                      textWhite13wBold(disable ? 'REOPEN' : 'CLOSE'),
+                      textWhite13wBold('APPLY'),
                     ],
                   ),
                 )

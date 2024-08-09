@@ -5,20 +5,21 @@ import 'package:my_kitchen_jobs/Controllers/WishlistControllers/get_wishlist_lis
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
 import 'package:my_kitchen_jobs/View/Staff/JobsScreen/job_screen.dart'; 
 import 'package:my_kitchen_jobs/View/Staff/ProfileScreen/profile.dart';
-import 'package:my_kitchen_jobs/View/Staff/Home/staff_home.dart';
 import 'package:my_kitchen_jobs/View/Staff/WishlistScreen/wishlist.dart';
+
+import 'All Jobs/all_jobs.dart';
 
 class JobsBottomBar extends StatelessWidget {
   JobsBottomBar({super.key});
-  final RxInt _currentIndex = 3.obs;
+  final RxInt _currentIndex = 0.obs;
   final GetWishlistDataController getWishlistDataController =
       Get.put(GetWishlistDataController());
 
   final List<Widget> _pages = [
-    const StaffCategoryScreen(),
+    const AllJobs(),
     const JobScreen(),
     const Wishlist(),
-    const ProfileScreen(),
+    const ProfileScreen()
   ];
 
   @override
@@ -56,17 +57,17 @@ class JobsBottomBar extends StatelessWidget {
   List<BottomNavigationBarItem> _buildBottomNavigationBarItems() {
     return [
       BottomNavigationBarItem(
-        icon: Icon(_currentIndex.value == 0 ? Icons.home : Icons.home_outlined),
-        label: "HOME",
+        icon: Icon(_currentIndex.value == 0 ? Icons.work : Icons.work_outlined),
+        label: "ALL JOBS",
       ),
       BottomNavigationBarItem(
-        icon: Icon(_currentIndex.value == 1 ? Icons.work : Icons.work_outline),
-        label: "MY JOBS",
+        icon: Icon(_currentIndex.value == 1 ? Icons.check_circle : Icons.check_circle_outline),
+        label: "APPLIED",
       ),
       BottomNavigationBarItem(
         icon: Icon(
-            _currentIndex.value == 2 ? Icons.favorite : Icons.favorite_outline),
-        label: "WISHLIST",
+            _currentIndex.value == 2 ? Icons.camera_alt : Icons.camera_alt_outlined),
+        label: "MY PICTURES",
       ),
       BottomNavigationBarItem(
         icon: Icon(_currentIndex.value == 3

@@ -31,14 +31,15 @@ class JobScreen extends StatelessWidget {
           15.h.height,
           Expanded(
             child: SingleChildScrollView(
-              child: Column(children: [ 
-              
-              const JobsCard(disable: false, text: "CLOSE"),
-              15.h.height,
-              const JobsCard(disable:  true, text: "REOPEN"),
-              15.h.height,
-              const JobsCard(disable:  true, text: "REOPEN"),
-              ],),
+              child: Column(
+                children: [
+                  const JobsCard(disable: false),
+                  15.h.height,
+                  const JobsCard(disable: true),
+                  15.h.height,
+                  const JobsCard(disable: true),
+                ],
+              ),
             ),
           ),
         ],

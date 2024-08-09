@@ -10,7 +10,7 @@ import 'package:my_kitchen_jobs/View/Staff/WishlistScreen/wishlist.dart';
 
 class StaffBottomBar extends StatelessWidget {
   StaffBottomBar({super.key});
-  final RxInt _currentIndex = 3.obs;
+  final RxInt _currentIndex = 0.obs;
   final GetWishlistDataController getWishlistDataController =
       Get.put(GetWishlistDataController());
 

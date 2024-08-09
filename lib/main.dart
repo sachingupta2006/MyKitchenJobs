@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 import 'package:my_kitchen_jobs/Controllers/JobsController/jobs_controller.dart';
 import 'package:my_kitchen_jobs/Controllers/home_controller.dart';
 import 'package:my_kitchen_jobs/Utils/app_colors.dart';
+import 'package:my_kitchen_jobs/View/Jobs/jobs_bottombar.dart';
 
 import 'package:my_kitchen_jobs/View/splash_screen.dart';
-
 
 HomeController homeC = Get.put(HomeController());
 
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
           useMaterial3: true,
         ),
-        home:   const SplashScreen(),
+        home: JobsBottomBar(),
       ),
     );
   }
