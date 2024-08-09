@@ -11,7 +11,7 @@ import 'Pictures/pictures.dart';
 
 class JobsBottomBar extends StatelessWidget {
   JobsBottomBar({super.key});
-  final RxInt _currentIndex = 0.obs;
+  final RxInt _currentIndex = 2.obs;
   final GetWishlistDataController getWishlistDataController =
       Get.put(GetWishlistDataController());
 
